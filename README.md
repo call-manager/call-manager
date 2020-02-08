@@ -11,5 +11,5 @@ We are going to use the following IDE and third party library to finish our app.
 
 ### Third Party Library
 
-Google Translation Client Library(https://cloud.google.com/translate/docs/reference/libraries/v3/overview-v3) - Alternative library for Google Translation
-Google Cloud Speech-to-Text Library(https://cloud.google.com/speech-to-text/docs/reference/libraries) - Client libraries for Google Cloud APIs
+[Google Translation Client Library](https://cloud.google.com/translate/docs/reference/libraries/v3/overview-v3) - Alternative library for Google Translation
+[Google Cloud Speech-to-Text Library](https://cloud.google.com/speech-to-text/docs/reference/libraries) - Client libraries for Google Cloud APIs
