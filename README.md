@@ -11,6 +11,8 @@ We are going to use the following IDE and third party library to finish our app.
 
 [Xcode](https://developer.apple.com/xcode/) - Swift and IOS development
 
+PyCharm(https://www.jetbrains.com/pycharm/) - Python development
+
 ### Third Party Library
 
 [Google Translation Client Library](https://cloud.google.com/translate/docs/reference/libraries/v3/overview-v3) - Alternative library for Google Translation
