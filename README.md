@@ -1,4 +1,4 @@
-# Call Manager wiz Ringtone Control
+# Voilà Repository
 
 Our app features instant video chatting translation with extra functionality of setting volume automatically based on user predefine scenarios by tracking locations, etc
 
