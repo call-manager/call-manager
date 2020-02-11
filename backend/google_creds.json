@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "hazel-stream-267820",
+  "private_key_id": "f0590cab4b7ae3d8f1deb655b9850c9af5c58531",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCeS3L5Hkolyl1V\n3JVkQBuKFJfAANNvr19JrTu8aZLks0ghjlTvTLoU82RWfPXdek0EPrujPaO0HiKG\nbapzDk86yfOCruoqhTxH947vN5IeVl9TVniQM72aRmiBQuanv8LUCQSVfwAi+A77\nK3GUtdz5/3M1ip4i76uAVg8kdnfr2L4me65dYBVnt1ZJZD3AiE8HRHr9s6t01SaB\nD8b+0bsRqFSHCcKxy+pDO+DjE86uHm1CSziRM+NhkhcDxKJ0XzZS88cwt2oGLXtn\nn8WxjQsZhxgOdio67nMjXAtcMa1LZ3sASA8GZHKNLqefM0bzm1zJhj+BiYiDfkIf\nN3gXi15/AgMBAAECggEADvqxZ6z7zXivyjMkbFPh50UMmSd0dEV1sGyoUiuK/xso\ndvIKzCK7TZLWSpYeB0MObIAdOuGkQj3c/LiXxrYZCqvXect6LrAXl/EJJ+gr0RtR\nf2FK6Zmj1kIJNW/MKoQ4eEUql5UCWv/7UIrE/3jeonlCzaAo8VuZvWLBB+CYESUp\nTYxGGpIlBkYprinWvfFd/vBv8Bhok8+VwLFr/k8XjRBgVPc2o22CyyXHwjYYCkDk\nrfcMllQEAOCT2f7jUOv7GEKNZwmonmrVCo1RUzmiy6XnhaQ7kekmT4ylgu33GVCe\nJL8vpmTqrNzwEzSAw3vEZkPAJ7LohKAAnjlysGp6XQKBgQDRoDvXB9J1dv6elCE1\n5qVDHoCkVZAzR/1NrWIP24LXLT6CJDiUM5YnPNd19qGx/Cr7B/abyXE0X5BwMXr7\nmEIdq5aLd5vWn+9P9YUBQeQ3LwAj2bi2ohlSMAXrm91utlecZ5AOxQuzP1vm0L1b\nmJXffj9qTUEOYprciKtgB+BEiwKBgQDBUCuz/11i5WpvEXyRulZEWpg4TQm6nfc3\nZeGwudyOqUJptX9BSBEBkHrYI9Pe/DTVvJsaOEqCyTL2XPE3FYl5QNIx3KeYkHtG\n198TH+Ow2JyxU/gv3VetQxS6MYvEhnPhywMJwR5zQJ0KEiFU6z2iOqwV1S2EXUIK\nIAUl8u5oXQKBgBDYATbsB/ssTpVLbce4+rqD7u5FecrFFBNzxRdlGgRUPFuUsX8n\nDf+lIeL2qFN24bU+FJC8BP6iVybMswcYWuera/NU7w611zLjlYZeVwogGrDGw9LY\n/5PdC/y8j3Rf7nZA1BB7wM7sXmQTjcOYZSKKMGpIPtv7DFqAGNUkjN61AoGANb5A\nKC6am+AEExTdePZA/YfiQeTJC6TXEgO1FxjVBKRx3kmjM1cBw1mTjXuIb7nWRoXE\n6Sk1Ld8Z1/xG43WNXrRyu4II5hVk8HEbh4maF5RhG7uoiEYVFgpMPOeBYAWxOdji\n41dZS9luz1nzAlTUMcH2DavSl7YFoiL8y2wac9ECgYEAtgmCbOHpS4Yys69l8gOV\nghrYUAtaCkObZy1mQK6gPAfM6WKHM/9SHn9mfTYL++UrrrTNHeLvv7yyDgULCA9P\nMtXVIRwz9QXo6Ao+9jUa0Yi2MozQ1Ah7vEar8wCCRIIBKOMKEh2dOeAymKZkdzeu\nOCgIqA3BPLtGtpjR1Ly7v1Y=\n-----END PRIVATE KEY-----\n",
+  "client_email": "dummycallmanager@hazel-stream-267820.iam.gserviceaccount.com",
+  "client_id": "104306235528517089218",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dummycallmanager%40hazel-stream-267820.iam.gserviceaccount.com"
+}
