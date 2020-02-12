@@ -19,9 +19,33 @@ We are going to use the following IDE and third party library to finish our app.
 
 [Google Cloud Speech-to-Text Library](https://cloud.google.com/speech-to-text/docs/reference/libraries) - Client libraries for Google Cloud APIs
 
+[Twilio](https://www.twilio.com/docs/libraries) - Video Call API
+
+### Installation 
+
+Twilio - First change directory to /backend
+
+```
+python3 -m venv venv
+source ./venv/bin/activate
+pip install flask flask-sockets
+
+pip install Flask twilio
+pip freeze > requirements.txt
+pip install -r requirements.txt
+```
 
 
+Google Translation API
+
+```
+pip install google-cloud-translate==2.0.0
+```
 
 
+Google Speech-To-Text API
 
+```
+pip install --upgrade python-speech
+```
 

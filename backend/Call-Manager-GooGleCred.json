@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "call-manager-1581470532776",
+  "private_key_id": "7b77665e624e1530a6ca4913b297a98a22b00c27",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDLqjzG5BtGyZYC\ngRccQuK8pYJcCGOijb/MGiov3FPi6avr8ZHPPPgf9jiPElRAw+WCqDcKJdAAoGci\nf1eKJxSLSIulum3VPth/nQcn5q2Ucsd9LaBd/sKH1hhKIyPdX3LW9eAa46A1nEyw\nxj+HymMaUdarbiw8ETPKFkriYR0St4GSoNQGzETCzB4UyAMTPvPqjC6AhZJFr7jz\nIh7z7T0unxYP3RXkxMLEHcYzU3564AHJHQHGex6u9F4bmdBAjPhcEDMdPo/ICCVR\nqYzWO71cLfc4rnB8KUtvRRYR5dwtHtSXD6XPk03PDg6xTzSXvdjtWVcRGzm//tFT\nTUn8EGSjAgMBAAECggEACRsmkrwxGj4IQh4vBzsfPl8mTIY8Y4mQSHME0L/lKSwf\nsmOfjHM0FODevoNS10YHcBlrisu4rgBFHDqkdgTb96ASvlsZxEow1MdpCSnmxkIr\nhozXsr++KuPAH5shuZrQseIA5V2MhnWOISW07QeUazaeahWWFZ7J8nJKDRJ2EBem\nF2ImVxi2TU4iqFVgilfoNsbP/Os3wLqeJgi58QbMZIKGTyKBEDlXLLxZfzbRs8oE\naqjwCmhzI+RIHTrzeB8NMmtbpfRYgLk0kBdpBKpswKWroMALUw1v5IjevPPdCV1e\n9+7lTkptKig2NTMEOUSO+z7yLRGKd5HXprg7+J6z4QKBgQD3LjkZ0PfLc6sY2tEB\n/SnTUdNtkJYufwnBCLTTL9DfZtOCfdIhCOYcKJpa5Ucc2CjpFVzLuvN2EGPntDor\nq1oIXre+OzWENIZr/blKL7myIdU42PmpjG1p5sDjbhp8IpaB1K/odT+BkfDJjnwX\nqEXRNCDY/9JgTKAvyzqstyxXFQKBgQDS7om1IZrsapTtrKmyZ3fNMLS+5xzWtvLK\n7v2WPgwM9b83KutfAxwrdFZqVVwEc3IoLLOWtXsPLQow7Eob/E2JZCe9Vv0ui6Fp\nnXG8aWafhP9VyjQ/Eyg6gzU0k810Fgxt8TG8R0kg6aq7NVsLtZWEuzoJsg/FvrW3\nCFXJV9a61wKBgA9PGpRBwAcmy9MHQmioIF4JNFoV2WdZ0OXWvzRRQtODT9hGKKyJ\nG49k6GJ2zte3f5koDI5FruyCCV4BaJTp0PKxwxmSGzdr9WNc3Iv+traUp9sUfSoG\nG4SymQG9AQDtN3slDBwOnvdMbaheHcttTZ2uZ9ZoycPTGxy6rpCh66odAoGBAMoi\ntezSq3hsGxQ5JtZEuVX1mwBm0gghgkJfDLzx8PJqfjgL9Usz28b40edMrcXGLFu7\nms6OU8OTUfTYO5zeCB/lzv9vYWk9fg2MR/Zau3GbLmW0RKU9YovQOSiNi5H3nyms\nvhDD75yO0IJe+0UZWpO8KD4qWVsTC2i/oBY3Cxw5AoGAFlHKZvEW2dNI/JHAIRkm\nzEyA4KtIziIYCt2rya90BY7GV4Bf5rKh61olMPjc0aAkTDLS4pQluESvtw7EElPy\ntvs4P6prN3aFuts1vKl/GqC2bYTcK9WOLrTNZGsJdUXBKlEoBYOunZxSx8OdoIuk\nYhrhhLNPXI5SCW2GRHxLL3Y=\n-----END PRIVATE KEY-----\n",
+  "client_email": "starting-account-l6yi3oaeegii@call-manager-1581470532776.iam.gserviceaccount.com",
+  "client_id": "113814287866243727662",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/starting-account-l6yi3oaeegii%40call-manager-1581470532776.iam.gserviceaccount.com"
+}

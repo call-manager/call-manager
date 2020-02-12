@@ -8,8 +8,13 @@ from twilio.rest import Client
 from twilio.twiml.voice_response import VoiceResponse
 from twilio.twiml.messaging_response import Message, MessagingResponse
 # from SpeechClientBridge import SpeechClientBridge
-# from google.cloud.speech import enums
-# from google.cloud.speech import types
+from google.cloud.speech import enums
+from google.cloud.speech import types
+
+from google.cloud import speech_v1p1beta1
+from google.cloud.speech_v1p1beta1 import enums
+
+from google.cloud import translate_v2
 
 
 
