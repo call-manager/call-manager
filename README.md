@@ -23,7 +23,7 @@ We are going to use the following IDE and third party library to finish our app.
 
 ### Installation 
 
-Twilio
+#### Twilio
 
 Open terminal(For MAC), and do following command
 ```
@@ -40,14 +40,14 @@ pip install -r requirements.txt
 Then go to localhost:5000, there should exist a greeting message.
 
 
-Google Translation API
+#### Google Translation API
 
 ```
 pip install google-cloud-translate==2.0.0
 ```
 
 
-Google Speech-To-Text API
+#### Google Speech-To-Text API
 
 ```
 pip install --upgrade python-speech
