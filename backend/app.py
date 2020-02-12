@@ -1,6 +1,7 @@
 import base64
 import json
 import logging
+import numpy
 
 from flask import Flask, request
 from flask_sockets import Sockets

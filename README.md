@@ -21,11 +21,12 @@ We are going to use the following IDE and third party library to finish our app.
 
 [Twilio](https://www.twilio.com/docs/libraries) - Video Call API
 
-### Installation 
+## Setup Installation 
+
+Open terminal(For MAC), and do following command
 
 #### Twilio
 
-Open terminal(For MAC), and do following command
 ```
 cd backend
 python3 -m venv venv
@@ -51,5 +52,11 @@ pip install google-cloud-translate==2.0.0
 
 ```
 pip install --upgrade python-speech
+```
+
+#### Possible Library for Implementation
+
+```
+pip install numpy
 ```
 
