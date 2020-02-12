@@ -23,9 +23,11 @@ We are going to use the following IDE and third party library to finish our app.
 
 ### Installation 
 
-Twilio - First change directory to /backend
+Twilio
 
+Open terminal(For MAC), and do following command
 ```
+cd backend
 python3 -m venv venv
 source ./venv/bin/activate
 pip install flask flask-sockets
@@ -33,7 +35,9 @@ pip install flask flask-sockets
 pip install Flask twilio
 pip freeze > requirements.txt
 pip install -r requirements.txt
+
 ```
+Then go to localhost:5000, there should exist a greeting message.
 
 
 Google Translation API
