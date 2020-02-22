@@ -15,10 +15,10 @@ class ViewController: UIViewController {
     
     // Configure access token manually for testing, if desired! Create one manually in the console
     // at https://www.twilio.com/console/video/runtime/testing-tools
-    var accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzZjZmI2ZTU3ZWI0Y2I1OGQ5ZDU0YjA3ZGFmZjQ3NGNmLTE1ODI0MDE1MjQiLCJncmFudHMiOnsiaWRlbnRpdHkiOiJVbmlxdWVVbHlzc2VzWmltbWVybWFuIiwidmlkZW8iOnt9fSwiaWF0IjoxNTgyNDAxNTI0LCJleHAiOjE1ODI0MTU5MjQsImlzcyI6IlNLNmNmYjZlNTdlYjRjYjU4ZDlkNTRiMDdkYWZmNDc0Y2YiLCJzdWIiOiJBQzE3NjM2MWQ5YjdkZWQzYTk0ZDgwMDY5M2RhN2JlM2RkIn0.wU1BNJW3IxA3psn5BsuF3Ao4Z7Q5ESwVrUV_RuL32Xs"
-  
+    var accessToken = "TWILIO_ACCESS_TOKEN"
+    
     // Configure remote URL to fetch token from
-    var tokenUrl = "http://localhost:8000/token.php"
+    var tokenUrl = "http://localhost:3000/token"
     
     // Video SDK components
     var room: Room?
@@ -123,20 +123,17 @@ class ViewController: UIViewController {
         self.view.addConstraint(height)
     }
 
-
     // MARK:- IBActions
     @IBAction func connect(sender: AnyObject) {
         // Configure access token either from server or manually.
         // If the default wasn't changed, try fetching from server.
         if (accessToken == "TWILIO_ACCESS_TOKEN") {
-            do {
-                accessToken = try TokenUtils.fetchToken(url: tokenUrl)
-            } catch {
-                let message = "Failed to fetch access token"
-                logMessage(messageText: message)
-                return
-            }
+            
+            accessToken = TokenUtils.fetchToken(url: tokenUrl)
+            
         }
+                
+            
         
         // Prepare local media which we will share with Room Participants.
         self.prepareLocalMedia()
@@ -378,6 +375,7 @@ extension ViewController : RoomDelegate {
     }
 
     func roomDidFailToConnect(room: Room, error: Error) {
+        print(accessToken)
         logMessage(messageText: "Failed to connect to room with error = \(String(describing: error))")
         self.room = nil
         
