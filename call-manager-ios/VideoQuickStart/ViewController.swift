@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     // Configure access token manually for testing, if desired! Create one manually in the console
     // at https://www.twilio.com/console/video/runtime/testing-tools
-    var accessToken = "TWILIO_ACCESS_TOKEN"
+    var accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzZjZmI2ZTU3ZWI0Y2I1OGQ5ZDU0YjA3ZGFmZjQ3NGNmLTE1ODI0MDE1MjQiLCJncmFudHMiOnsiaWRlbnRpdHkiOiJVbmlxdWVVbHlzc2VzWmltbWVybWFuIiwidmlkZW8iOnt9fSwiaWF0IjoxNTgyNDAxNTI0LCJleHAiOjE1ODI0MTU5MjQsImlzcyI6IlNLNmNmYjZlNTdlYjRjYjU4ZDlkNTRiMDdkYWZmNDc0Y2YiLCJzdWIiOiJBQzE3NjM2MWQ5YjdkZWQzYTk0ZDgwMDY5M2RhN2JlM2RkIn0.wU1BNJW3IxA3psn5BsuF3Ao4Z7Q5ESwVrUV_RuL32Xs"
   
     // Configure remote URL to fetch token from
     var tokenUrl = "http://localhost:8000/token.php"
@@ -122,6 +122,7 @@ class ViewController: UIViewController {
                                         constant: 0);
         self.view.addConstraint(height)
     }
+
 
     // MARK:- IBActions
     @IBAction func connect(sender: AnyObject) {
