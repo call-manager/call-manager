@@ -1,0 +1,22 @@
+Go to call-manager-ios directory, open VideoQuickStart xcode proj, ViewController.swift exists in VideoQuickStart/Source, Main.storyboard exists in VideoQuickStart/Storyboard
+
+Go to call-manager-js directory,
+cp .env.template .env
+vim .env (change auth info)
+npm install
+npm start
+go to localhost:3000, 
+token exists in localhost:3000/token
+
+After extracting token from localhost:3000/token
+incorporate token in the ViewController.swift, line 18, and run the simulator, hopefully you simulator and browser will connect.
+
+Other: token will expire in 1 hour, currently token is hardcoded, will be automatically refreshing token in the future
+
+reference: 
+ios:
+https://github.com/twilio/video-quickstart-ios
+
+js:
+https://github.com/twilio/video-quickstart-js
+
