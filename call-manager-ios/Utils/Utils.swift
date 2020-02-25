@@ -18,18 +18,35 @@ struct PlatformUtils {
 }
 
 struct TokenUtils {
-    static func fetchToken(url : String) throws -> String {
-        var token: String = "TWILIO_ACCESS_TOKEN"
-        let requestURL: URL = URL(string: url)!
-        do {
-            let data = try Data(contentsOf: requestURL)
-            if let tokenReponse = String(data: data, encoding: String.Encoding.utf8) {
-                token = tokenReponse
-            }
-        } catch let error as NSError {
-            print ("Invalid token url, error = \(error)")
-            throw error
+    static func fetchToken(url : String)-> String {
+        let requestURL = url
+        var token = ""
+        var request = URLRequest(url: URL(string: requestURL)!)
+        request.httpMethod = "GET"
+         
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let _ = data, error == nil else {
+            print("NETWORKING ERROR")
+            return
         }
+        if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+            print("HTTP STATUS: \(httpStatus.statusCode)")
+
+            return
+        }
+        do {
+            let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+            token = json["token"] as! String
+
+        }
+        catch let error as NSError {
+            print(error)
+            
+            }
+        }
+        task.resume()
+        sleep(3)
         return token
+
+        
     }
 }
