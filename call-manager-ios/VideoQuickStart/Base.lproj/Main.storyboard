@@ -154,6 +154,7 @@
         <!--Table View Controller-->
         <scene sceneID="zZK-me-bd2">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="19b-yB-mtr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController id="ZBK-SS-5W4" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="I60-mW-KIi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -199,7 +200,6 @@
                         </connections>
                     </tableView>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="19b-yB-mtr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="661.60000000000002" y="-325.18740629685158"/>
         </scene>
