@@ -1,0 +1,14 @@
+sudo gem install cocoapods
+pod install
+
+$TWILIO_NUMBER = 19494840725
+twilio phone-numbers:update 19494840725 --voice-url https://17c3eb5e.ngrok.io
+
+export GOOGLE_APPLICATION_CREDENTIALS="/Users/duochen/Desktop/Winter20/capstone/test/dummy-call-manager-7a85656ff0a8.json"
+
+// gcloud auth login
+
+npm install
+npm start
+open a new termianl with same directory, run ./ngrok http 3000
+

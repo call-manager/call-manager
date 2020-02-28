@@ -1,6 +1,14 @@
 # Created by https://www.gitignore.io/api/osx
 # Edit at https://www.gitignore.io/?templates=osx
 
+/Carthage
+/dummy-call-manager-7a85656ff0a8.json
+**/node_modules
+*.xcworkspace
+*.resolved
+*.lock
+/Pods
+
 ### OSX ###
 # General
 .DS_Store
