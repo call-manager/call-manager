@@ -25,18 +25,31 @@ We are going to use the following IDE and third party library to finish our app.
 
 Open terminal(For MAC), and do following command
 
-#### Twilio
+#### IOS 
+
+sudo gem install cocoapods
+pod install (Install TwilioVideo, SwiftIO Modules, and it will create .xcworkspace file in your directory)
+open the .xcworkspace
+
+
+#### Server
+All files locate in node_server folder
+go to ./node_server
+npm install (install packages, create node_modules file)
+npm start
+go to localhost:3000 (private)
+cd ..
+./ngrok http 3000 (generate a public url, copy paste the https url)
+
+#### Add Credentials (Twilio, GCP)
+
+### How to achieve video translation
+When phone and browser are connected
+make a phone call to 19494840725(Twilio phone number)
+translated text from your phone will be rendered on the ios client side
+
 
 ```
-cd backend
-python3 -m venv venv
-source ./venv/bin/activate
-pip install flask flask-sockets
-
-pip install Flask twilio
-pip freeze > requirements.txt
-pip install -r requirements.txt
-
 ```
 Then go to localhost:5000, there should exist a greeting message.
 
