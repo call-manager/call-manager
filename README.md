@@ -26,13 +26,14 @@ We are going to use the following IDE and third party library to finish our app.
 Open terminal(For MAC), and do following command
 
 #### IOS 
-
+```
 sudo gem install cocoapods
 pod install (Install TwilioVideo, SwiftIO Modules, and it will create .xcworkspace file in your directory)
 open the .xcworkspace
-
+```
 
 #### Server
+```
 All files locate in node_server folder
 go to ./node_server
 npm install (install packages, create node_modules file)
@@ -40,6 +41,7 @@ npm start
 go to localhost:3000 (private)
 cd ..
 ./ngrok http 3000 (generate a public url, copy paste the https url)
+```
 
 #### Add Credentials (Twilio, GCP)
 
