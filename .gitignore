@@ -3,6 +3,7 @@
 
 /Carthage
 /dummy-call-manager-7a85656ff0a8.json
+*.json
 **/node_modules
 *.xcworkspace
 *.resolved
