@@ -45,33 +45,17 @@ cd ..
 
 #### Add Credentials (Twilio, GCP)
 
-### How to achieve video translation
+### Update:
+several endpoints ./node_server/server/index.js provides (to be added)
+/: client browser (fake user)
+/token: token
+/test: testing socket message
+
+ios client is listenting for the event called 'test', the real-time message
+
 When phone and browser are connected
 make a phone call to 19494840725(Twilio phone number)
 translated text from your phone will be rendered on the ios client side
 
 
-```
-```
-Then go to localhost:5000, there should exist a greeting message.
-
-
-#### Google Translation API
-
-```
-pip install google-cloud-translate==2.0.0
-```
-
-
-#### Google Speech-To-Text API
-
-```
-pip install --upgrade python-speech
-```
-
-#### Possible Library for Implementation
-
-```
-pip install numpy
-```
 
