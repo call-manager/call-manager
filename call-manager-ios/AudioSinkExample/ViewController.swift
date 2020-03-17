@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     // Configure access token manually for testing, if desired! Create one manually in the console
     // at https://www.twilio.com/console/video/runtime/testing-tools
     var accessToken = "TWILIO_ACCESS_TOKEN"
-
+	
     // Configure remote URL to fetch token from
     let tokenUrl = "http://localhost:8000/token.php"
 
@@ -88,15 +88,10 @@ class ViewController: UIViewController {
         // Configure access token either from server or manually.
         // If the default wasn't changed, try fetching from server.
         if (accessToken == "TWILIO_ACCESS_TOKEN") {
-            do {
-                accessToken = try TokenUtils.fetchToken(url: tokenUrl)
-            } catch {
-                let message = "Failed to fetch access token"
-                logMessage(messageText: message)
-                return
-            }
+            
+            accessToken = TokenUtils.fetchToken(url: tokenUrl)
+            
         }
-
         // Preparing the connect options with the access token that we fetched (or hardcoded).
         let connectOptions = ConnectOptions(token: accessToken) { (builder) in
 
