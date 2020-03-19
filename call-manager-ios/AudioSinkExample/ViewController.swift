@@ -429,7 +429,7 @@ class ViewController: UIViewController {
                                                                         }
                                                                     }
                                                                     task.resume()
-                                                                    sleep(2)
+                                                                    sleep(1)
                                                                     self.speechLabel?.text = final                                                              } else if let error = error {
                                                                     self.speechLabel?.text = error.localizedDescription
                                                                     self.stopRecognizingAudio()
