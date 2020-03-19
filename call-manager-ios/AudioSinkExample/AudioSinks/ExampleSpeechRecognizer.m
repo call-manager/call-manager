@@ -6,7 +6,6 @@
 //
 
 #import "ExampleSpeechRecognizer.h"
-
 #import <AudioToolbox/AudioToolbox.h>
 
 static UInt32 kChannelCountMono = 1;
@@ -42,7 +41,8 @@ static UInt32 kChannelCountMono = 1;
             __strong typeof(self) strongSelf = weakSelf;
             if (result) {
                 strongSelf.speechResult = result.bestTranscription.formattedString;
-            } else {
+                
+                } else {
                 NSLog(@"Speech recognition error: %@", error);
             }
 

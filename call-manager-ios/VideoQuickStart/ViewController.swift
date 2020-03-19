@@ -130,7 +130,7 @@ class ViewController: UIViewController {
         if (accessToken == "TWILIO_ACCESS_TOKEN") {
             
             accessToken = TokenUtils.fetchToken(url: tokenUrl)
-            
+            	
         }
                 
             
