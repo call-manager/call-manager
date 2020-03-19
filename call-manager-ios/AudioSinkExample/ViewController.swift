@@ -9,14 +9,15 @@ import AVFoundation
 import TwilioVideo
 import UIKit
 
+
 class ViewController: UIViewController {
 
     // MARK:- View Controller Members
 
     // Configure access token manually for testing, if desired! Create one manually in the console
     // at https://www.twilio.com/console/video/runtime/testing-tools
-    var accessToken = "TWILIO_ACCESS_TOKEN"
-
+    var accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzkzZmFjMjhhMTBhNjNlOGJlZTg4Yzg3ODBhOTAxOTFlLTE1ODQ0ODE3NTMiLCJncmFudHMiOnsiaWRlbnRpdHkiOiJKb2x0aW5RdWluY3lEYXZlbnBvcnQiLCJ2aWRlbyI6e319LCJpYXQiOjE1ODQ0ODE3NTMsImV4cCI6MTU4NDQ5NjE1MywiaXNzIjoiU0s5M2ZhYzI4YTEwYTYzZThiZWU4OGM4NzgwYTkwMTkxZSIsInN1YiI6IkFDNTVmOTk0N2IxZWMyZDk3MTY4YWE5YjNhNTg5M2I0NDQifQ.ptObNVOgHW4Yzqtzk0ql-785l12TTK56RIutq8weT08"
+	
     // Configure remote URL to fetch token from
     let tokenUrl = "http://localhost:8000/token.php"
 
@@ -88,15 +89,10 @@ class ViewController: UIViewController {
         // Configure access token either from server or manually.
         // If the default wasn't changed, try fetching from server.
         if (accessToken == "TWILIO_ACCESS_TOKEN") {
-            do {
-                accessToken = try TokenUtils.fetchToken(url: tokenUrl)
-            } catch {
-                let message = "Failed to fetch access token"
-                logMessage(messageText: message)
-                return
-            }
+            
+            accessToken = TokenUtils.fetchToken(url: tokenUrl)
+            
         }
-
         // Preparing the connect options with the access token that we fetched (or hardcoded).
         let connectOptions = ConnectOptions(token: accessToken) { (builder) in
 
@@ -399,8 +395,42 @@ class ViewController: UIViewController {
                                                         identifier: identifier,
                                                      resultHandler: { (result, error) in
                                                                 if let validResult = result {
-                                                                    self.speechLabel?.text = validResult.bestTranscription.formattedString
-                                                                } else if let error = error {
+                                                                    var final = ""
+                                                                    let text = validResult.bestTranscription.formattedString
+                                                                    print(text)
+                                                                    let requestURL = "https://translation.googleapis.com/language/translate/v2?key=AIzaSyAw8vknKlbFIDBexnVMjyCcdDVVjfp_y9E"
+                                                                    let token = ""
+                                                                    var request = URLRequest(url: URL(string: requestURL)!)
+                                                                    request.httpMethod = "POST"
+                                                                    let t = try? JSONSerialization.data(withJSONObject: ["q": [text], "target": "de",])
+                                                                    request.httpBody = t
+                                                                    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                                                                    let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let _ = data, error == nil else {
+                                                                        print("NETWORKING ERROR")
+                                                                        return
+                                                                    }
+                                                                    if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                                                                        print("HTTP STATUS: \(httpStatus.statusCode)")
+
+                                                                        return
+                                                                    }
+                                                                    do {
+                                                                        let json = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as? [String: Any]
+                                                                        let d = json!["data"] as? [String: Any]
+                                                                        let k = d!["translations"] as? [[String: Any]]
+                                                                        final = (k![0]["translatedText"] as? String)!
+                                                                        print(k as Any)
+                                                                        print(final as Any)
+                                                                        print(token)
+                                                                    }
+                                                                    catch let error as NSError {
+                                                                        print(error)
+                                                                        
+                                                                        }
+                                                                    }
+                                                                    task.resume()
+                                                                    sleep(1)
+                                                                    self.speechLabel?.text = final                                                              } else if let error = error {
                                                                     self.speechLabel?.text = error.localizedDescription
                                                                     self.stopRecognizingAudio()
                                                                 }
