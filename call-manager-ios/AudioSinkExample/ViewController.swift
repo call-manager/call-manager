@@ -14,6 +14,8 @@ class ViewController: UIViewController {
 
     // MARK:- View Controller Members
 
+    var temp_contact_name: String = ""
+    
     // Configure access token manually for testing, if desired! Create one manually in the console
     // at https://www.twilio.com/console/video/runtime/testing-tools
     var accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzkzZmFjMjhhMTBhNjNlOGJlZTg4Yzg3ODBhOTAxOTFlLTE1ODQ0ODE3NTMiLCJncmFudHMiOnsiaWRlbnRpdHkiOiJKb2x0aW5RdWluY3lEYXZlbnBvcnQiLCJ2aWRlbyI6e319LCJpYXQiOjE1ODQ0ODE3NTMsImV4cCI6MTU4NDQ5NjE1MywiaXNzIjoiU0s5M2ZhYzI4YTEwYTYzZThiZWU4OGM4NzgwYTkwMTkxZSIsInN1YiI6IkFDNTVmOTk0N2IxZWMyZDk3MTY4YWE5YjNhNTg5M2I0NDQifQ.ptObNVOgHW4Yzqtzk0ql-785l12TTK56RIutq8weT08"
