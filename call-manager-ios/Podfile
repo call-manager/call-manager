@@ -1,6 +1,6 @@
 source 'https://github.com/CocoaPods/Specs'
 
-workspace 'VideoQuickStart'
+workspace 'AudioSinkExample'
 
 abstract_target 'TwilioVideo' do
   pod 'TwilioVideo', '~> 3.2'
