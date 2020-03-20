@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		616B43672425245000258947 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 616B43662425245000258947 /* images.xcassets */; };
+		6162A0E924252D1B00A98E82 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6162A0E824252D1B00A98E82 /* images.xcassets */; };
 		67D07FB26E9E6ED1E9FFD7E3 /* libPods-TwilioVideo-AudioSinkExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C1B456BED1831FD78F0F90 /* libPods-TwilioVideo-AudioSinkExample.a */; };
 		830A4B952424653F0063C037 /* ContactListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830A4B942424653F0063C037 /* ContactListVC.swift */; };
 		830A4B9724246C620063C037 /* ContactListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830A4B9624246C620063C037 /* ContactListTableViewCell.swift */; };
@@ -27,7 +27,7 @@
 /* Begin PBXFileReference section */
 		24B657B722B1F84F0057EBE6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = AudioSinkExample/README.md; sourceTree = "<group>"; };
 		40FCCB22440D7A10D741D5C2 /* Pods-TwilioVideo-AudioSinkExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwilioVideo-AudioSinkExample.debug.xcconfig"; path = "Target Support Files/Pods-TwilioVideo-AudioSinkExample/Pods-TwilioVideo-AudioSinkExample.debug.xcconfig"; sourceTree = "<group>"; };
-		616B43662425245000258947 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
+		6162A0E824252D1B00A98E82 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
 		66D942450B3AEECD94C98234 /* Pods-TwilioVideo-AudioSinkExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwilioVideo-AudioSinkExample.release.xcconfig"; path = "Target Support Files/Pods-TwilioVideo-AudioSinkExample/Pods-TwilioVideo-AudioSinkExample.release.xcconfig"; sourceTree = "<group>"; };
 		830A4B942424653F0063C037 /* ContactListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListVC.swift; sourceTree = "<group>"; };
 		830A4B9624246C620063C037 /* ContactListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListTableViewCell.swift; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 				830A4B942424653F0063C037 /* ContactListVC.swift */,
 				830A4B9624246C620063C037 /* ContactListTableViewCell.swift */,
 				8A6C2E521FAD3AD2008EB058 /* Assets.xcassets */,
-				616B43662425245000258947 /* images.xcassets */,
+				6162A0E824252D1B00A98E82 /* images.xcassets */,
 				8A6C2E541FAD3AD2008EB058 /* LaunchScreen.storyboard */,
 				8A6C2E571FAD3AD2008EB058 /* Info.plist */,
 			);
@@ -202,7 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A6C2E561FAD3AD2008EB058 /* LaunchScreen.storyboard in Resources */,
-				616B43672425245000258947 /* images.xcassets in Resources */,
+				6162A0E924252D1B00A98E82 /* images.xcassets in Resources */,
 				8A6C2E531FAD3AD2008EB058 /* Assets.xcassets in Resources */,
 				8A6C2E511FAD3AD2008EB058 /* Main.storyboard in Resources */,
 			);
