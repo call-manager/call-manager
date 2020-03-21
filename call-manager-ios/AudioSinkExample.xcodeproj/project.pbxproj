@@ -12,6 +12,7 @@
 		67D07FB26E9E6ED1E9FFD7E3 /* libPods-TwilioVideo-AudioSinkExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C1B456BED1831FD78F0F90 /* libPods-TwilioVideo-AudioSinkExample.a */; };
 		830A4B952424653F0063C037 /* ContactListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830A4B942424653F0063C037 /* ContactListVC.swift */; };
 		830A4B9724246C620063C037 /* ContactListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830A4B9624246C620063C037 /* ContactListTableViewCell.swift */; };
+		8377B4D02425C331002B339D /* ContactProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377B4CF2425C331002B339D /* ContactProfileViewController.swift */; };
 		8A6598E51FB13ED6005A8849 /* RecordingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6598E41FB13ED6005A8849 /* RecordingsViewController.swift */; };
 		8A6C2E4C1FAD3AD2008EB058 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6C2E4B1FAD3AD2008EB058 /* AppDelegate.swift */; };
 		8A6C2E4E1FAD3AD2008EB058 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6C2E4D1FAD3AD2008EB058 /* ViewController.swift */; };
@@ -33,6 +34,7 @@
 		66D942450B3AEECD94C98234 /* Pods-TwilioVideo-AudioSinkExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwilioVideo-AudioSinkExample.release.xcconfig"; path = "Target Support Files/Pods-TwilioVideo-AudioSinkExample/Pods-TwilioVideo-AudioSinkExample.release.xcconfig"; sourceTree = "<group>"; };
 		830A4B942424653F0063C037 /* ContactListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListVC.swift; sourceTree = "<group>"; };
 		830A4B9624246C620063C037 /* ContactListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListTableViewCell.swift; sourceTree = "<group>"; };
+		8377B4CF2425C331002B339D /* ContactProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactProfileViewController.swift; sourceTree = "<group>"; };
 		84C1B456BED1831FD78F0F90 /* libPods-TwilioVideo-AudioSinkExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TwilioVideo-AudioSinkExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A6598E41FB13ED6005A8849 /* RecordingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsViewController.swift; sourceTree = "<group>"; };
 		8A6C2E481FAD3AD2008EB058 /* AudioSinkExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioSinkExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +94,7 @@
 				8A6598E41FB13ED6005A8849 /* RecordingsViewController.swift */,
 				8A6C2E4D1FAD3AD2008EB058 /* ViewController.swift */,
 				8A6C2E4F1FAD3AD2008EB058 /* Main.storyboard */,
+				8377B4CF2425C331002B339D /* ContactProfileViewController.swift */,
 				830A4B942424653F0063C037 /* ContactListVC.swift */,
 				830A4B9624246C620063C037 /* ContactListTableViewCell.swift */,
 				8A6C2E521FAD3AD2008EB058 /* Assets.xcassets */,
@@ -265,6 +268,7 @@
 				8A6598E51FB13ED6005A8849 /* RecordingsViewController.swift in Sources */,
 				8A6C2E681FAD48EF008EB058 /* ExampleSpeechRecognizer.m in Sources */,
 				8A6C2E671FAD48EC008EB058 /* ExampleAudioRecorder.m in Sources */,
+				8377B4D02425C331002B339D /* ContactProfileViewController.swift in Sources */,
 				8A6C2E6A1FAD4DAF008EB058 /* SettingsTableViewController.swift in Sources */,
 				8A6C2E6B1FAD4DB3008EB058 /* Utils.swift in Sources */,
 				8A6C2E4E1FAD3AD2008EB058 /* ViewController.swift in Sources */,
