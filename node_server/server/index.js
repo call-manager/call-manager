@@ -14,8 +14,8 @@ var twilio = require('twilio');
 var accountSid = ''; // 
 var authToken = '' // get from console, not insanely long token
 
-var client_caller = new twilio(accountSid, authToken);
-console.log("client_caller: ", client_caller)
+// var client_caller = new twilio(accountSid, authToken);
+// console.log("client_caller: ", client_caller)
 
 // Create Express webapp.
 var app = express();
@@ -229,18 +229,18 @@ app.get('/test', (req, res) => {
 });
 
 // Test route for ios post request
-app.post('/call', (req, res) => {
-  console.log("client works! ", client_caller)
-  client_caller.calls
-        .create({
-           url: 'http://demo.twilio.com/docs/voice.xml',
-           to: '+17348829877',
-           from: '+15089162963'
-         })
-        .then(call => console.log(call.sid));
+// app.post('/call', (req, res) => {
+//   console.log("client works! ", client_caller)
+//   client_caller.calls
+//         .create({
+//            url: 'http://demo.twilio.com/docs/voice.xml',
+//            to: '+17348829877',
+//            from: '+15089162963'
+//          })
+//         .then(call => console.log(call.sid));
 
-  res.send('Hello I received the post request from mobile client!')
-})
+//   res.send('Hello I received the post request from mobile client!')
+// })
 
 // // // Create http server and run it.
 // // var server = http.createServer(app);

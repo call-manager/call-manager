@@ -26,6 +26,9 @@ class ContactProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        callButton.isEnabled = true
+        callButton.isHidden = false
 
         // render data from ContactListVC through segue, segue id: showContactProfile
         contact_temp_name_label.text = " \(contact_profile!.name)!"
@@ -36,6 +39,10 @@ class ContactProfileViewController: UIViewController {
         contact_temp_img_view.layer.cornerRadius = contact_temp_img_view.bounds.width / 2
     }
     
+    // unwind segue
+    @IBAction func unwindToContactProfile(_ sender: UIStoryboardSegue) {
+        
+    }
 
     /*
     // MARK: - Navigation
