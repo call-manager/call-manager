@@ -4,7 +4,7 @@ import TwilioVideo
 
 class ChatRoomVC: UIViewController {
 
-    var accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzQ1NDQ3ZjY3OWEwODZmMjc1ZTgxNzlhYTNhNTdiM2Y2LTE1ODQ4MTkyNDQiLCJncmFudHMiOnsiaWRlbnRpdHkiOiJKb2x0aW5Cb2JieUxpYmVydHkiLCJ2aWRlbyI6e319LCJpYXQiOjE1ODQ4MTkyNDQsImV4cCI6MTU4NDgyMjg0NCwiaXNzIjoiU0s0NTQ0N2Y2NzlhMDg2ZjI3NWU4MTc5YWEzYTU3YjNmNiIsInN1YiI6IkFDNmYxMmIzNGY4OTJkM2Y0YWVkZWNmZDU3NDc2YWRlNWQifQ.0arnaXWuixDP6rZw9rnqJ3VAV3PARyubBiqgDBjYNro"
+    var accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzkzZmFjMjhhMTBhNjNlOGJlZTg4Yzg3ODBhOTAxOTFlLTE1ODQ4MjYyNjAiLCJncmFudHMiOnsiaWRlbnRpdHkiOiJYZW5vcGhvYmljWmVsZGFMaWJlcnR5IiwidmlkZW8iOnt9fSwiaWF0IjoxNTg0ODI2MjYwLCJleHAiOjE1ODQ4NDA2NjAsImlzcyI6IlNLOTNmYWMyOGExMGE2M2U4YmVlODhjODc4MGE5MDE5MWUiLCJzdWIiOiJBQzU1Zjk5NDdiMWVjMmQ5NzE2OGFhOWIzYTU4OTNiNDQ0In0.pQjdMZoPlXOjq2HLG6SF9IndOljzlw9tk-atHgMogpQ"
     let tokenUrl = ""
     let recordAudio = true
     
@@ -46,6 +46,50 @@ class ChatRoomVC: UIViewController {
         }
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+
+        var bottomRight = CGPoint(x: view.bounds.width, y: view.bounds.height)
+        var layoutWidth = view.bounds.width
+        // Ensure the preview fits in the safe area.
+        let safeAreaGuide = self.view.safeAreaLayoutGuide
+        let layoutFrame = safeAreaGuide.layoutFrame
+        bottomRight.x = layoutFrame.origin.x + layoutFrame.width
+        bottomRight.y = layoutFrame.origin.y + layoutFrame.height
+        layoutWidth = layoutFrame.width
+
+        // Layout the speech label.
+        if let speechLabel = self.speechLabel {
+            speechLabel.preferredMaxLayoutWidth = layoutWidth - (kPreviewPadding * 2)
+
+            let constrainedSize = CGSize(width: view.bounds.width,
+                                         height: view.bounds.height)
+            let fittingSize = speechLabel.sizeThatFits(constrainedSize)
+            let speechFrame = CGRect(x: 0,
+                                     y: bottomRight.y - fittingSize.height - kTextBottomPadding,
+                                     width: view.bounds.width,
+                                     height: (view.bounds.height - bottomRight.y) + fittingSize.height + kTextBottomPadding)
+            speechLabel.frame = speechFrame.integral
+        }
+
+        // Layout the preview view.
+        if let previewView = self.camera?.previewView {
+            let dimensions = previewView.videoDimensions
+            var previewBounds = CGRect(origin: CGPoint.zero, size: CGSize(width: 160, height: 160))
+            previewBounds = AVMakeRect(aspectRatio: CGSize(width: CGFloat(dimensions.width),
+                                                           height: CGFloat(dimensions.height)),
+                                       insideRect: previewBounds)
+
+            previewBounds = previewBounds.integral
+            previewView.bounds = previewBounds
+            previewView.center = CGPoint(x: bottomRight.x - previewBounds.width / 2 - kPreviewPadding,
+                                         y: bottomRight.y - previewBounds.height / 2 - kPreviewPadding)
+
+            if let speechLabel = self.speechLabel {
+                previewView.center.y = speechLabel.frame.minY - (2.0 * kPreviewPadding) - (previewBounds.height / 2.0);
+            }
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -329,7 +373,7 @@ class ChatRoomVC: UIViewController {
         if (self.speechRecognizer != nil) {
             stopRecognizingAudio()
         } else {
-            showSpeechRecognitionUI(view: view, message: "Listening to \(name)...")
+            showSpeechRecognitionUI(view: view, message: "Listening to Doggo...")
 
             recognizeAudio(audioTrack: audioTrack, identifier: sid)
         }
@@ -392,7 +436,7 @@ class ChatRoomVC: UIViewController {
                                                                         }
                                                                     }
                                                                     task.resume()
-                                                                    sleep(2)
+                                                                    sleep(1)
                                                                     self.speechLabel?.text = final                                                              } else if let error = error {
                                                                     self.speechLabel?.text = error.localizedDescription
                                                                     self.stopRecognizingAudio()
