@@ -150,7 +150,6 @@
 				FED055B0B66AEF44BE20C168 /* Pods-TwilioVideo-ObjCVideoQuickstart.debug.xcconfig */,
 				1079551B276F855726E27BB8 /* Pods-TwilioVideo-ObjCVideoQuickstart.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -197,7 +196,6 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
