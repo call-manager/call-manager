@@ -559,7 +559,7 @@ extension ChatRoomVC : RoomDelegate {
     }
 
     func roomDidFailToConnect(room: Room, error: Error) {
-        logMessage(messageText: "Failed to connect to Room\(roomTextField.text ?? "DEFAULT"):\n\(error.localizedDescription)")
+//        logMessage(messageText: "Failed to connect to Room\(roomTextField.text):\n\(error.localizedDescription)")
         self.room = nil
 
         self.showRoomUI(inRoom: false)
