@@ -273,8 +273,8 @@
                                 <rect key="frame" x="140" y="476.5" width="112" height="96"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" backgroundImage="phone.circle.fill" catalog="system">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <state key="normal" title="Connect">
+                                    <color key="titleColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -445,7 +445,4 @@
             <point key="canvasLocation" x="-2642.4000000000001" y="354.87256371814095"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="phone.circle.fill" catalog="system" width="64" height="60"/>
-    </resources>
 </document>
