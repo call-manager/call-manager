@@ -75,12 +75,6 @@
                                     <outlet property="delegate" destination="Upi-Cb-T6s" id="oa8-dG-SiZ"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contacts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZQ-Ju-IN3">
-                                <rect key="frame" x="46" y="74" width="110" height="33.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <searchBar contentMode="redraw" placeholder="Enter your contact name" translatesAutoresizingMaskIntoConstraints="NO" id="Vz8-uj-M6e">
                                 <rect key="frame" x="0.0" y="128" width="375" height="44"/>
                                 <constraints>
@@ -91,6 +85,12 @@
                                     <outlet property="delegate" destination="Upi-Cb-T6s" id="d1y-N4-TH0"/>
                                 </connections>
                             </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Contacts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZQ-Ju-IN3">
+                                <rect key="frame" x="16" y="44" width="110" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
