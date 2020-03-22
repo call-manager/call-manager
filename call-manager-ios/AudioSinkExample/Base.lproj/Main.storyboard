@@ -16,14 +16,22 @@
                         <viewControllerLayoutGuide type="bottom" id="tHi-ED-j0Y"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="M8u-fj-E3R">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gvn-xi-BLN">
+                                <rect key="frame" x="0.0" y="31" width="375" height="616"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="siq-Fg-gx4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rDy-Ns-h1e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1995" y="-326"/>
+            <point key="canvasLocation" x="-1996" y="-326.08695652173918"/>
         </scene>
         <!--Contact ListVC-->
         <scene sceneID="E13-Eb-BQr">
@@ -93,17 +101,6 @@
                                     <outlet property="delegate" destination="Upi-Cb-T6s" id="oa8-dG-SiZ"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" misplaced="YES" barStyle="black" placeholder="Search In Contact" translatesAutoresizingMaskIntoConstraints="NO" id="Vz8-uj-M6e">
-                                <rect key="frame" x="0.0" y="173" width="375" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="G87-Dm-kaI"/>
-                                </constraints>
-                                <color key="barTintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Upi-Cb-T6s" id="d1y-N4-TH0"/>
-                                </connections>
-                            </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1O1-Yh-9Fq">
                                 <rect key="frame" x="290" y="60" width="0.0" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -112,7 +109,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FO8-J9-Sfe">
-                                <rect key="frame" x="0.0" y="97" width="375" height="76"/>
+                                <rect key="frame" x="0.0" y="78" width="375" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contacts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wkf-Zj-tJt">
@@ -127,12 +124,23 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Setting"/>
                                         <connections>
-                                            <segue destination="7K3-Wu-jNI" kind="showDetail" id="vga-xQ-qz9"/>
+                                            <segue destination="7K3-Wu-jNI" kind="show" id="JLC-JI-C2E"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
+                            <searchBar contentMode="redraw" misplaced="YES" barStyle="black" placeholder="Search In Contact" translatesAutoresizingMaskIntoConstraints="NO" id="Vz8-uj-M6e">
+                                <rect key="frame" x="0.0" y="165" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="G87-Dm-kaI"/>
+                                </constraints>
+                                <color key="barTintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Upi-Cb-T6s" id="d1y-N4-TH0"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
