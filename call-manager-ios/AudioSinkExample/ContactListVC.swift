@@ -87,8 +87,6 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         cell.contact_name.text = current_people_profile_lists[indexPath.row].name
         cell.contact_email.text = current_people_profile_lists[indexPath.row].email
         cell.contact_img.image = UIImage(named: current_people_profile_lists[indexPath.row].image)
-//        cell.contact_img.layer.masksToBounds = true
-//        cell.contact_img.layer.cornerRadius = cell.contact_img.bounds.width / 2
         return cell
     }
     
@@ -119,10 +117,7 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     // Search bar
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         // if search bar is empty
-        guard !searchText.isEmpty else {
-            current_people_profile_lists = people_profile_lists
-            contactListTable.reloadData()
-            return}
+        guard !searchText.isEmpty else { current_people_profile_lists = people_profile_lists; return}
         
         // search condition
         current_people_profile_lists = people_profile_lists.filter({ people_profile -> Bool in
