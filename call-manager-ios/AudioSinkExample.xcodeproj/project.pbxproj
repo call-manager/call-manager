@@ -24,6 +24,7 @@
 		8A6C2E691FAD4DAC008EB058 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6C2E5F1FAD3EAC008EB058 /* Settings.swift */; };
 		8A6C2E6A1FAD4DAF008EB058 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6C2E601FAD3EAC008EB058 /* SettingsTableViewController.swift */; };
 		8A6C2E6B1FAD4DB3008EB058 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6C2E611FAD3EAC008EB058 /* Utils.swift */; };
+		AC9D65502427FE360067121D /* SettingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D654F2427FE360067121D /* SettingPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		8A6C2E651FAD48DB008EB058 /* ExampleSpeechRecognizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExampleSpeechRecognizer.h; sourceTree = "<group>"; };
 		8A6C2E661FAD48DB008EB058 /* ExampleSpeechRecognizer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleSpeechRecognizer.m; sourceTree = "<group>"; };
 		8A7FE3B51FAD6409003A4C41 /* AudioSinks-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AudioSinks-Bridging-Header.h"; sourceTree = "<group>"; };
+		AC9D654F2427FE360067121D /* SettingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				8A6598E41FB13ED6005A8849 /* RecordingsViewController.swift */,
 				8A6C2E4D1FAD3AD2008EB058 /* ViewController.swift */,
 				8A6C2E4F1FAD3AD2008EB058 /* Main.storyboard */,
+				AC9D654F2427FE360067121D /* SettingPage.swift */,
 				839CC8EC2425F2B2009422CE /* ChatRoomVC.swift */,
 				8377B4CF2425C331002B339D /* ContactProfileViewController.swift */,
 				830A4B942424653F0063C037 /* ContactListVC.swift */,
@@ -273,6 +276,7 @@
 				8A6C2E6B1FAD4DB3008EB058 /* Utils.swift in Sources */,
 				8A6C2E4E1FAD3AD2008EB058 /* ViewController.swift in Sources */,
 				830A4B9724246C620063C037 /* ContactListTableViewCell.swift in Sources */,
+				AC9D65502427FE360067121D /* SettingPage.swift in Sources */,
 				8A6C2E4C1FAD3AD2008EB058 /* AppDelegate.swift in Sources */,
 				8A6C2E691FAD4DAC008EB058 /* Settings.swift in Sources */,
 				830A4B952424653F0063C037 /* ContactListVC.swift in Sources */,

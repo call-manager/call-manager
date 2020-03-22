@@ -743,3 +743,4 @@ extension ViewController : CameraSourceDelegate {
         source.previewView?.removeFromSuperview()
     }
 }
+
