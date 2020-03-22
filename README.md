@@ -62,14 +62,25 @@ pip install numpy
 ```
 #### Django Server Routes
 http://167.172.255.230
+
 /logon POST
+
 json body {user: }
+
 returns no call if no current calls
+
 or calling if there are incoming calls
+
 /call
+
 json body {user: } POST
+
 Changes status of the user in json body such that next logon
+
 will return calling for that user
+
 returns nothing
+
 /getchatts GET
+
 resets user status to no call
