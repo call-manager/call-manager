@@ -4,7 +4,8 @@ import TwilioVideo
 
 class ChatRoomVC: UIViewController {
 
-    var accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzkzZmFjMjhhMTBhNjNlOGJlZTg4Yzg3ODBhOTAxOTFlLTE1ODQ4MjYyNjAiLCJncmFudHMiOnsiaWRlbnRpdHkiOiJYZW5vcGhvYmljWmVsZGFMaWJlcnR5IiwidmlkZW8iOnt9fSwiaWF0IjoxNTg0ODI2MjYwLCJleHAiOjE1ODQ4NDA2NjAsImlzcyI6IlNLOTNmYWMyOGExMGE2M2U4YmVlODhjODc4MGE5MDE5MWUiLCJzdWIiOiJBQzU1Zjk5NDdiMWVjMmQ5NzE2OGFhOWIzYTU4OTNiNDQ0In0.pQjdMZoPlXOjq2HLG6SF9IndOljzlw9tk-atHgMogpQ"
+    var accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzQ1NDQ3ZjY3OWEwODZmMjc1ZTgxNzlhYTNhNTdiM2Y2LTE1ODQ4NDg0MzUiLCJncmFudHMiOnsiaWRlbnRpdHkiOiJGaWVzdHlTYW1hbnRoYUxpYmVydHkiLCJ2aWRlbyI6e319LCJpYXQiOjE1ODQ4NDg0MzUsImV4cCI6MTU4NDg1MjAzNSwiaXNzIjoiU0s0NTQ0N2Y2NzlhMDg2ZjI3NWU4MTc5YWEzYTU3YjNmNiIsInN1YiI6IkFDNmYxMmIzNGY4OTJkM2Y0YWVkZWNmZDU3NDc2YWRlNWQifQ.8PpZYx4k8c4ZFnJahvX_cspTaaWkMMallyTwsYpFH8w"
+    
     let tokenUrl = ""
     let recordAudio = true
     
@@ -92,7 +93,17 @@ class ChatRoomVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "AudioSink Example"
+        // to be moved
+        SocketIOManager.socket.on("answer") { (callerAndCallee, ack) -> Void in
+            print("@@@@@@@@@ANSWERCALL, caller and callee: ", callerAndCallee)
+            // if callee == myself, pop up incoming call message
+            if (callerAndCallee[1] as! String == "doggo's uncle") {
+                self.showNotification(title: "An incoming call from \(callerAndCallee[0])", message: "")
+                // redirect to new room
+            }
+        }
+        
+        title = "Chat room: 441"
         // disconnectButton.isHidden = true
         disconnectButton.setTitleColor(UIColor(white: 0.75, alpha: 1), for: .disabled)
         // roomTextField.autocapitalizationType = .none

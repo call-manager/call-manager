@@ -28,18 +28,18 @@ Open terminal(For MAC), and do following command
 #### Twilio
 
 ```
-cd backend
-python3 -m venv venv
-source ./venv/bin/activate
-pip install flask flask-sockets
+client:
+cd call-manager/call-manager-ios
+pod install
+open AudioSinkExample.xcworkspace
 
-pip install Flask twilio
-pip freeze > requirements.txt
-pip install -r requirements.txt
-
+Server:
+cd node_server
+vim .env(add Twilio auth info)
+npm install
+npm start
+go to localhost:3000, token exists in localhost:3000/token
 ```
-Then go to localhost:5000, there should exist a greeting message.
-
 
 #### Google Translation API
 

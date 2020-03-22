@@ -29,8 +29,6 @@ const VideoGrant = AccessToken.VideoGrant;
 
 const { connect, createLocalTracks } = require('twilio-video');
 
-const WebSocket = require("ws");
-const wss = new WebSocket.Server({ server });
 
 // Max. period that a Participant is allowed to be in a Room (currently 14400 seconds or 4 hours)
 const MAX_ALLOWED_SESSION_DURATION = 14400;
@@ -40,7 +38,8 @@ const speech = require("@google-cloud/speech");
 const client = new speech.SpeechClient();
 
 // Create socket io instance
-const io = require('socket.io')(server)
+var io = require('socket.io')(server)
+
 app.use(express.static('static'));
 app.use(bodyParser.urlencoded({  extended: false }));
 
@@ -87,71 +86,76 @@ app.get("/token", (req, res) => {
 
 
 // Set socket.io listeners
-io.on('connection', (socket) => {
+io.on('connection', (clientSocket) => {
   console.log('a user connected');
-  socket.on('disconnect', () => {
+  clientSocket.on('disconnect', () => {
     console.log('user disconnected');
+  })
+  clientSocket.on('call', (caller, callee) => {
+    console.log("caller: ", caller, ", callee: ", callee)
+    io.emit("answer", caller, callee)
+    //io.emit(, caller, callee)
   })
 })
 
 // Handle Web Socket Connection
-wss.on("connection", function connection(ws) {
-console.log("New Connection Initiated");
+// wss.on("connection", function connection(ws) {
+// console.log("New Connection Initiated");
 
-  let recognizeStream = null;
-  let temp_word = "";
+//   let recognizeStream = null;
+//   let temp_word = "";
 
-  ws.on("message", function incoming(message) {
-    const msg = JSON.parse(message);
-    switch (msg.event) {
-      case "connected":
+//   ws.on("message", function incoming(message) {
+//     const msg = JSON.parse(message);
+//     switch (msg.event) {
+//       case "connected":
       
-        console.log(`A new call has connected.`);
+//         console.log(`A new call has connected.`);
 
-        // Create Stream to the Google Speech to Text API
-        recognizeStream = client
-          .streamingRecognize(request)
-          .on("error", console.error)
-          .on("data", data => {
-            temp_word = data.results[0].alternatives[0].transcript;
-            // send to ios client
-            // if (temp_word.length > 25) {
-            //   temp_word = temp_word.slice(25)
-            // }
-            console.log(temp_word.length,temp_word)
-            io.emit('test', {'temp_word':temp_word})
-            //temp_word = data.results[0].alternatives[0].transcript
+//         // Create Stream to the Google Speech to Text API
+//         recognizeStream = client
+//           .streamingRecognize(request)
+//           .on("error", console.error)
+//           .on("data", data => {
+//             temp_word = data.results[0].alternatives[0].transcript;
+//             // send to ios client
+//             // if (temp_word.length > 25) {
+//             //   temp_word = temp_word.slice(25)
+//             // }
+//             console.log(temp_word.length,temp_word)
+//             io.emit('test', {'temp_word':temp_word})
+//             //temp_word = data.results[0].alternatives[0].transcript
 
-            wss.clients.forEach(client => {
-             if (client.readyState === WebSocket.OPEN) {
-               client.send(
-                 JSON.stringify({
-                 event: "interim-transcription",
-                 text: temp_word
-               })
-             );//if
-            }//wss
+//             wss.clients.forEach(client => {
+//              if (client.readyState === WebSocket.OPEN) {
+//                client.send(
+//                  JSON.stringify({
+//                  event: "interim-transcription",
+//                  text: temp_word
+//                })
+//              );//if
+//             }//wss
 
-          });
-        });
-        break;
-      case "start":
-        console.log(`Starting Media Stream ${msg.streamSid}`);
-        break;
-      case "media":
-        // Write Media Packets to the recognize stream
-        recognizeStream.write(msg.media.payload);
-        break;
-      case "stop":
-        console.log(`Call Has Ended`);
-        // Promise.resolve()
-        //   .then(() => recognizeStream.destroy())
-        //   .catch(console.log)
-        recognizeStream.destroy();
-        break;
-    }
-  });
-});
+//           });
+//         });
+//         break;
+//       case "start":
+//         console.log(`Starting Media Stream ${msg.streamSid}`);
+//         break;
+//       case "media":
+//         // Write Media Packets to the recognize stream
+//         recognizeStream.write(msg.media.payload);
+//         break;
+//       case "stop":
+//         console.log(`Call Has Ended`);
+//         // Promise.resolve()
+//         //   .then(() => recognizeStream.destroy())
+//         //   .catch(console.log)
+//         recognizeStream.destroy();
+//         break;
+//     }
+//   });
+// });
 
 
 // <Start>
@@ -161,21 +165,21 @@ console.log("New Connection Initiated");
 // <Pause length="300" />
 
 // Q: Can server realize when 2 people(mobile) connect
-app.post("/", (req, res) => { // can specify identity here
-  res.set("Content-Type", "text/xml");
-  // log message for testing
-  //console.log("req.hearders.host: ", req.hearders.host)
-  console.log("call received")
-  res.send(`
-    <Response>
-      <Start>
-        <Stream url="wss://${req.headers.host}/"/>
-      </Start>
-      <Say>Thank you for using call manager! I will stream the next 300 seconds of audio through your websocket</Say>
-      <Pause length="300" />
-    </Response>
-  `);
-});
+// app.post("/", (req, res) => { // can specify identity here
+//   res.set("Content-Type", "text/xml");
+//   // log message for testing
+//   //console.log("req.hearders.host: ", req.hearders.host)
+//   console.log("call received")
+//   res.send(`
+//     <Response>
+//       <Start>
+//         <Stream url="wss://${req.headers.host}/"/>
+//       </Start>
+//       <Say>Thank you for using call manager! I will stream the next 300 seconds of audio through your websocket</Say>
+//       <Pause length="300" />
+//     </Response>
+//   `);
+// });
 
 // /**
 //  * Generate an Access Token for a chat application user - it generates a random

@@ -4,6 +4,7 @@ workspace 'AudioSinkExample'
 
 abstract_target 'TwilioVideo' do
   pod 'TwilioVideo', '~> 3.2'
+  pod 'Socket.IO-Client-Swift', '12.1.3'
 
   target 'ARKitExample' do
     platform :ios, '11.0'

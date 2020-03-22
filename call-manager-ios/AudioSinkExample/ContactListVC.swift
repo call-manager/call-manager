@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SocketIO
 
 class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
@@ -20,45 +21,47 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     var people_profile_lists = [PeopleProfile]()
     var current_people_profile_lists = [PeopleProfile]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setUpPeopleProfiles()
         setUpSearchBar()
     }
     var called = false
     var name = "alex17"
+    
     private func setUpPeopleProfiles() {
-        if (called == false){
-            let requestURL = "http://167.172.255.230/logon/"
-            var request = URLRequest(url: URL(string: requestURL)!)
-            request.httpMethod = "POST"
-            let t = try? JSONSerialization.data(withJSONObject: ["user": name])
-            request.httpBody = t
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let _ = data, error == nil else {
-                print("NETWORKING ERROR")
-                return
-            }
-            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-                print("HTTP STATUS: \(httpStatus.statusCode)")
-
-                return
-            }
-            do {
-                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as? [String: Any]
-                let status = json?["status"] as? String
-                print(status as Any)
-                
-                print("incoming call")            }
-            catch let error as NSError {
-                print(error)
-                
-                }
-            }
-            task.resume()
-            sleep(1)
-        }
+//        if (called == false){
+//            let requestURL = "http://167.172.255.230/logon/"
+//            var request = URLRequest(url: URL(string: requestURL)!)
+//            request.httpMethod = "POST"
+//            let t = try? JSONSerialization.data(withJSONObject: ["user": name])
+//            request.httpBody = t
+//            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//            let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let _ = data, error == nil else {
+//                print("NETWORKING ERROR")
+//                return
+//            }
+//            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+//                print("HTTP STATUS: \(httpStatus.statusCode)")
+//
+//                return
+//            }
+//            do {
+//                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as? [String: Any]
+//                let status = json?["status"] as? String
+//                print(status as Any)
+//
+//                print("incoming call")            }
+//            catch let error as NSError {
+//                print(error)
+//
+//                }
+//            }
+//            task.resume()
+//            sleep(1)
+//        }
         people_profile_lists.append(PeopleProfile(name: "Doggo", email: "doggo@umich.edu", image: "contact_1"))
         people_profile_lists.append(PeopleProfile(name: "doggo's uncle", email: "whyitsacat@gmail.com", image: "contact_2"))
         people_profile_lists.append(PeopleProfile(name: "A 17lb cat go", email: "notspicy@gmail.com", image: "contact_3"))
@@ -147,3 +150,17 @@ class PeopleProfile {
 
 
 
+extension UIViewController {
+    func showNotification(title: String, message: String)
+    {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        // if ok, redirect to chatroom
+        let acceptAction = UIAlertAction(title: "Accept", style: .default) { (_) -> Void in
+            // self.performSegue(withIdentifier: "callSomeone", sender: self)
+        }
+        alertController.addAction(acceptAction)
+        let rejectAction = UIAlertAction(title: "Reject", style: .default, handler: nil)
+        alertController.addAction(rejectAction)
+        present(alertController, animated: true, completion: nil)
+    }
+}
