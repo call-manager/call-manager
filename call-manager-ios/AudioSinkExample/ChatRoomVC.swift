@@ -94,6 +94,11 @@ class ChatRoomVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        SocketIOManager.socket.on("caller") { (caller, ack) -> Void in
+            self.showNotification(title: "call from `(caller)", message: "")
+        }
+       
+        
         
         title = "Chat room: 441"
         // disconnectButton.isHidden = true
@@ -106,6 +111,7 @@ class ChatRoomVC: UIViewController {
         prepareLocalMedia()
         	
         showDefaultDisplay()
+        
         
     }//viewDidLoad
 
@@ -137,7 +143,8 @@ class ChatRoomVC: UIViewController {
             let json = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as? [String: Any]
             print(json as Any)
             
-            self.showNotification(title: "Incomming phone call", message: "")
+            // self.showNotification(title: "Incomming phone call", message: "")
+            SocketIOManager.socket.emit("caller", "alex17")
             
         }
         catch let error as NSError {
