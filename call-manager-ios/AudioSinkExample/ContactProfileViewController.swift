@@ -21,9 +21,6 @@ class ContactProfileViewController: UIViewController {
     @IBOutlet weak var callButton: UIButton!
     
     @IBAction func callButtonAction(_ sender: Any) {
-    
-        print("##########MAKECALL, caller: ", "Mina", ", callee: ", contact_profile!.name)
-
         
         performSegue(withIdentifier: "callSomeone", sender: self)
     }

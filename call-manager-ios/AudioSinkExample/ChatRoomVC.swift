@@ -5,7 +5,7 @@ import TwilioVideo
 class ChatRoomVC: UIViewController {
 
 
-    var accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzkzZmFjMjhhMTBhNjNlOGJlZTg4Yzg3ODBhOTAxOTFlLTE1ODQ4NzY5NzMiLCJncmFudHMiOnsiaWRlbnRpdHkiOiJBYnJhc2l2ZUVtbWV0dFV0aWNhIiwidmlkZW8iOnt9fSwiaWF0IjoxNTg0ODc2OTczLCJleHAiOjE1ODQ4OTEzNzMsImlzcyI6IlNLOTNmYWMyOGExMGE2M2U4YmVlODhjODc4MGE5MDE5MWUiLCJzdWIiOiJBQzU1Zjk5NDdiMWVjMmQ5NzE2OGFhOWIzYTU4OTNiNDQ0In0.4v_dL0-q3h8l4-fDqvwV8VJoIJoyJU-zvJCrtqMxKss"
+    var accessToken = ""// "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzkzZmFjMjhhMTBhNjNlOGJlZTg4Yzg3ODBhOTAxOTFlLTE1ODQ4NzY5NzMiLCJncmFudHMiOnsiaWRlbnRpdHkiOiJBYnJhc2l2ZUVtbWV0dFV0aWNhIiwidmlkZW8iOnt9fSwiaWF0IjoxNTg0ODc2OTczLCJleHAiOjE1ODQ4OTEzNzMsImlzcyI6IlNLOTNmYWMyOGExMGE2M2U4YmVlODhjODc4MGE5MDE5MWUiLCJzdWIiOiJBQzU1Zjk5NDdiMWVjMmQ5NzE2OGFhOWIzYTU4OTNiNDQ0In0.4v_dL0-q3h8l4-fDqvwV8VJoIJoyJU-zvJCrtqMxKss"
 
     let tokenUrl = ""
     let recordAudio = true
@@ -136,6 +136,9 @@ class ChatRoomVC: UIViewController {
         do {
             let json = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as? [String: Any]
             print(json as Any)
+            
+            self.showNotification(title: "Incomming phone call", message: "")
+            
         }
         catch let error as NSError {
             print(error)
