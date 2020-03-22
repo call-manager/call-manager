@@ -15,7 +15,7 @@ class SocketIOManager: NSObject {
     // static let sharedInstance = SocketIOManager()
 
     //static let socket = SocketIOClient(socketURL: URL(string: "http://10.228.124.240:3000")!)
-    static let socket = SocketIOClient(socketURL: URL(string: "http://localhost:3000")!)
+    static let socket = SocketIOClient(socketURL: URL(string: "https://0ef3e705.ngrok.io")!)
     
     override init() {
         super.init()

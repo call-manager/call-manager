@@ -69,6 +69,7 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
                     DispatchQueue.main.async{
                            self.performSegue(withIdentifier: "calling", sender: self)
                         //Add notification UI Segue here
+                        self.showNotification(title: "in comming call", message: "hello")
                         }
                 }
                 print("incoming call")            }

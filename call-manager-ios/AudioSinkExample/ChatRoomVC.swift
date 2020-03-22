@@ -94,9 +94,9 @@ class ChatRoomVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        SocketIOManager.socket.on("caller") { (caller, ack) -> Void in
-            self.showNotification(title: "call from `(caller)", message: "")
-        }
+//        SocketIOManager.socket.on("caller") { (caller, ack) -> Void in
+//            self.showNotification(title: "call from `(caller)", message: "")
+//        }
        
         
         
@@ -144,7 +144,8 @@ class ChatRoomVC: UIViewController {
             print(json as Any)
             
             // self.showNotification(title: "Incomming phone call", message: "")
-            SocketIOManager.socket.emit("caller", "alex17")
+            // SocketIOManager.socket.emit("caller", "alex17")
+            // print("emit!")
             
         }
         catch let error as NSError {
