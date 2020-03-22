@@ -15,14 +15,14 @@ class ViewController: UIViewController {
     // MARK:- View Controller Members
 
     var temp_contact_name: String = ""
-    
     // Configure access token manually for testing, if desired! Create one manually in the console
     // at https://www.twilio.com/console/video/runtime/testing-tools
     var accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzQ1NDQ3ZjY3OWEwODZmMjc1ZTgxNzlhYTNhNTdiM2Y2LTE1ODQ4MjEyMzAiLCJncmFudHMiOnsiaWRlbnRpdHkiOiJYZW5vcGhvYmljRnJpZGFMaWJlcnR5IiwidmlkZW8iOnt9fSwiaWF0IjoxNTg0ODIxMjMwLCJleHAiOjE1ODQ4MjQ4MzAsImlzcyI6IlNLNDU0NDdmNjc5YTA4NmYyNzVlODE3OWFhM2E1N2IzZjYiLCJzdWIiOiJBQzZmMTJiMzRmODkyZDNmNGFlZGVjZmQ1NzQ3NmFkZTVkIn0.M6JRwLXZTl0y8tY9TRiQztInvSR4enen0v8IwAGfq9A"
 	
     // Configure remote URL to fetch token from
     let tokenUrl = "http://localhost:8000/token.php"
-
+    
+    
     // Automatically record audio for all `AudioTrack`s published in a Room.
     let recordAudio = true
 
@@ -64,10 +64,10 @@ class ViewController: UIViewController {
             self.camera = nil
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
         title = "AudioSink Example"
         disconnectButton.isHidden = true
         disconnectButton.setTitleColor(UIColor(white: 0.75, alpha: 1), for: .disabled)

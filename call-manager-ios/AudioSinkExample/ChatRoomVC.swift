@@ -13,7 +13,6 @@ class ChatRoomVC: UIViewController {
     var camera: CameraSource?
     var localAudioTrack: LocalAudioTrack!
     var localVideoTrack: LocalVideoTrack!
-    
     // Audio Sinks
     var audioRecorders = Dictionary<String, ExampleAudioRecorder>()
     var speechRecognizer: ExampleSpeechRecognizer?
@@ -102,7 +101,7 @@ class ChatRoomVC: UIViewController {
         if (recordAudio == false) {navigationItem.leftBarButtonItem = nil} //
         
         prepareLocalMedia()
-        
+        	
         showDefaultDisplay()
         
     }//viewDidLoad
@@ -110,11 +109,36 @@ class ChatRoomVC: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+    var name2 = "alex16"
     private func showDefaultDisplay() {
         // configure access token, if (acceetoken == ...) {}
        // Preparing the connect options with the access token that we fetched (or hardcoded).
-       let connectOptions = ConnectOptions(token: accessToken) { (builder) in
+        let requestURL = "http://167.172.255.230/call/"
+        var request = URLRequest(url: URL(string: requestURL)!)
+        request.httpMethod = "POST"
+        let t = try? JSONSerialization.data(withJSONObject: ["user": name2])
+        request.httpBody = t
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let _ = data, error == nil else {
+            print("NETWORKING ERROR")
+            return
+        }
+        if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+            print("HTTP STATUS: \(httpStatus.statusCode)")
+
+            return
+        }
+        do {
+            let json = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as? [String: Any]
+            print(json as Any)
+        }
+        catch let error as NSError {
+            print(error)
+            
+            }
+        }
+        task.resume()
+        let connectOptions = ConnectOptions(token: accessToken) { (builder) in
            if let audioTrack = self.localAudioTrack {
                builder.audioTracks = [audioTrack]
            }
