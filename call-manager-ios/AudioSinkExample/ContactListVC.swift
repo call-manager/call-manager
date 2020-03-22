@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SocketIO
+
 
 class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
@@ -20,48 +20,73 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     // a list of personal data
     var people_profile_lists = [PeopleProfile]()
     var current_people_profile_lists = [PeopleProfile]()
+
+    var timer = Timer()
+    var called = false
+    //caller user_name
+    var name = "alex17"
+
     
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpPeopleProfiles()
         setUpSearchBar()
+        self.ask_server()
     }
-    var called = false
-    var name = "alex17"
+
+    func ask_server(){
+        //checks with server every 3 s whether a incoming call is coming
+        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.askingServer), userInfo: nil, repeats: true)
+    }
+    @objc func askingServer(){
+        print("hello")
+        if (called == false){
+
+            let requestURL = "http://167.172.255.230/logon/"
+            var request = URLRequest(url: URL(string: requestURL)!)
+            request.httpMethod = "POST"
+            let t = try? JSONSerialization.data(withJSONObject: ["user": name])
+            request.httpBody = t
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let _ = data, error == nil else {
+                print("NETWORKING ERROR")
+                return
+            }
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                print("HTTP STATUS: \(httpStatus.statusCode)")
+
+                return
+            }
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as? [String: Any]
+                let status = json?["status"] as? String
+                print(status as Any)
+                if (status == "calling"){
+                    self.called = true
+                    DispatchQueue.main.async{
+                           self.performSegue(withIdentifier: "calling", sender: self)
+                        //Add notification UI Segue here
+                        }
+                }
+                print("incoming call")            }
+            catch let error as NSError {
+                print(error)
+                
+                }
+            }
+            task.resume()
+            sleep(1)
+        }
+        
+    }
+    
+  
     
     private func setUpPeopleProfiles() {
-//        if (called == false){
-//            let requestURL = "http://167.172.255.230/logon/"
-//            var request = URLRequest(url: URL(string: requestURL)!)
-//            request.httpMethod = "POST"
-//            let t = try? JSONSerialization.data(withJSONObject: ["user": name])
-//            request.httpBody = t
-//            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-//            let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let _ = data, error == nil else {
-//                print("NETWORKING ERROR")
-//                return
-//            }
-//            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-//                print("HTTP STATUS: \(httpStatus.statusCode)")
-//
-//                return
-//            }
-//            do {
-//                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as? [String: Any]
-//                let status = json?["status"] as? String
-//                print(status as Any)
-//
-//                print("incoming call")            }
-//            catch let error as NSError {
-//                print(error)
-//
-//                }
-//            }
-//            task.resume()
-//            sleep(1)
-//        }
+
         people_profile_lists.append(PeopleProfile(name: "Doggo", email: "doggo@umich.edu", image: "contact_1"))
         people_profile_lists.append(PeopleProfile(name: "doggo's uncle", email: "whyitsacat@gmail.com", image: "contact_2"))
         people_profile_lists.append(PeopleProfile(name: "A 17lb cat go", email: "notspicy@gmail.com", image: "contact_3"))
@@ -87,6 +112,8 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         cell.contact_name.text = current_people_profile_lists[indexPath.row].name
         cell.contact_email.text = current_people_profile_lists[indexPath.row].email
         cell.contact_img.image = UIImage(named: current_people_profile_lists[indexPath.row].image)
+//        cell.contact_img.layer.masksToBounds = true
+//        cell.contact_img.layer.cornerRadius = cell.contact_img.bounds.width / 2
         return cell
     }
     
@@ -117,7 +144,10 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     // Search bar
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         // if search bar is empty
-        guard !searchText.isEmpty else { current_people_profile_lists = people_profile_lists; return}
+        guard !searchText.isEmpty else {
+            current_people_profile_lists = people_profile_lists
+            contactListTable.reloadData()
+            return}
         
         // search condition
         current_people_profile_lists = people_profile_lists.filter({ people_profile -> Bool in

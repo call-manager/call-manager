@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SocketIO
+
 
 class ContactProfileViewController: UIViewController {
     
@@ -23,7 +23,7 @@ class ContactProfileViewController: UIViewController {
     @IBAction func callButtonAction(_ sender: Any) {
     
         print("##########MAKECALL, caller: ", "Mina", ", callee: ", contact_profile!.name)
-        SocketIOManager.socket.emit("call", "Mina", contact_profile!.name)
+
         
         performSegue(withIdentifier: "callSomeone", sender: self)
     }

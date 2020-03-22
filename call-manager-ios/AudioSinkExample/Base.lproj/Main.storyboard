@@ -110,6 +110,7 @@
                         <outlet property="contactListTable" destination="ABc-va-yC7" id="4Ug-pl-Kft"/>
                         <outlet property="searchBar" destination="Vz8-uj-M6e" id="hjT-Tr-L2w"/>
                         <segue destination="Sa0-MC-qde" kind="show" identifier="showContactProfile" id="v4q-xn-8sf"/>
+                        <segue destination="5uJ-kG-lKv" kind="show" identifier="calling" id="NZf-4B-ILp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuQ-Lf-APh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -445,4 +446,7 @@
             <point key="canvasLocation" x="-2642.4000000000001" y="354.87256371814095"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="NZf-4B-ILp"/>
+    </inferredMetricsTieBreakers>
 </document>

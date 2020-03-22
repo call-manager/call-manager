@@ -4,8 +4,9 @@ import TwilioVideo
 
 class ChatRoomVC: UIViewController {
 
-    var accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzQ1NDQ3ZjY3OWEwODZmMjc1ZTgxNzlhYTNhNTdiM2Y2LTE1ODQ4NDg0MzUiLCJncmFudHMiOnsiaWRlbnRpdHkiOiJGaWVzdHlTYW1hbnRoYUxpYmVydHkiLCJ2aWRlbyI6e319LCJpYXQiOjE1ODQ4NDg0MzUsImV4cCI6MTU4NDg1MjAzNSwiaXNzIjoiU0s0NTQ0N2Y2NzlhMDg2ZjI3NWU4MTc5YWEzYTU3YjNmNiIsInN1YiI6IkFDNmYxMmIzNGY4OTJkM2Y0YWVkZWNmZDU3NDc2YWRlNWQifQ.8PpZYx4k8c4ZFnJahvX_cspTaaWkMMallyTwsYpFH8w"
-    
+
+    var accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzkzZmFjMjhhMTBhNjNlOGJlZTg4Yzg3ODBhOTAxOTFlLTE1ODQ4NzY5NzMiLCJncmFudHMiOnsiaWRlbnRpdHkiOiJBYnJhc2l2ZUVtbWV0dFV0aWNhIiwidmlkZW8iOnt9fSwiaWF0IjoxNTg0ODc2OTczLCJleHAiOjE1ODQ4OTEzNzMsImlzcyI6IlNLOTNmYWMyOGExMGE2M2U4YmVlODhjODc4MGE5MDE5MWUiLCJzdWIiOiJBQzU1Zjk5NDdiMWVjMmQ5NzE2OGFhOWIzYTU4OTNiNDQ0In0.4v_dL0-q3h8l4-fDqvwV8VJoIJoyJU-zvJCrtqMxKss"
+
     let tokenUrl = ""
     let recordAudio = true
     
@@ -93,15 +94,6 @@ class ChatRoomVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // to be moved
-        SocketIOManager.socket.on("answer") { (callerAndCallee, ack) -> Void in
-            print("@@@@@@@@@ANSWERCALL, caller and callee: ", callerAndCallee)
-            // if callee == myself, pop up incoming call message
-            if (callerAndCallee[1] as! String == "doggo's uncle") {
-                self.showNotification(title: "An incoming call from \(callerAndCallee[0])", message: "")
-                // redirect to new room
-            }
-        }
         
         title = "Chat room: 441"
         // disconnectButton.isHidden = true
@@ -120,10 +112,12 @@ class ChatRoomVC: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    //callee username
     var name2 = "alex16"
     private func showDefaultDisplay() {
         // configure access token, if (acceetoken == ...) {}
        // Preparing the connect options with the access token that we fetched (or hardcoded).
+        //tells server that you are calling other user.
         let requestURL = "http://167.172.255.230/call/"
         var request = URLRequest(url: URL(string: requestURL)!)
         request.httpMethod = "POST"
@@ -618,6 +612,29 @@ extension ChatRoomVC : RoomDelegate {
     }
 
     func roomDidDisconnect(room: Room, error: Error?) {
+        let requestURL = "http://167.172.255.230/getchatts/"
+        var request = URLRequest(url: URL(string: requestURL)!)
+        request.httpMethod = "GET"
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let _ = data, error == nil else {
+            print("NETWORKING ERROR")
+            return
+        }
+        if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+            print("HTTP STATUS: \(httpStatus.statusCode)")
+
+            return
+        }
+        do {
+            let json = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as? [String: Any]
+            print(json as Any)
+        }
+        catch let error as NSError {
+            print(error)
+            
+            }
+        }
+        task.resume()
         if let disconnectError = error {
             logMessage(messageText: "Disconnected from \(room.name).\ncode = \((disconnectError as NSError).code) error = \(disconnectError.localizedDescription)")
         } else {
