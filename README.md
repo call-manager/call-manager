@@ -81,6 +81,7 @@ returns nothing
 resets user status to no call
 
 Server Setup
+
 Add django-backend files to Digital Ocean django droplet
 python manage.py runserver localhost:9000
 service gunicorn restart
