@@ -8,17 +8,20 @@
 
 import Foundation
 import SocketIO
-
+import NetworkExtension
 
 class SocketIOManager: NSObject {
     
     // static let sharedInstance = SocketIOManager()
-    // var url_str: String = "http://localhost:3000" // "http://720d0ab9.ngrok.io"
-    static let socket = SocketIOClient(socketURL: URL(string: "http://10.228.124.240:3000")!)
+
+    //static let socket = SocketIOClient(socketURL: URL(string: "http://10.228.124.240:3000")!)
+    static let socket = SocketIOClient(socketURL: URL(string: "http://localhost:3000")!)
     
     override init() {
         super.init()
     }
+    
+    
 
 //    func establishConnection() {
 //        socket.connect()

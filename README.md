@@ -32,6 +32,7 @@ client:
 cd call-manager/call-manager-ios
 pod install
 open AudioSinkExample.xcworkspace
+In SocketIOManager.swift line18, change the url to your IP address(localhost) with port 3000, ex: http://10.XXX.XX.XXX:3000 (http://localhost:3000 doesnt work)
 
 Server:
 cd node_server
