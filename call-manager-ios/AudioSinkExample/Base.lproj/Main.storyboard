@@ -484,7 +484,7 @@
                         <outlet property="messageLabel" destination="DyF-6z-6cr" id="SF6-8i-ZlF"/>
                         <outlet property="remoteViewStack" destination="pVJ-PU-EX6" id="wTh-OY-r7j"/>
                         <outlet property="roomLine" destination="XGa-D1-Y7n" id="cQF-ae-fRz"/>
-                        <segue destination="GpU-1P-vhk" kind="show" identifier="showTranscript" id="hBU-cR-oQW"/>
+                        <segue destination="GpU-1P-vhk" kind="show" identifier="showTranscript" id="HLS-9X-AYA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V4J-Xz-x9Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

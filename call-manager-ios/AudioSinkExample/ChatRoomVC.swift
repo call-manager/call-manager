@@ -234,15 +234,15 @@ class ChatRoomVC: UIViewController {
     }
     
     
-    @IBAction func disconnect(_ sender: Any) {
+    @IBAction func disconnect(_ sender: UIButton) {
         if let room = self.room {
             logMessage(messageText: "Disconnecting from \(room.name)")
             room.disconnect()
+            sender.isEnabled = false
             // (sender as AnyObject).isEnabled = false
         }
         // Go back to previous contact profile
-        sleep(1)
-        performSegue(withIdentifier: "showTranscript", sender: self)
+        // performSegue(withIdentifier: "showTranscript", sender: self)
         // performSegue(withIdentifier: "disconnectToContactProfile", sender: self)
     }
     
