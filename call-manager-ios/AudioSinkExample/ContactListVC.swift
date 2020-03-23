@@ -188,7 +188,7 @@ extension UIViewController {
         // if ok, redirect to chatroom
         let acceptAction = UIAlertAction(title: "Yes", style: .default) { (_) -> Void in
             // self.performSegue(withIdentifier: "showTranscript", sender: self)
-            
+            self.performSegue(withIdentifier: "showTranscript", sender: self)
         }
         alertController.addAction(acceptAction)
         let rejectAction = UIAlertAction(title: "No", style: .default, handler: nil)

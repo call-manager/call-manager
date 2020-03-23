@@ -244,7 +244,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuQ-Lf-APh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-984.79999999999995" y="354.87256371814095"/>
+            <point key="canvasLocation" x="-1066" y="351"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="nZR-qd-fY9">
@@ -446,17 +446,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4eB-81-vpz">
-                                <rect key="frame" x="123" y="551" width="123" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Disconnect">
-                                    <color key="titleColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="disconnect:" destination="5uJ-kG-lKv" eventType="touchUpInside" id="GN7-a7-ClZ"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XGa-D1-Y7n">
                                 <rect key="frame" x="13" y="28" width="346" height="449"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -475,12 +464,23 @@
                                 <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aR9-L6-ehC">
+                                <rect key="frame" x="115" y="538" width="132" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="Disconnect">
+                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="disconnect:" destination="5uJ-kG-lKv" eventType="touchUpInside" id="OOU-do-JrX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="RuK-Gb-ty8"/>
                     <connections>
-                        <outlet property="disconnectButton" destination="4eB-81-vpz" id="6o6-pA-Zsp"/>
+                        <outlet property="disconnectButton" destination="aR9-L6-ehC" id="guL-2T-W0h"/>
                         <outlet property="messageLabel" destination="DyF-6z-6cr" id="SF6-8i-ZlF"/>
                         <outlet property="remoteViewStack" destination="pVJ-PU-EX6" id="wTh-OY-r7j"/>
                         <outlet property="roomLine" destination="XGa-D1-Y7n" id="cQF-ae-fRz"/>
@@ -636,7 +636,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g81-BS-LBm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1703.2" y="354.87256371814095"/>
+            <point key="canvasLocation" x="-1906" y="356"/>
         </scene>
         <!--History-->
         <scene sceneID="nz9-Z2-gx4">

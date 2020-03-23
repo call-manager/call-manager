@@ -24,6 +24,7 @@ class ChatRoomVC: UIViewController {
     // MARK:- UI Element Outlets and handles
     @IBOutlet weak var connectButton: UIButton!
     @IBOutlet weak var disconnectButton: UIButton!
+    
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var remoteViewStack: UIStackView!
     @IBOutlet weak var roomTextField: UITextField! // unused
@@ -232,20 +233,33 @@ class ChatRoomVC: UIViewController {
         //self.dismissKeyboard() //
     }
     
-    @IBAction func disconnect(_ sender: UIButton) {
+    
+    @IBAction func disconnect(_ sender: Any) {
         if let room = self.room {
             logMessage(messageText: "Disconnecting from \(room.name)")
             room.disconnect()
-            sender.isEnabled = false
+            // (sender as AnyObject).isEnabled = false
         }
-        
         // Go back to previous contact profile
-        
         sleep(1)
-        
         performSegue(withIdentifier: "showTranscript", sender: self)
         // performSegue(withIdentifier: "disconnectToContactProfile", sender: self)
     }
+    
+//    @IBAction func disconnect(_ sender: UIButton) {
+//        if let room = self.room {
+//            logMessage(messageText: "Disconnecting from \(room.name)")
+//            room.disconnect()
+//            sender.isEnabled = false
+//        }
+//
+//        // Go back to previous contact profile
+//
+//        sleep(1)
+//        self.showNotification(title: "get transcript", message: "")
+//        //performSegue(withIdentifier: "showTranscript", sender: self)
+//        // performSegue(withIdentifier: "disconnectToContactProfile", sender: self)
+//    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
