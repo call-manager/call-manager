@@ -5,8 +5,10 @@ import TwilioVideo
 class ChatRoomVC: UIViewController {
 
 
-    var accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzQ1NDQ3ZjY3OWEwODZmMjc1ZTgxNzlhYTNhNTdiM2Y2LTE1ODQ5ODY2MzgiLCJncmFudHMiOnsiaWRlbnRpdHkiOiJNdXNoeUZyaWRhUXVhbnRpY28iLCJ2aWRlbyI6e319LCJpYXQiOjE1ODQ5ODY2MzgsImV4cCI6MTU4NDk5MDIzOCwiaXNzIjoiU0s0NTQ0N2Y2NzlhMDg2ZjI3NWU4MTc5YWEzYTU3YjNmNiIsInN1YiI6IkFDNmYxMmIzNGY4OTJkM2Y0YWVkZWNmZDU3NDc2YWRlNWQifQ.YXvuETuMrgpjX9l_bxHXhnmKO-x-fGVrJ9FuL-03A5w"
+    var accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzQ1NDQ3ZjY3OWEwODZmMjc1ZTgxNzlhYTNhNTdiM2Y2LTE1ODQ5OTQ2MDIiLCJncmFudHMiOnsiaWRlbnRpdHkiOiJPbGRTY2hvb2xGcmlkYVJhbGVpZ2giLCJ2aWRlbyI6e319LCJpYXQiOjE1ODQ5OTQ2MDIsImV4cCI6MTU4NDk5ODIwMiwiaXNzIjoiU0s0NTQ0N2Y2NzlhMDg2ZjI3NWU4MTc5YWEzYTU3YjNmNiIsInN1YiI6IkFDNmYxMmIzNGY4OTJkM2Y0YWVkZWNmZDU3NDc2YWRlNWQifQ.kXph2BLrqUaXF2GUhsnwpgZLSzvsvxA2fvmoJmXf77A"
 
+    var contents: [String] = [""]
+    
     let tokenUrl = ""
     let recordAudio = true
     
@@ -114,7 +116,7 @@ class ChatRoomVC: UIViewController {
         super.didReceiveMemoryWarning()
     }
     //callee username
-    var name2 = "alex16"
+    var name2 = "alex17"
     private func showDefaultDisplay() {
         // configure access token, if (acceetoken == ...) {}
        // Preparing the connect options with the access token that we fetched (or hardcoded).
@@ -139,8 +141,6 @@ class ChatRoomVC: UIViewController {
             print(json as Any)
             
             // self.showNotification(title: "Incomming phone call", message: "")
-            // SocketIOManager.socket.emit("caller", "alex17")
-            // print("emit!")
             
         }
         catch let error as NSError {
@@ -240,9 +240,24 @@ class ChatRoomVC: UIViewController {
         }
         
         // Go back to previous contact profile
+        
+        sleep(1)
+        
+        performSegue(withIdentifier: "showTranscript", sender: self)
         // performSegue(withIdentifier: "disconnectToContactProfile", sender: self)
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showTranscript" {
+            // let destinate_vc = segue.destination as? ContactProfileViewController // ViewController
+            // destinate_vc?.contact_temp_name = contact_temp_name
+            // destinate_vc.contact_profile = people_profile_lists[]
+            if let destinate_vc = segue.destination as? AfterCallTranscriptVC {
+                destinate_vc.contents = contents
+            }
+        }
+    }
 
     
     // Update our UI based upon if we are in a Room or not
@@ -439,7 +454,10 @@ class ChatRoomVC: UIViewController {
                                                                 if let validResult = result {
                                                                     var final = ""
                                                                     let text = validResult.bestTranscription.formattedString
+                                                                    
                                                                     print(text)
+                                                                    self.contents.append(text)
+                                                                    
                                                                     let requestURL = "https://translation.googleapis.com/language/translate/v2?key=AIzaSyAw8vknKlbFIDBexnVMjyCcdDVVjfp_y9E"
                                                                     let token = ""
                                                                     var request = URLRequest(url: URL(string: requestURL)!)

@@ -24,7 +24,7 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     var timer = Timer()
     var called = false
     //caller user_name
-    var name = "alex17"
+    var name = "alex16"
 
     
     
@@ -186,11 +186,12 @@ extension UIViewController {
     {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         // if ok, redirect to chatroom
-        let acceptAction = UIAlertAction(title: "Accept", style: .default) { (_) -> Void in
-            // self.performSegue(withIdentifier: "callSomeone", sender: self)
+        let acceptAction = UIAlertAction(title: "Yes", style: .default) { (_) -> Void in
+            // self.performSegue(withIdentifier: "showTranscript", sender: self)
+            
         }
         alertController.addAction(acceptAction)
-        let rejectAction = UIAlertAction(title: "Reject", style: .default, handler: nil)
+        let rejectAction = UIAlertAction(title: "No", style: .default, handler: nil)
         alertController.addAction(rejectAction)
         present(alertController, animated: true, completion: nil)
     }
