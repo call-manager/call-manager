@@ -6,7 +6,7 @@ class ChatRoomVC: UIViewController {
 
     
 
-    var accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzQ1NDQ3ZjY3OWEwODZmMjc1ZTgxNzlhYTNhNTdiM2Y2LTE1ODUwMDE4NzAiLCJncmFudHMiOnsiaWRlbnRpdHkiOiJNdXNoeUtlbmRyYU9ha2xhbmQiLCJ2aWRlbyI6e319LCJpYXQiOjE1ODUwMDE4NzAsImV4cCI6MTU4NTAwNTQ3MCwiaXNzIjoiU0s0NTQ0N2Y2NzlhMDg2ZjI3NWU4MTc5YWEzYTU3YjNmNiIsInN1YiI6IkFDNmYxMmIzNGY4OTJkM2Y0YWVkZWNmZDU3NDc2YWRlNWQifQ.To6brd-lVuJMq7o3j6zwgZ4i-46Tm7kyXhxXOzprbmM"
+    var accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzkzZmFjMjhhMTBhNjNlOGJlZTg4Yzg3ODBhOTAxOTFlLTE1ODUwMDE5MzgiLCJncmFudHMiOnsiaWRlbnRpdHkiOiJIb2x5TmF0ZVppbW1lcm1hbiIsInZpZGVvIjp7fX0sImlhdCI6MTU4NTAwMTkzOCwiZXhwIjoxNTg1MDE2MzM4LCJpc3MiOiJTSzkzZmFjMjhhMTBhNjNlOGJlZTg4Yzg3ODBhOTAxOTFlIiwic3ViIjoiQUM1NWY5OTQ3YjFlYzJkOTcxNjhhYTliM2E1ODkzYjQ0NCJ9.FjJaGcBZtVCQ3LYb9jZe4NWicApnc0NnxFvWOxD-3rs"
 
     var contents: [String] = [""]
     
@@ -236,6 +236,7 @@ class ChatRoomVC: UIViewController {
     
     
     @IBAction func disconnect(_ sender: UIButton) {
+        
         if let room = self.room {
             logMessage(messageText: "Disconnecting from \(room.name)")
             room.disconnect()
@@ -472,7 +473,7 @@ class ChatRoomVC: UIViewController {
                                                                     let text = validResult.bestTranscription.formattedString
                                                                     
                                                                     print(text)
-                                                                    self.contents.append(text)
+                                                                    
                                                                     
                                                                     let requestURL = "https://translation.googleapis.com/language/translate/v2?key=AIzaSyAw8vknKlbFIDBexnVMjyCcdDVVjfp_y9E"
                                                                     let token = ""
@@ -498,7 +499,7 @@ class ChatRoomVC: UIViewController {
                                                                         print(k as Any)
                                                                         print(final as Any)
                                                                         print(token)
-                                                                    }
+                                                                        self.contents.append(final)                                                                    }
                                                                     catch let error as NSError {
                                                                         print(error)
                                                                         
