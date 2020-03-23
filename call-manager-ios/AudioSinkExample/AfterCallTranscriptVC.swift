@@ -8,9 +8,9 @@
 
 import UIKit
 
-class AfterCallTranscriptVC: UIViewController {
+class AfterCallTranscriptVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var contents: [String] = ["transcript_test_0", "transcript_test_2"]
+    var contents: [String] = []
     
     @IBOutlet weak var AfterCallTableView: UITableView!
     
@@ -18,6 +18,7 @@ class AfterCallTranscriptVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //
         // Do any additional setup after loading the view.
     }
     
@@ -33,7 +34,7 @@ class AfterCallTranscriptVC: UIViewController {
             return UITableViewCell()
         }
         cell.transcriptCell.text = contents[indexPath.row]
-        
+        print("content: ", contents[indexPath.row])
         return cell
     }
     

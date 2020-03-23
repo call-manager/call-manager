@@ -247,7 +247,7 @@ class ChatRoomVC: UIViewController {
             // (sender as AnyObject).isEnabled = false
         }
         // Go back to previous contact profile
-        // performSegue(withIdentifier: "showTranscript", sender: self)
+        performSegue(withIdentifier: "showTranscript", sender: self)
         // performSegue(withIdentifier: "disconnectToContactProfile", sender: self)
     }
     
@@ -274,6 +274,7 @@ class ChatRoomVC: UIViewController {
             // destinate_vc.contact_profile = people_profile_lists[]
             if let destinate_vc = segue.destination as? AfterCallTranscriptVC {
                 destinate_vc.contents = contents
+                // destinate_vc.contents = ["hello", "Nice"]
             }
         }
     }

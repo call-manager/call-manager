@@ -546,6 +546,11 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Yx7-QQ-Zfm" id="cek-vP-W35"/>
+                                    <outlet property="delegate" destination="Yx7-QQ-Zfm" id="UoN-Tg-zu3"/>
+                                    <outlet property="prefetchDataSource" destination="Yx7-QQ-Zfm" id="G18-LJ-Onh"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
