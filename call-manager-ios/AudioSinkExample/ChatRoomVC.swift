@@ -5,7 +5,7 @@ import TwilioVideo
 class ChatRoomVC: UIViewController {
 
 
-    var accessToken = ""// "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzkzZmFjMjhhMTBhNjNlOGJlZTg4Yzg3ODBhOTAxOTFlLTE1ODQ4NzY5NzMiLCJncmFudHMiOnsiaWRlbnRpdHkiOiJBYnJhc2l2ZUVtbWV0dFV0aWNhIiwidmlkZW8iOnt9fSwiaWF0IjoxNTg0ODc2OTczLCJleHAiOjE1ODQ4OTEzNzMsImlzcyI6IlNLOTNmYWMyOGExMGE2M2U4YmVlODhjODc4MGE5MDE5MWUiLCJzdWIiOiJBQzU1Zjk5NDdiMWVjMmQ5NzE2OGFhOWIzYTU4OTNiNDQ0In0.4v_dL0-q3h8l4-fDqvwV8VJoIJoyJU-zvJCrtqMxKss"
+    var accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzQ1NDQ3ZjY3OWEwODZmMjc1ZTgxNzlhYTNhNTdiM2Y2LTE1ODQ5ODY2MzgiLCJncmFudHMiOnsiaWRlbnRpdHkiOiJNdXNoeUZyaWRhUXVhbnRpY28iLCJ2aWRlbyI6e319LCJpYXQiOjE1ODQ5ODY2MzgsImV4cCI6MTU4NDk5MDIzOCwiaXNzIjoiU0s0NTQ0N2Y2NzlhMDg2ZjI3NWU4MTc5YWEzYTU3YjNmNiIsInN1YiI6IkFDNmYxMmIzNGY4OTJkM2Y0YWVkZWNmZDU3NDc2YWRlNWQifQ.YXvuETuMrgpjX9l_bxHXhnmKO-x-fGVrJ9FuL-03A5w"
 
     let tokenUrl = ""
     let recordAudio = true
@@ -93,11 +93,6 @@ class ChatRoomVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        SocketIOManager.socket.on("caller") { (caller, ack) -> Void in
-//            self.showNotification(title: "call from `(caller)", message: "")
-//        }
-       
         
         
         title = "Chat room: 441"
