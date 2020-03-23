@@ -475,15 +475,6 @@
                                     <action selector="disconnect:" destination="5uJ-kG-lKv" eventType="touchUpInside" id="OOU-do-JrX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yy4-0k-skp">
-                                <rect key="frame" x="170" y="458" width="111" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <state key="normal" title="transcript"/>
-                                <connections>
-                                    <action selector="GoToTrnascript:" destination="5uJ-kG-lKv" eventType="touchUpInside" id="tBo-ec-8lY"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
@@ -493,7 +484,6 @@
                         <outlet property="messageLabel" destination="DyF-6z-6cr" id="SF6-8i-ZlF"/>
                         <outlet property="remoteViewStack" destination="pVJ-PU-EX6" id="wTh-OY-r7j"/>
                         <outlet property="roomLine" destination="XGa-D1-Y7n" id="cQF-ae-fRz"/>
-                        <outlet property="transcriptButton" destination="Yy4-0k-skp" id="gQp-ln-JdG"/>
                         <segue destination="Yx7-QQ-Zfm" kind="show" identifier="showTranscript" id="T2f-YU-oGJ"/>
                     </connections>
                 </viewController>

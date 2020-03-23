@@ -4,13 +4,9 @@ import TwilioVideo
 
 class ChatRoomVC: UIViewController {
 
-    @IBOutlet weak var transcriptButton: UIButton!
-    @IBAction func GoToTrnascript(_ sender: Any) {
-        performSegue(withIdentifier: "showTranscript", sender: self)
-    }
     
 
-    var accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzQ1NDQ3ZjY3OWEwODZmMjc1ZTgxNzlhYTNhNTdiM2Y2LTE1ODQ5OTQ2MDIiLCJncmFudHMiOnsiaWRlbnRpdHkiOiJPbGRTY2hvb2xGcmlkYVJhbGVpZ2giLCJ2aWRlbyI6e319LCJpYXQiOjE1ODQ5OTQ2MDIsImV4cCI6MTU4NDk5ODIwMiwiaXNzIjoiU0s0NTQ0N2Y2NzlhMDg2ZjI3NWU4MTc5YWEzYTU3YjNmNiIsInN1YiI6IkFDNmYxMmIzNGY4OTJkM2Y0YWVkZWNmZDU3NDc2YWRlNWQifQ.kXph2BLrqUaXF2GUhsnwpgZLSzvsvxA2fvmoJmXf77A"
+    var accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzQ1NDQ3ZjY3OWEwODZmMjc1ZTgxNzlhYTNhNTdiM2Y2LTE1ODUwMDE4NzAiLCJncmFudHMiOnsiaWRlbnRpdHkiOiJNdXNoeUtlbmRyYU9ha2xhbmQiLCJ2aWRlbyI6e319LCJpYXQiOjE1ODUwMDE4NzAsImV4cCI6MTU4NTAwNTQ3MCwiaXNzIjoiU0s0NTQ0N2Y2NzlhMDg2ZjI3NWU4MTc5YWEzYTU3YjNmNiIsInN1YiI6IkFDNmYxMmIzNGY4OTJkM2Y0YWVkZWNmZDU3NDc2YWRlNWQifQ.To6brd-lVuJMq7o3j6zwgZ4i-46Tm7kyXhxXOzprbmM"
 
     var contents: [String] = [""]
     
@@ -122,7 +118,7 @@ class ChatRoomVC: UIViewController {
         super.didReceiveMemoryWarning()
     }
     //callee username
-    var name2 = "alex17"
+    var name2 = "alex16"
     private func showDefaultDisplay() {
         // configure access token, if (acceetoken == ...) {}
        // Preparing the connect options with the access token that we fetched (or hardcoded).
