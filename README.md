@@ -63,6 +63,7 @@ pip install numpy
 #### Django Server Routes
 http://167.172.255.230
 
+```
 /logon POST
 
 json body {user: }
@@ -87,3 +88,22 @@ Add django-backend files to Digital Ocean django droplet
 python manage.py runserver localhost:9000
 
 service gunicorn restart
+```
+
+## Build
+
+Direct to call-manager-ios/, and do
+
+```
+pod install
+open AudioSinkExample.xcworkspace
+```
+
+In our skeleton product, we still need to manually add token and username, so after you & your friends fetch the username and token from our backend, you could just compile and user our app to make phone calls. (Will make automatical one further on)
+
+## Code Structure
+
+FrontEnd & Xcode Main Project: call-manager-ios -> AudioSinkExample
+BackEnd Server: node_server
+Backend DB: Django-backend
+
