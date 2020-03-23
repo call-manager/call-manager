@@ -114,7 +114,7 @@ class ChatRoomVC: UIViewController {
         super.didReceiveMemoryWarning()
     }
     //callee username
-    var name2 = "alex16"
+    var name2 = "alex21"
     private func showDefaultDisplay() {
         // configure access token, if (acceetoken == ...) {}
        // Preparing the connect options with the access token that we fetched (or hardcoded).

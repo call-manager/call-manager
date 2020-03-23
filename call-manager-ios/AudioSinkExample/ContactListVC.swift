@@ -24,7 +24,7 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     var timer = Timer()
     var called = false
     //caller user_name
-    var name = "alex17"
+    var name = "alex20"
 
     
     
