@@ -14,6 +14,7 @@ class AfterCallTranscriptVC: UIViewController {
     
     @IBOutlet weak var AfterCallTableView: UITableView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,10 +29,10 @@ class AfterCallTranscriptVC: UIViewController {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AfterCallTableViewCell") as? AfterCallTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TranscriptCell") as? AfterCallTableViewCell else {
             return UITableViewCell()
         }
-        cell.transcriptText.text = contents[indexPath.row]
+        cell.transcriptCell.text = contents[indexPath.row]
         
         return cell
     }

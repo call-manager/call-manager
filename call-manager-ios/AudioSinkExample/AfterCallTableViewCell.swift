@@ -11,7 +11,7 @@ import UIKit
 class AfterCallTableViewCell: UITableViewCell {
 
     
-    @IBOutlet weak var transcriptText: UILabel!
+    @IBOutlet weak var transcriptCell: UILabel!
     
     
     override func awakeFromNib() {
