@@ -16,7 +16,7 @@
                         <viewControllerLayoutGuide type="bottom" id="tHi-ED-j0Y"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="M8u-fj-E3R">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gvn-xi-BLN">
@@ -123,7 +123,7 @@
                         <viewControllerLayoutGuide type="bottom" id="8UX-SJ-DgF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kjW-Gb-GNH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ABc-va-yC7">
@@ -385,7 +385,7 @@
                         <viewControllerLayoutGuide type="bottom" id="PKj-Oy-Pg2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5vK-at-Wh4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c6L-sf-rci">
@@ -443,11 +443,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Utq-Bf-ozL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="UCt-E7-Y3B">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XGa-D1-Y7n">
-                                <rect key="frame" x="13" y="28" width="346" height="449"/>
+                                <rect key="frame" x="13" y="25" width="346" height="449"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pVJ-PU-EX6">
@@ -494,7 +494,7 @@
         <!--After Call TranscriptVC-->
         <scene sceneID="qV9-qq-0mC">
             <objects>
-                <viewController id="Yx7-QQ-Zfm" customClass="AfterCallTranscriptVC" customModule="Viola" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Yx7-QQ-Zfm" customClass="AfterCallTranscriptVC" customModule="Viola" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="usL-KM-GGg"/>
                         <viewControllerLayoutGuide type="bottom" id="0sg-7k-Gmv"/>
@@ -548,11 +548,12 @@
                     <navigationItem key="navigationItem" id="k8s-9S-prq"/>
                     <connections>
                         <outlet property="AfterCallTableView" destination="PGT-4l-CCy" id="aWg-UV-Wk7"/>
+                        <segue destination="Upi-Cb-T6s" kind="presentation" identifier="backToContacts" id="C1D-9L-pAt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbP-2l-9pT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1180" y="352.17391304347831"/>
+            <point key="canvasLocation" x="1202" y="356"/>
         </scene>
         <!--Recordings View Controller-->
         <scene sceneID="wUB-AF-7Qq">
@@ -793,5 +794,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="K4i-rb-VL0"/>
+        <segue reference="C1D-9L-pAt"/>
     </inferredMetricsTieBreakers>
 </document>

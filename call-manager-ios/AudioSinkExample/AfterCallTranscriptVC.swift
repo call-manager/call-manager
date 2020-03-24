@@ -20,7 +20,20 @@ class AfterCallTranscriptVC: UIViewController, UITableViewDataSource, UITableVie
 
         //
         // Do any additional setup after loading the view.
+		let backToContactsButton = UIBarButtonItem(
+            title: "Back To Contacts",
+            style: .plain,
+            target: self,
+			action: #selector(backToContacts)
+        )
+        navigationItem.leftBarButtonItem = backToContactsButton
     }
+	
+	
+	@objc func backToContacts() {
+		self.performSegue(withIdentifier: "backToContacts", sender: self)
+	}
+    
     
 
      // Table (Contact List)
@@ -42,6 +55,24 @@ class AfterCallTranscriptVC: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+	
+//	override func viewWillAppear(_ animated: Bool) {
+//		super.viewWillAppear(animated)
+//        let backToContactsButton = UIBarButtonItem(
+//            title: "Back To Contacts",
+//            style: .plain,
+//            target: self,
+//            action: "backToContacts"
+//        )
+//        navigationItem.leftBarButtonItem = backToContactsButton
+//	}
+	
+	
+	
+	
+	
+	
+	
         
     // convey data between different vcs through segue, reference: https://learnappmaking.com/pass-data-between-view-controllers-swift-how-to/#forward-segues
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

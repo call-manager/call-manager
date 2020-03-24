@@ -44,7 +44,7 @@
 		839CC8EC2425F2B2009422CE /* ChatRoomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomVC.swift; sourceTree = "<group>"; };
 		84C1B456BED1831FD78F0F90 /* libPods-TwilioVideo-AudioSinkExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TwilioVideo-AudioSinkExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A6598E41FB13ED6005A8849 /* RecordingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsViewController.swift; sourceTree = "<group>"; };
-		8A6C2E481FAD3AD2008EB058 /* Viola.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Viola.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A6C2E481FAD3AD2008EB058 /* Voila.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voila.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A6C2E4B1FAD3AD2008EB058 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A6C2E4D1FAD3AD2008EB058 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8A6C2E501FAD3AD2008EB058 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		8A6C2E491FAD3AD2008EB058 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8A6C2E481FAD3AD2008EB058 /* Viola.app */,
+				8A6C2E481FAD3AD2008EB058 /* Voila.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -176,7 +176,7 @@
 			);
 			name = AudioSinkExample;
 			productName = AudioSinkExample;
-			productReference = 8A6C2E481FAD3AD2008EB058 /* Viola.app */;
+			productReference = 8A6C2E481FAD3AD2008EB058 /* Voila.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -442,7 +442,7 @@
 				INFOPLIST_FILE = AudioSinkExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.twilio.voila;
-				PRODUCT_NAME = Viola;
+				PRODUCT_NAME = Voila;
 				SWIFT_OBJC_BRIDGING_HEADER = "AudioSinkExample/AudioSinks/AudioSinks-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -459,7 +459,7 @@
 				INFOPLIST_FILE = AudioSinkExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.twilio.voila;
-				PRODUCT_NAME = Viola;
+				PRODUCT_NAME = Voila;
 				SWIFT_OBJC_BRIDGING_HEADER = "AudioSinkExample/AudioSinks/AudioSinks-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
