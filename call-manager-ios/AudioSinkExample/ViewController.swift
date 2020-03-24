@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     var temp_contact_name: String = ""
     // Configure access token manually for testing, if desired! Create one manually in the console
     // at https://www.twilio.com/console/video/runtime/testing-tools
-    var accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzQ1NDQ3ZjY3OWEwODZmMjc1ZTgxNzlhYTNhNTdiM2Y2LTE1ODQ4MjEyMzAiLCJncmFudHMiOnsiaWRlbnRpdHkiOiJYZW5vcGhvYmljRnJpZGFMaWJlcnR5IiwidmlkZW8iOnt9fSwiaWF0IjoxNTg0ODIxMjMwLCJleHAiOjE1ODQ4MjQ4MzAsImlzcyI6IlNLNDU0NDdmNjc5YTA4NmYyNzVlODE3OWFhM2E1N2IzZjYiLCJzdWIiOiJBQzZmMTJiMzRmODkyZDNmNGFlZGVjZmQ1NzQ3NmFkZTVkIn0.M6JRwLXZTl0y8tY9TRiQztInvSR4enen0v8IwAGfq9A"
+    var accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzQ1NDQ3ZjY3OWEwODZmMjc1ZTgxNzlhYTNhNTdiM2Y2LTE1ODUwMTI0NzMiLCJncmFudHMiOnsiaWRlbnRpdHkiOiJNdXNoeURhbm55UmFsZWlnaCIsInZpZGVvIjp7fX0sImlhdCI6MTU4NTAxMjQ3MywiZXhwIjoxNTg1MDE2MDczLCJpc3MiOiJTSzQ1NDQ3ZjY3OWEwODZmMjc1ZTgxNzlhYTNhNTdiM2Y2Iiwic3ViIjoiQUM2ZjEyYjM0Zjg5MmQzZjRhZWRlY2ZkNTc0NzZhZGU1ZCJ9.5q5ZW6nmp4Y83u3qrEwEwjcmbodAOmnmgs3TjrAgR48"
 	
     // Configure remote URL to fetch token from
     let tokenUrl = "http://localhost:8000/token.php"

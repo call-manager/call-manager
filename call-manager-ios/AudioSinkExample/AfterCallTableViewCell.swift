@@ -9,10 +9,7 @@
 import UIKit
 
 class AfterCallTableViewCell: UITableViewCell {
-
-    
-    @IBOutlet weak var transcriptCell: UILabel!
-    
+    @IBOutlet weak var transcript_label: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

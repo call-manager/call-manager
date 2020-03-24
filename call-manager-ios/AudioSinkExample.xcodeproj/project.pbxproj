@@ -12,10 +12,10 @@
 		67D07FB26E9E6ED1E9FFD7E3 /* libPods-TwilioVideo-AudioSinkExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C1B456BED1831FD78F0F90 /* libPods-TwilioVideo-AudioSinkExample.a */; };
 		830A4B952424653F0063C037 /* ContactListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830A4B942424653F0063C037 /* ContactListVC.swift */; };
 		830A4B9724246C620063C037 /* ContactListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830A4B9624246C620063C037 /* ContactListTableViewCell.swift */; };
-		835AF4B224295415001EC337 /* AfterCallTranscriptVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835AF4B124295415001EC337 /* AfterCallTranscriptVC.swift */; };
-		835AF4B4242955A2001EC337 /* AfterCallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835AF4B3242955A2001EC337 /* AfterCallTableViewCell.swift */; };
 		8377B4D02425C331002B339D /* ContactProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377B4CF2425C331002B339D /* ContactProfileViewController.swift */; };
 		839CC8ED2425F2B2009422CE /* ChatRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839CC8EC2425F2B2009422CE /* ChatRoomVC.swift */; };
+		83A4E71024299D44008F6130 /* AfterCallTranscriptVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4E70F24299D44008F6130 /* AfterCallTranscriptVC.swift */; };
+		83A4E71224299DE2008F6130 /* AfterCallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4E71124299DE2008F6130 /* AfterCallTableViewCell.swift */; };
 		8A6598E51FB13ED6005A8849 /* RecordingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6598E41FB13ED6005A8849 /* RecordingsViewController.swift */; };
 		8A6C2E4C1FAD3AD2008EB058 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6C2E4B1FAD3AD2008EB058 /* AppDelegate.swift */; };
 		8A6C2E4E1FAD3AD2008EB058 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6C2E4D1FAD3AD2008EB058 /* ViewController.swift */; };
@@ -38,10 +38,10 @@
 		66D942450B3AEECD94C98234 /* Pods-TwilioVideo-AudioSinkExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwilioVideo-AudioSinkExample.release.xcconfig"; path = "Target Support Files/Pods-TwilioVideo-AudioSinkExample/Pods-TwilioVideo-AudioSinkExample.release.xcconfig"; sourceTree = "<group>"; };
 		830A4B942424653F0063C037 /* ContactListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListVC.swift; sourceTree = "<group>"; };
 		830A4B9624246C620063C037 /* ContactListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListTableViewCell.swift; sourceTree = "<group>"; };
-		835AF4B124295415001EC337 /* AfterCallTranscriptVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterCallTranscriptVC.swift; sourceTree = "<group>"; };
-		835AF4B3242955A2001EC337 /* AfterCallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterCallTableViewCell.swift; sourceTree = "<group>"; };
 		8377B4CF2425C331002B339D /* ContactProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactProfileViewController.swift; sourceTree = "<group>"; };
 		839CC8EC2425F2B2009422CE /* ChatRoomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomVC.swift; sourceTree = "<group>"; };
+		83A4E70F24299D44008F6130 /* AfterCallTranscriptVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterCallTranscriptVC.swift; sourceTree = "<group>"; };
+		83A4E71124299DE2008F6130 /* AfterCallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterCallTableViewCell.swift; sourceTree = "<group>"; };
 		84C1B456BED1831FD78F0F90 /* libPods-TwilioVideo-AudioSinkExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TwilioVideo-AudioSinkExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A6598E41FB13ED6005A8849 /* RecordingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsViewController.swift; sourceTree = "<group>"; };
 		8A6C2E481FAD3AD2008EB058 /* Voila.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voila.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,8 +102,6 @@
 				8A6598E41FB13ED6005A8849 /* RecordingsViewController.swift */,
 				8A6C2E4D1FAD3AD2008EB058 /* ViewController.swift */,
 				8A6C2E4F1FAD3AD2008EB058 /* Main.storyboard */,
-				835AF4B124295415001EC337 /* AfterCallTranscriptVC.swift */,
-				835AF4B3242955A2001EC337 /* AfterCallTableViewCell.swift */,
 				AC9D654F2427FE360067121D /* SettingPage.swift */,
 				839CC8EC2425F2B2009422CE /* ChatRoomVC.swift */,
 				8377B4CF2425C331002B339D /* ContactProfileViewController.swift */,
@@ -114,6 +112,8 @@
 				8A6C2E541FAD3AD2008EB058 /* LaunchScreen.storyboard */,
 				8A6C2E571FAD3AD2008EB058 /* Info.plist */,
 				6162A0EA24252FC200A98E82 /* Icon.png */,
+				83A4E70F24299D44008F6130 /* AfterCallTranscriptVC.swift */,
+				83A4E71124299DE2008F6130 /* AfterCallTableViewCell.swift */,
 			);
 			path = AudioSinkExample;
 			sourceTree = "<group>";
@@ -282,14 +282,14 @@
 				8A6C2E671FAD48EC008EB058 /* ExampleAudioRecorder.m in Sources */,
 				8377B4D02425C331002B339D /* ContactProfileViewController.swift in Sources */,
 				8A6C2E6A1FAD4DAF008EB058 /* SettingsTableViewController.swift in Sources */,
-				835AF4B224295415001EC337 /* AfterCallTranscriptVC.swift in Sources */,
 				8A6C2E6B1FAD4DB3008EB058 /* Utils.swift in Sources */,
-				835AF4B4242955A2001EC337 /* AfterCallTableViewCell.swift in Sources */,
 				8A6C2E4E1FAD3AD2008EB058 /* ViewController.swift in Sources */,
+				83A4E71224299DE2008F6130 /* AfterCallTableViewCell.swift in Sources */,
 				830A4B9724246C620063C037 /* ContactListTableViewCell.swift in Sources */,
 				AC9D65502427FE360067121D /* SettingPage.swift in Sources */,
 				6162A0F124282E0900A98E82 /* SocketIOManager.swift in Sources */,
 				8A6C2E4C1FAD3AD2008EB058 /* AppDelegate.swift in Sources */,
+				83A4E71024299D44008F6130 /* AfterCallTranscriptVC.swift in Sources */,
 				8A6C2E691FAD4DAC008EB058 /* Settings.swift in Sources */,
 				830A4B952424653F0063C037 /* ContactListVC.swift in Sources */,
 			);
@@ -438,10 +438,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 72L6F2468Z;
+				DEVELOPMENT_TEAM = W2WSUUZ344;
 				INFOPLIST_FILE = AudioSinkExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.twilio.voila;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.twilio.voila-24";
 				PRODUCT_NAME = Voila;
 				SWIFT_OBJC_BRIDGING_HEADER = "AudioSinkExample/AudioSinks/AudioSinks-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
@@ -455,10 +455,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 72L6F2468Z;
+				DEVELOPMENT_TEAM = W2WSUUZ344;
 				INFOPLIST_FILE = AudioSinkExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.twilio.voila;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.twilio.voila-24";
 				PRODUCT_NAME = Voila;
 				SWIFT_OBJC_BRIDGING_HEADER = "AudioSinkExample/AudioSinks/AudioSinks-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
