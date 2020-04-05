@@ -27,6 +27,7 @@
 		8A6C2E6A1FAD4DAF008EB058 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6C2E601FAD3EAC008EB058 /* SettingsTableViewController.swift */; };
 		8A6C2E6B1FAD4DB3008EB058 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6C2E611FAD3EAC008EB058 /* Utils.swift */; };
 		AC9D65502427FE360067121D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D654F2427FE360067121D /* SettingViewController.swift */; };
+		C5B126742439C3C00012985A /* SettingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B126732439C3C00012985A /* SettingPageVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		8A6C2E661FAD48DB008EB058 /* ExampleSpeechRecognizer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleSpeechRecognizer.m; sourceTree = "<group>"; };
 		8A7FE3B51FAD6409003A4C41 /* AudioSinks-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AudioSinks-Bridging-Header.h"; sourceTree = "<group>"; };
 		AC9D654F2427FE360067121D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		C5B126732439C3C00012985A /* SettingPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPageVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				8A6598E41FB13ED6005A8849 /* RecordingsViewController.swift */,
 				8A6C2E4D1FAD3AD2008EB058 /* ViewController.swift */,
 				8A6C2E4F1FAD3AD2008EB058 /* Main.storyboard */,
+				C5B126732439C3C00012985A /* SettingPageVC.swift */,
 				AC9D654F2427FE360067121D /* SettingViewController.swift */,
 				839CC8EC2425F2B2009422CE /* ChatRoomVC.swift */,
 				8377B4CF2425C331002B339D /* ContactProfileViewController.swift */,
@@ -275,6 +278,7 @@
 			files = (
 				8A6598E51FB13ED6005A8849 /* RecordingsViewController.swift in Sources */,
 				839CC8ED2425F2B2009422CE /* ChatRoomVC.swift in Sources */,
+				C5B126742439C3C00012985A /* SettingPageVC.swift in Sources */,
 				8A6C2E681FAD48EF008EB058 /* ExampleSpeechRecognizer.m in Sources */,
 				8A6C2E671FAD48EC008EB058 /* ExampleAudioRecorder.m in Sources */,
 				8377B4D02425C331002B339D /* ContactProfileViewController.swift in Sources */,

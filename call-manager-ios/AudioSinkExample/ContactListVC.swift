@@ -11,8 +11,8 @@ import UIKit
 
 class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
-    
     @IBOutlet weak var searchBar: UISearchBar!
+   
     @IBOutlet weak var contactListTable: UITableView!
     
     var contact_temp_name: String = ""
