@@ -11,6 +11,8 @@ import UIKit
 
 class ContactProfileViewController: UIViewController {
     
+    let loggedin_username: String = UserDefaults.standard.string(forKey: "username") ?? "NULL"
+    
     // profile data from last viewcontroller(ContactListVC)
     var contact_profile: PeopleProfile?
     
@@ -22,6 +24,10 @@ class ContactProfileViewController: UIViewController {
     
     @IBAction func callButtonAction(_ sender: Any) {
         
+        let caller_callee = ["caller":loggedin_username, "callee":contact_profile!.name]
+        SocketIOManager.socket.emit("call", caller_callee)
+        
+        // No matter the other person click yes/no, it will still go to chat room
         performSegue(withIdentifier: "callSomeone", sender: self)
     }
     
@@ -40,21 +46,6 @@ class ContactProfileViewController: UIViewController {
         contact_temp_img_view.layer.masksToBounds = true
         contact_temp_img_view.layer.cornerRadius = contact_temp_img_view.bounds.width / 2
     }
-    
-    // unwind segue
-    @IBAction func unwindToContactProfile(_ sender: UIStoryboardSegue) {
-        
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

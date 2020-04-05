@@ -1,38 +1,20 @@
-import queue
-from threading import Thread
-from google.cloud import speech
-from google.cloud.speech import types
 
-class SpeechClientBridge:
-    def __init__(self, streaming_config, on_response):
-        self._on_response = on_response
-        self._queue = queue.Queue()
-        self._ended = False
+sudo apt update
+sudo apt install python3-venv
+sudo apt install nginx
+python3.6 -m venv env
+source env/bin/activate
+pip install wheel
+pip install gunicorn flask
 
-        client = speech.SpeechClient()
-        responses = client.streaming_recognize(
-            streaming_config, 
-            self.get_requests()
-        )
-        self.process_responses(responses)
+sudo ufw allow 5000
 
-    def terminate(self):
-        self._ended = True
+sudo apt install python-pip
+pip install -r requirements.txt
+pip install flask_socketio
 
-    def add_request(self, buffer):
-        self._queue.put(types.StreamingRecognizeRequest(audio_content=bytes(buffer)))
+http://142.93.241.20:5000
 
-    def get_requests(self):
-        while not self._ended:
-            yield self._queue.get()
+gunicorn --bind 0.0.0.0:5000 wsgi:app
 
-    def process_responses(self, responses):
-        thread = Thread(target=self.process_responses_loop, args=[responses])
-        thread.start()
-
-    def process_responses_loop(self, responses):
-        for response in responses:
-            self._on_response(response)
-
-            if self._ended:
-              break;
+sudo systemctl restart nginx

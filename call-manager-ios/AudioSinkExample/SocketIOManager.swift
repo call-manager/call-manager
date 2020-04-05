@@ -12,10 +12,7 @@ import NetworkExtension
 
 class SocketIOManager: NSObject {
     
-    // static let sharedInstance = SocketIOManager()
-
-    //static let socket = SocketIOClient(socketURL: URL(string: "http://10.228.124.240:3000")!)
-    static let socket = SocketIOClient(socketURL: URL(string: "https://0ef3e705.ngrok.io")!)
+    static let socket = SocketIOClient(socketURL: URL(string: "http://142.93.241.20:5000/")!)
     
     override init() {
         super.init()

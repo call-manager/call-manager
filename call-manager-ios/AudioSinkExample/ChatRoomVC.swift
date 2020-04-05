@@ -4,9 +4,9 @@ import TwilioVideo
 
 class ChatRoomVC: UIViewController {
 
-    
+    let loggedin_username: String = UserDefaults.standard.string(forKey: "username") ?? "NULL"
 
-    var accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzQ1NDQ3ZjY3OWEwODZmMjc1ZTgxNzlhYTNhNTdiM2Y2LTE1ODUwMTU4NjYiLCJncmFudHMiOnsiaWRlbnRpdHkiOiJNdXNoeUJvYmJ5R3Vuc2lnaHQiLCJ2aWRlbyI6e319LCJpYXQiOjE1ODUwMTU4NjYsImV4cCI6MTU4NTAxOTQ2NiwiaXNzIjoiU0s0NTQ0N2Y2NzlhMDg2ZjI3NWU4MTc5YWEzYTU3YjNmNiIsInN1YiI6IkFDNmYxMmIzNGY4OTJkM2Y0YWVkZWNmZDU3NDc2YWRlNWQifQ.maxgY0eogX4G0bmjMjeAfn_T49viFGVApju6cTb--yE"
+    var accessToken = ""
 
     var contents: [String] = [""]
     
@@ -117,40 +117,32 @@ class ChatRoomVC: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    //callee username
-    var name2 = "alex17"
-    private func showDefaultDisplay() {
-        // configure access token, if (acceetoken == ...) {}
-       // Preparing the connect options with the access token that we fetched (or hardcoded).
-        //tells server that you are calling other user.
-        let requestURL = "http://167.172.255.230/call/"
-        var request = URLRequest(url: URL(string: requestURL)!)
-        request.httpMethod = "POST"
-        let t = try? JSONSerialization.data(withJSONObject: ["user": name2])
-        request.httpBody = t
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let _ = data, error == nil else {
-            print("NETWORKING ERROR")
-            return
-        }
-        if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-            print("HTTP STATUS: \(httpStatus.statusCode)")
+    
 
-            return
-        }
-        do {
-            let json = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as? [String: Any]
-            print(json as Any)
-            
-            // self.showNotification(title: "Incomming phone call", message: "")
-            
-        }
-        catch let error as NSError {
-            print(error)
-            
-            }
+    struct TokenResponse: Decodable {
+        var identity: String
+        var token: String
+    }
+
+    func requestToken() {
+        // let tokenURL = "https://your-server-here/token"
+        let url = URL(string: "http://142.93.241.20:5000/token/\(loggedin_username)")!
+        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+            guard let data = data else { return }
+            self.accessToken = String(data: data, encoding: .utf8)!
         }
         task.resume()
+        sleep(1)
+    }
+
+    
+    private func showDefaultDisplay() {
+        // configure access token, if (acceeToken == ...) {}
+        if (accessToken == "") {
+            requestToken()
+        }
+        print("token: ", self.accessToken)
+        
         let connectOptions = ConnectOptions(token: accessToken) { (builder) in
            if let audioTrack = self.localAudioTrack {
                builder.audioTracks = [audioTrack]
@@ -243,8 +235,7 @@ class ChatRoomVC: UIViewController {
             sender.isEnabled = false
             // (sender as AnyObject).isEnabled = false
         }
-        // Go back to previous contact profile
-        performSegue(withIdentifier: "showTranscript", sender: self)
+        // performSegue(withIdentifier: "showTranscript", sender: self)
         // performSegue(withIdentifier: "disconnectToContactProfile", sender: self)
     }
     
@@ -262,13 +253,10 @@ class ChatRoomVC: UIViewController {
 //        //performSegue(withIdentifier: "showTranscript", sender: self)
 //        // performSegue(withIdentifier: "disconnectToContactProfile", sender: self)
 //    }
-    
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showTranscript" {
-            // let destinate_vc = segue.destination as? ContactProfileViewController // ViewController
-            // destinate_vc?.contact_temp_name = contact_temp_name
-            // destinate_vc.contact_profile = people_profile_lists[]
+        if (segue.identifier == "showTranscript") {
             if let destinate_vc = segue.destination as? AfterCallTranscriptVC {
                 destinate_vc.contents = contents
                 // destinate_vc.contents = ["hello", "Nice"]

@@ -8,6 +8,15 @@ from django.http import JsonResponse, HttpResponse
 from django.db import connection
 import threading
 
+@csrf_exempt
+def calltest(request):
+ if request.method != 'POST':
+     return HttpResponse(status=404)
+ json_data = json.loads(request.body)
+ user_name = json_data["user"]
+ return JsonResponse({"user_name": user_name})
+
+
 
 def getchatts(request):
  if request.method != 'GET':
