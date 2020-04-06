@@ -8,22 +8,48 @@
 
 import UIKit
 
+/*extension UIView {
+    @discardableResult
+    func applyGradient(colors: [UIColor]) -> CAGradientLayer {
+        return self.applyGradient(colors: colors, locations: nil)
+    }
+
+    @discardableResult
+    func applyGradient(colors: [UIColor], locations: [NSNumber]?) -> CAGradientLayer {
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame = self.bounds
+        gradient.colors = colors.map { $0.cgColor }
+        gradient.locations = locations
+        self.layer.insertSublayer(gradient, at: 0)
+        return gradient
+    }
+}*/
+
 class EditProfileViewController: UIViewController {
 
+    @IBOutlet weak var userNameField: UITextField!
+    @IBOutlet weak var bioField: UITextField!
+    
+    @IBOutlet weak var textView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        userNameField.delegate = self
+        bioField.delegate = self
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func enterTapped(_ sender: Any) {
+        textView.text = "User Name: \(userNameField.text!)\nBio: \(bioField.text!)"
     }
-    */
+}
 
+extension EditProfileViewController : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true
+    }
+    
 }
