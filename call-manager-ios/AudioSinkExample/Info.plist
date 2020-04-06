@@ -28,6 +28,11 @@
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>${PRODUCT_NAME} uses your camera to capture video which is shared with other Participants.</string>
 	<key>NSMicrophoneUsageDescription</key>

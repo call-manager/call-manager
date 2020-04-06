@@ -15,25 +15,29 @@ class AfterCallTranscriptVC: UIViewController, UITableViewDataSource, UITableVie
     
     @IBOutlet weak var AfterCallTableView: UITableView!
     
-    var contents: [String] = []
-    
+    var translated_contents: [String] = []
+    var raw_contents: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.AfterCallTableView.rowHeight = 44.0
         // Do any additional setup after loading the view.
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contents.count
+        return translated_contents.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TranscriptCell") as? AfterCallTableViewCell else {
             return UITableViewCell()
         }
-        cell.transcript_label.text = contents[indexPath.row]  // cell.transcript_label.text
-        print("content: ", contents[indexPath.row])
+        cell.transcript_label.lineBreakMode=NSLineBreakMode.byWordWrapping
+        cell.transcript_label.text = translated_contents[indexPath.row]  // cell.transcript_label.text
+        cell.raw_label.lineBreakMode=NSLineBreakMode.byWordWrapping
+        cell.raw_label.text = raw_contents[indexPath.row]
+        print("translated_content: ", translated_contents[indexPath.row])
         return cell
     }
     

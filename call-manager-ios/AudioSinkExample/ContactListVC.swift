@@ -11,6 +11,9 @@ import UIKit
 
 class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
+    let loggedin_username: String = UserDefaults.standard.string(forKey: "username") ?? "NULL"
+    
+    @IBOutlet weak var loggedin_username_label: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
    
     @IBOutlet weak var contactListTable: UITableView!
@@ -24,16 +27,31 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     var timer = Timer()
     var called = false
     //caller user_name
-    var name = "alex16"
-
+    var name = "alex17"
     
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loggedin_username_label.text = "log in as \(loggedin_username )"
+        
         setUpPeopleProfiles()
         setUpSearchBar()
+        
+//        SocketIOManager.socket.on("receive") { (caller_callee, ack) -> Void in
+//            if let dict = caller_callee[0] as? [String: String] {
+//                let caller = dict["caller"]
+//                let callee = dict["callee"]
+//                // if callee == myself, receive the call
+//                if (callee == self.loggedin_username) {
+//                    print("Someone is calling me! CALLER: ", caller ?? "None", ", CALLEE: ", callee ?? "None")
+//                    // notification goes here
+//                    self.showCallNoti(title: "Incoming call from \(caller ?? "NULL")", message: "")
+//                }
+//            }
+//        }//SocketIOManager.socket.on
+        
         self.ask_server()
     }
 
@@ -75,23 +93,28 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
                 print("incoming call")            }
             catch let error as NSError {
                 print(error)
-                
+
                 }
             }
             task.resume()
             sleep(1)
         }
-        
+
     }
     
   
     
     private func setUpPeopleProfiles() {
 
-        people_profile_lists.append(PeopleProfile(name: "Doggo", email: "doggo@umich.edu", image: "contact_1"))
-        people_profile_lists.append(PeopleProfile(name: "doggo's uncle", email: "whyitsacat@gmail.com", image: "contact_2"))
-        people_profile_lists.append(PeopleProfile(name: "A 17lb cat go", email: "notspicy@gmail.com", image: "contact_3"))
-        people_profile_lists.append(PeopleProfile(name: "Doggo's pet", email: "2ha@gmail.com", image: "contact_4"))
+        // testing fake users, replace after setting up db
+        if (loggedin_username != "alice") {
+            people_profile_lists.append(PeopleProfile(name: "alice", email: "alice@umich.edu", image: "contact_1"))
+        }
+        if (loggedin_username != "bob") {
+            people_profile_lists.append(PeopleProfile(name: "bob", email: "bob@gmail.com", image: "contact_2"))
+        }
+//        people_profile_lists.append(PeopleProfile(name: "A 17lb cat go", email: "notspicy@gmail.com", image: "contact_3"))
+//        people_profile_lists.append(PeopleProfile(name: "Doggo's pet", email: "2ha@gmail.com", image: "contact_4"))
         
         current_people_profile_lists = people_profile_lists
     }
@@ -180,12 +203,30 @@ class PeopleProfile {
 }
 
 
-
 extension UIViewController {
+    func showCallNoti(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        // if ok, redirect to chatroom
+        let acceptAction = UIAlertAction(title: "Accept", style: .default) { (_) -> Void in
+
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            guard let destinationVC = mainStoryboard.instantiateViewController(withIdentifier: "ChatRoomVC") as? ChatRoomVC else {
+                print("couldnt find ChatRoomVC")
+                return
+            }
+            // destinationVC.modalTransitionStyle = .partialCurl
+            self.present(destinationVC, animated: true, completion: nil)
+        
+        }
+        alertController.addAction(acceptAction)
+        let rejectAction = UIAlertAction(title: "Reject", style: .default, handler: nil)
+        alertController.addAction(rejectAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
     func showNotification(title: String, message: String)
     {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        // if ok, redirect to chatroom
         let acceptAction = UIAlertAction(title: "Yes", style: .default) { (_) -> Void in
             // self.performSegue(withIdentifier: "showTranscript", sender: self)
             self.performSegue(withIdentifier: "showTranscript", sender: self)

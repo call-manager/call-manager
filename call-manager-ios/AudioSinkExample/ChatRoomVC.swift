@@ -4,11 +4,11 @@ import TwilioVideo
 
 class ChatRoomVC: UIViewController {
 
-    
+    let loggedin_username: String = UserDefaults.standard.string(forKey: "username") ?? "NULL"
 
-    var accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzQ1NDQ3ZjY3OWEwODZmMjc1ZTgxNzlhYTNhNTdiM2Y2LTE1ODUwMTU4NjYiLCJncmFudHMiOnsiaWRlbnRpdHkiOiJNdXNoeUJvYmJ5R3Vuc2lnaHQiLCJ2aWRlbyI6e319LCJpYXQiOjE1ODUwMTU4NjYsImV4cCI6MTU4NTAxOTQ2NiwiaXNzIjoiU0s0NTQ0N2Y2NzlhMDg2ZjI3NWU4MTc5YWEzYTU3YjNmNiIsInN1YiI6IkFDNmYxMmIzNGY4OTJkM2Y0YWVkZWNmZDU3NDc2YWRlNWQifQ.maxgY0eogX4G0bmjMjeAfn_T49viFGVApju6cTb--yE"
-
-    var contents: [String] = [""]
+    var accessToken = ""
+    var translated_contents: [String] = [""]
+    var raw_contents: [String] = [""]
     
     let tokenUrl = ""
     let recordAudio = true
@@ -117,11 +117,28 @@ class ChatRoomVC: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+
+    func requestToken() {
+        // let tokenURL = "https://your-server-here/token"
+        let url = URL(string: "https://viola-flask-server.herokuapp.com/token/\(loggedin_username)")!
+        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+            guard let data = data else { return }
+            self.accessToken = String(data: data, encoding: .utf8)!
+        }
+        task.resume()
+        sleep(1)
+    }
+    
     //callee username
-    var name2 = "alex17"
+    var name2 = "alex16"
     private func showDefaultDisplay() {
         // configure access token, if (acceetoken == ...) {}
-       // Preparing the connect options with the access token that we fetched (or hardcoded).
+        // configure access token, if (acceeToken == ...) {}
+        if (accessToken == "") {
+            requestToken()
+        }
+        print("token: ", self.accessToken)
         //tells server that you are calling other user.
         let requestURL = "http://167.172.255.230/call/"
         var request = URLRequest(url: URL(string: requestURL)!)
@@ -270,7 +287,8 @@ class ChatRoomVC: UIViewController {
             // destinate_vc?.contact_temp_name = contact_temp_name
             // destinate_vc.contact_profile = people_profile_lists[]
             if let destinate_vc = segue.destination as? AfterCallTranscriptVC {
-                destinate_vc.contents = contents
+                destinate_vc.translated_contents = translated_contents
+                destinate_vc.raw_contents = raw_contents
                 // destinate_vc.contents = ["hello", "Nice"]
             }
         }
@@ -466,58 +484,59 @@ class ChatRoomVC: UIViewController {
     
     func recognizeAudio(audioTrack: AudioTrack, identifier: String) {
         self.speechRecognizer = ExampleSpeechRecognizer(audioTrack: audioTrack,
-                                                        identifier: identifier,
-                                                     resultHandler: { (result, error) in
-                                                                if let validResult = result {
-                                                                    var final = ""
-                                                                    let text = validResult.bestTranscription.formattedString
-                                                                    
-                                                                    print(text)
-                                                                    
-                                                                    
-                                                                    let requestURL = "https://translation.googleapis.com/language/translate/v2?key=AIzaSyAw8vknKlbFIDBexnVMjyCcdDVVjfp_y9E"
-                                                                    let token = ""
-                                                                    var request = URLRequest(url: URL(string: requestURL)!)
-                                                                    request.httpMethod = "POST"
-                                                                    let t = try? JSONSerialization.data(withJSONObject: ["q": [text], "target": "de",])
-                                                                    request.httpBody = t
-                                                                    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                                                                    let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let _ = data, error == nil else {
-                                                                        print("NETWORKING ERROR")
-                                                                        return
-                                                                    }
-                                                                    if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-                                                                        print("HTTP STATUS: \(httpStatus.statusCode)")
+            identifier: identifier,
+         resultHandler: { (result, error) in
+            if let validResult = result {
+                var final = ""
+                let text = validResult.bestTranscription.formattedString
+                
+                print(text)
+                self.raw_contents.append(text)
+                
+                let requestURL = "https://translation.googleapis.com/language/translate/v2?key=AIzaSyAw8vknKlbFIDBexnVMjyCcdDVVjfp_y9E"
+                // let token = ""
+                var request = URLRequest(url: URL(string: requestURL)!)
+                request.httpMethod = "POST"
+                let t = try? JSONSerialization.data(withJSONObject: ["q": [text], "target": "de",])
+                request.httpBody = t
+                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let _ = data, error == nil else {
+                    print("NETWORKING ERROR")
+                    return
+                }
+                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                    print("HTTP STATUS: \(httpStatus.statusCode)")
 
-                                                                        return
-                                                                    }
-                                                                    do {
-                                                                        let json = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as? [String: Any]
-                                                                        let d = json!["data"] as? [String: Any]
-                                                                        let k = d!["translations"] as? [[String: Any]]
-                                                                        final = (k![0]["translatedText"] as? String)!
-                                                                        print(k as Any)
-                                                                        print(final as Any)
-                                                                        print(token)
-                                                                        self.contents.append(final)                                                                    }
-                                                                    catch let error as NSError {
-                                                                        print(error)
-                                                                        
-                                                                        }
-                                                                    }
-                                                                    task.resume()
-                                                                    sleep(1)
-                                                                    self.speechLabel?.text = final                                                              } else if let error = error {
-                                                                    self.speechLabel?.text = error.localizedDescription
-                                                                    self.stopRecognizingAudio()
-                                                                }
+                    return
+                }
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as? [String: Any]
+                    let d = json!["data"] as? [String: Any]
+                    let k = d!["translations"] as? [[String: Any]]
+                    final = (k![0]["translatedText"] as? String)!
+                    print(k as Any) // [["translatedText": dank, "detectedSourceLanguage": en]]
+                    print(final as Any) // ich dank dir
+                    print("======") //
+                    self.translated_contents.append(final)
+                }
+                catch let error as NSError {
+                    print(error)
+                    
+                    }
+                }
+                task.resume()
+                sleep(1)
+                self.speechLabel?.text = final                                                              } else if let error = error {
+                self.speechLabel?.text = error.localizedDescription
+                self.stopRecognizingAudio()
+            }
 
-                                                                UIView.animate(withDuration: 0.1, animations: {
-                                                                    self.view.setNeedsLayout()
-                                                                    self.view.layoutIfNeeded()
-                                                                })
+            UIView.animate(withDuration: 0.1, animations: {
+                self.view.setNeedsLayout()
+                self.view.layoutIfNeeded()
+            })
         })
-    }
+    }//recognizeAudio
     
     func prepareLocalMedia() {
         // Create an audio track.
