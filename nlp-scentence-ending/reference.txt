@@ -1,0 +1,6 @@
+based on grammer
+http://www.nltk.org/book_1ed/ch08.html
+
+summarization
+https://nlpforhackers.io/textrank-text-summarization/
+

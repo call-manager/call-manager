@@ -24,6 +24,9 @@ from google.cloud import translate_v2
 
 # client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
+# http://www.nltk.org/book_1ed/ch08.html
+# https://towardsdatascience.com/introduction-to-natural-language-processing-for-text-df845750fb63
+
 app = Flask(__name__)
 sockets = Sockets(app)
 
