@@ -13,7 +13,6 @@
 		830A4B9724246C620063C037 /* ContactListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830A4B9624246C620063C037 /* ContactListTableViewCell.swift */; };
 		8377B4D02425C331002B339D /* ContactProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377B4CF2425C331002B339D /* ContactProfileViewController.swift */; };
 		839CC8ED2425F2B2009422CE /* ChatRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839CC8EC2425F2B2009422CE /* ChatRoomVC.swift */; };
-		83A0EBDD243B162C008FA668 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A0EBDC243B162C008FA668 /* SocketIOManager.swift */; };
 		83A0EBDF243B28A6008FA668 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A0EBDE243B28A6008FA668 /* LoginViewController.swift */; };
 		83A4E71024299D44008F6130 /* AfterCallTranscriptVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4E70F24299D44008F6130 /* AfterCallTranscriptVC.swift */; };
 		83A4E71224299DE2008F6130 /* AfterCallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4E71124299DE2008F6130 /* AfterCallTableViewCell.swift */; };
@@ -28,6 +27,7 @@
 		8A6C2E691FAD4DAC008EB058 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6C2E5F1FAD3EAC008EB058 /* Settings.swift */; };
 		8A6C2E6A1FAD4DAF008EB058 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6C2E601FAD3EAC008EB058 /* SettingsTableViewController.swift */; };
 		8A6C2E6B1FAD4DB3008EB058 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6C2E611FAD3EAC008EB058 /* Utils.swift */; };
+		AC1DFF20243BA16B0087BBDF /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1DFF1F243BA16B0087BBDF /* EditProfileViewController.swift */; };
 		AC9D65502427FE360067121D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D654F2427FE360067121D /* ProfileViewController.swift */; };
 		C5B126742439C3C00012985A /* SettingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B126732439C3C00012985A /* SettingPageVC.swift */; };
 /* End PBXBuildFile section */
@@ -41,7 +41,6 @@
 		830A4B9624246C620063C037 /* ContactListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListTableViewCell.swift; sourceTree = "<group>"; };
 		8377B4CF2425C331002B339D /* ContactProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactProfileViewController.swift; sourceTree = "<group>"; };
 		839CC8EC2425F2B2009422CE /* ChatRoomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomVC.swift; sourceTree = "<group>"; };
-		83A0EBDC243B162C008FA668 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		83A0EBDE243B28A6008FA668 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		83A4E70F24299D44008F6130 /* AfterCallTranscriptVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterCallTranscriptVC.swift; sourceTree = "<group>"; };
 		83A4E71124299DE2008F6130 /* AfterCallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterCallTableViewCell.swift; sourceTree = "<group>"; };
@@ -62,6 +61,7 @@
 		8A6C2E651FAD48DB008EB058 /* ExampleSpeechRecognizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExampleSpeechRecognizer.h; sourceTree = "<group>"; };
 		8A6C2E661FAD48DB008EB058 /* ExampleSpeechRecognizer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleSpeechRecognizer.m; sourceTree = "<group>"; };
 		8A7FE3B51FAD6409003A4C41 /* AudioSinks-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AudioSinks-Bridging-Header.h"; sourceTree = "<group>"; };
+		AC1DFF1F243BA16B0087BBDF /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		AC9D654F2427FE360067121D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C5B126732439C3C00012985A /* SettingPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPageVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,7 +107,6 @@
 				8A6C2E4D1FAD3AD2008EB058 /* ViewController.swift */,
 				8A6C2E4F1FAD3AD2008EB058 /* Main.storyboard */,
 				83A0EBDE243B28A6008FA668 /* LoginViewController.swift */,
-				83A0EBDC243B162C008FA668 /* SocketIOManager.swift */,
 				C5B126732439C3C00012985A /* SettingPageVC.swift */,
 				AC9D654F2427FE360067121D /* ProfileViewController.swift */,
 				839CC8EC2425F2B2009422CE /* ChatRoomVC.swift */,
@@ -120,6 +119,7 @@
 				6162A0EA24252FC200A98E82 /* Icon.png */,
 				83A4E70F24299D44008F6130 /* AfterCallTranscriptVC.swift */,
 				83A4E71124299DE2008F6130 /* AfterCallTableViewCell.swift */,
+				AC1DFF1F243BA16B0087BBDF /* EditProfileViewController.swift */,
 			);
 			path = AudioSinkExample;
 			sourceTree = "<group>";
@@ -290,8 +290,8 @@
 				8A6C2E671FAD48EC008EB058 /* ExampleAudioRecorder.m in Sources */,
 				8377B4D02425C331002B339D /* ContactProfileViewController.swift in Sources */,
 				8A6C2E6A1FAD4DAF008EB058 /* SettingsTableViewController.swift in Sources */,
+				AC1DFF20243BA16B0087BBDF /* EditProfileViewController.swift in Sources */,
 				8A6C2E6B1FAD4DB3008EB058 /* Utils.swift in Sources */,
-				83A0EBDD243B162C008FA668 /* SocketIOManager.swift in Sources */,
 				8A6C2E4E1FAD3AD2008EB058 /* ViewController.swift in Sources */,
 				83A4E71224299DE2008F6130 /* AfterCallTableViewCell.swift in Sources */,
 				830A4B9724246C620063C037 /* ContactListTableViewCell.swift in Sources */,
