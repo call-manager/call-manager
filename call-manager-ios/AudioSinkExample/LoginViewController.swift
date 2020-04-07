@@ -24,6 +24,9 @@ class LoginViewController: UIViewController {
             
             self.performSegue(withIdentifier: "LoginSegue", sender: self)
         }
+        else{
+            self.performSegue(withIdentifier: "loginFailPage", sender: self)
+        }
     }
     
     
