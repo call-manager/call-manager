@@ -169,7 +169,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ol-Sg-vPE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="111" y="-271"/>
+            <point key="canvasLocation" x="82" y="-380"/>
         </scene>
         <!--SettingPage-->
         <scene sceneID="0AO-hN-HV9">
@@ -272,6 +272,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="Ve0-hr-Bjq"/>
                     <navigationItem key="navigationItem" id="yLe-hH-xYl"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rDy-Ns-h1e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -319,7 +320,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sj2-or-Gpz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1372" y="-1823"/>
+            <point key="canvasLocation" x="81" y="-1815"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="wgo-LP-Ott">
@@ -375,7 +376,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1372" y="-1103"/>
+            <point key="canvasLocation" x="81" y="-1101"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="xNK-3s-0zB">
@@ -394,7 +395,7 @@
                     <navigationItem key="navigationItem" id="7Hr-LF-P8r"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2094" y="-346"/>
+            <point key="canvasLocation" x="3564" y="-348"/>
         </scene>
         <!--Contact ListVC-->
         <scene sceneID="E13-Eb-BQr">
@@ -426,14 +427,6 @@
                                         <nil key="textColor"/>
                                         <color key="highlightedColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QiP-Kk-lwT">
-                                        <rect key="frame" x="339" y="18" width="29" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Setting" image="setting"/>
-                                        <connections>
-                                            <segue destination="7K3-Wu-jNI" kind="show" id="JLC-JI-C2E"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -510,6 +503,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="contacts" id="KNO-lu-Ag6"/>
                     <navigationItem key="navigationItem" id="Hyq-LY-lkq"/>
                     <connections>
                         <outlet property="contactListTable" destination="ABc-va-yC7" id="4Ug-pl-Kft"/>
@@ -521,7 +515,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuQ-Lf-APh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1513" y="356"/>
+            <point key="canvasLocation" x="-986" y="356"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="nZR-qd-fY9">
@@ -709,7 +703,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j4S-IC-wmZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="62" y="356"/>
+            <point key="canvasLocation" x="-30" y="356"/>
         </scene>
         <!--Chat RoomVC-->
         <scene sceneID="bad-LB-s0p">
@@ -766,7 +760,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V4J-Xz-x9Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="954" y="356"/>
+            <point key="canvasLocation" x="1001" y="356"/>
         </scene>
         <!--After Call TranscriptVC-->
         <scene sceneID="qV9-qq-0mC">
@@ -845,7 +839,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbP-2l-9pT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1871" y="356"/>
+            <point key="canvasLocation" x="2028" y="356"/>
         </scene>
         <!--Recordings View Controller-->
         <scene sceneID="wUB-AF-7Qq">
@@ -952,7 +946,7 @@
                         <outlet property="LoginButton" destination="GPn-ok-lPE" id="lMp-oI-75U"/>
                         <outlet property="password" destination="Wwr-Q0-mig" id="TjM-uT-Dpt"/>
                         <outlet property="username" destination="yq8-2I-DyL" id="rt6-Q2-nIt"/>
-                        <segue destination="Upi-Cb-T6s" kind="show" identifier="LoginSegue" id="i0Y-fK-LyX"/>
+                        <segue destination="1yQ-6M-55G" kind="show" identifier="LoginSegue" id="i0Y-fK-LyX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d07-KZ-iGq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1028,7 +1022,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4L8-r1-qVi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-986.39999999999998" y="1134.7826086956522"/>
+            <point key="canvasLocation" x="-178" y="1135"/>
         </scene>
         <!--Transcript View-->
         <scene sceneID="QBT-Fg-WJM">
@@ -1069,7 +1063,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="woV-ge-fTi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-250.40000000000001" y="1134.7826086956522"/>
+            <point key="canvasLocation" x="1001" y="1135"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="F15-kb-L0f">
@@ -1088,7 +1082,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3bO-3Q-v8B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1703.2" y="1134.7826086956522"/>
+            <point key="canvasLocation" x="-986" y="1135"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Kd-KQ-6TU">
@@ -1106,7 +1100,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="1167" y="-347"/>
+            <point key="canvasLocation" x="2495" y="-349"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZbH-bz-K7T">
@@ -1126,11 +1120,30 @@
             </objects>
             <point key="canvasLocation" x="-3596" y="356"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="uJ9-7O-wgP">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="1yQ-6M-55G" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Lkr-cP-uJo">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Upi-Cb-T6s" kind="relationship" relationship="viewControllers" id="DoN-3u-A1z"/>
+                        <segue destination="fzU-nb-cNF" kind="relationship" relationship="viewControllers" id="0ha-nw-9OY"/>
+                        <segue destination="7K3-Wu-jNI" kind="relationship" relationship="viewControllers" id="jcV-wC-PIy"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ndj-eT-Lkz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1703.2" y="355.7721139430285"/>
+        </scene>
     </scenes>
     <resources>
         <image name="User" width="231" height="206"/>
         <image name="photo" width="64" height="46"/>
-        <image name="setting" width="128" height="128"/>
+        <image name="settings" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="NZf-4B-ILp"/>
