@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Edit Profile View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="mm8-uQ-Qcu">
             <objects>
-                <viewController id="76b-gM-ecA" customClass="EditProfileViewController" customModule="Voila" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="76b-gM-ecA" customClass="ProfileViewController" customModule="Voila" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KSh-N5-81l"/>
                         <viewControllerLayoutGuide type="bottom" id="aiQ-25-Z88"/>
@@ -46,27 +46,27 @@
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add a user name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P6L-yU-nq6">
-                                                <rect key="frame" x="16" y="180.5" width="343" height="22"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Mia" placeholder="User name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P6L-yU-nq6">
+                                                <rect key="frame" x="16" y="180.5" width="343" height="23"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="nameField"/>
                                                 <fontDescription key="fontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B9B-qD-WN0">
-                                                <rect key="frame" x="16" y="204.5" width="343" height="1"/>
+                                                <rect key="frame" x="16" y="205.5" width="343" height="1"/>
                                                 <color key="backgroundColor" systemColor="tertiaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="KKY-vB-v49"/>
                                                 </constraints>
                                             </view>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Validation user name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpE-bD-fmD">
-                                                <rect key="frame" x="16" y="211.5" width="343" height="17"/>
+                                                <rect key="frame" x="16" y="212.5" width="343" height="17"/>
                                                 <fontDescription key="fontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="12"/>
                                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BIO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEx-jf-pvj">
-                                                <rect key="frame" x="16" y="227.5" width="343" height="21"/>
+                                                <rect key="frame" x="16" y="228.5" width="343" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -112,32 +112,10 @@
                                                     <action selector="addPhoto2:" destination="76b-gM-ecA" eventType="touchUpInside" id="KZE-oG-lOQ"/>
                                                 </connections>
                                             </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add a bio" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IcS-5S-qUa">
-                                                <rect key="frame" x="16" y="260.5" width="343" height="22"/>
-                                                <accessibility key="accessibilityConfiguration" identifier="nameField"/>
-                                                <fontDescription key="fontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxL-ua-MHJ">
-                                                <rect key="frame" x="16" y="284.5" width="343" height="1"/>
-                                                <color key="backgroundColor" systemColor="tertiaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="1" id="Zax-PB-42U"/>
-                                                </constraints>
-                                            </view>
-                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Validation bio" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYV-98-FSs">
-                                                <rect key="frame" x="16" y="291.5" width="343" height="17"/>
-                                                <fontDescription key="fontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="12"/>
-                                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="21A-vG-NzN" firstAttribute="centerX" secondItem="dWO-VY-e6C" secondAttribute="centerX" id="2np-yz-2Xl"/>
-                                            <constraint firstAttribute="trailing" secondItem="cxL-ua-MHJ" secondAttribute="trailing" constant="16" id="3u3-ZW-T4l"/>
-                                            <constraint firstItem="yYV-98-FSs" firstAttribute="leading" secondItem="Q9l-KZ-3xk" secondAttribute="leading" constant="16" id="3yX-LG-pPb"/>
-                                            <constraint firstAttribute="trailing" secondItem="yYV-98-FSs" secondAttribute="trailing" constant="16" id="4CY-y5-wde"/>
                                             <constraint firstItem="sjS-XM-qsN" firstAttribute="top" secondItem="7Ey-PI-mCP" secondAttribute="bottom" constant="22.000000000000057" id="4IE-HT-xxE"/>
                                             <constraint firstItem="mPO-b4-z4s" firstAttribute="centerX" secondItem="sFo-lu-Jeu" secondAttribute="centerX" id="55d-iG-Zc1"/>
                                             <constraint firstItem="bjU-ME-3h0" firstAttribute="leading" secondItem="Q9l-KZ-3xk" secondAttribute="leading" constant="12" id="7fA-3V-kPn"/>
@@ -147,16 +125,11 @@
                                             <constraint firstItem="FEx-jf-pvj" firstAttribute="leading" secondItem="Q9l-KZ-3xk" secondAttribute="leading" constant="16" id="H7H-Ea-gBZ"/>
                                             <constraint firstAttribute="trailing" secondItem="bjU-ME-3h0" secondAttribute="trailing" constant="16" id="HwK-Vv-d9r"/>
                                             <constraint firstItem="mPO-b4-z4s" firstAttribute="centerY" secondItem="sFo-lu-Jeu" secondAttribute="centerY" id="Hy7-9O-iAa"/>
-                                            <constraint firstItem="cxL-ua-MHJ" firstAttribute="leading" secondItem="Q9l-KZ-3xk" secondAttribute="leading" constant="16" id="Ihu-uK-UsJ"/>
                                             <constraint firstItem="hpE-bD-fmD" firstAttribute="leading" secondItem="Q9l-KZ-3xk" secondAttribute="leading" constant="16" id="LRu-Fy-uyH"/>
-                                            <constraint firstAttribute="trailing" secondItem="IcS-5S-qUa" secondAttribute="trailing" constant="16" id="MEF-iC-ggn"/>
                                             <constraint firstAttribute="trailing" secondItem="sFo-lu-Jeu" secondAttribute="trailing" constant="17" id="N0o-Ke-ZNq"/>
                                             <constraint firstItem="7Ey-PI-mCP" firstAttribute="leading" secondItem="Q9l-KZ-3xk" secondAttribute="leading" constant="16" id="SCd-oz-1hX"/>
                                             <constraint firstItem="dWO-VY-e6C" firstAttribute="top" secondItem="bjU-ME-3h0" secondAttribute="bottom" constant="7" id="TFM-h5-pHP"/>
-                                            <constraint firstItem="yYV-98-FSs" firstAttribute="top" secondItem="cxL-ua-MHJ" secondAttribute="bottom" constant="6" id="b6i-v6-xqL"/>
-                                            <constraint firstAttribute="trailing" secondItem="cxL-ua-MHJ" secondAttribute="trailing" constant="16" id="dPE-UL-EkS"/>
                                             <constraint firstItem="dWO-VY-e6C" firstAttribute="leading" secondItem="7Ey-PI-mCP" secondAttribute="trailing" constant="35" id="ekg-Cc-DeB"/>
-                                            <constraint firstItem="IcS-5S-qUa" firstAttribute="leading" secondItem="Q9l-KZ-3xk" secondAttribute="leading" constant="16" id="ez1-jD-AZV"/>
                                             <constraint firstAttribute="trailing" secondItem="1iu-sn-dq7" secondAttribute="trailing" constant="16" id="hD5-Os-5ib"/>
                                             <constraint firstItem="B9B-qD-WN0" firstAttribute="leading" secondItem="Q9l-KZ-3xk" secondAttribute="leading" constant="16" id="hF2-gm-Vgu"/>
                                             <constraint firstItem="dWO-VY-e6C" firstAttribute="centerX" secondItem="Q9l-KZ-3xk" secondAttribute="centerX" id="hKm-AQ-pn3"/>
@@ -165,14 +138,11 @@
                                             <constraint firstItem="B9B-qD-WN0" firstAttribute="top" secondItem="P6L-yU-nq6" secondAttribute="bottom" constant="2" id="k4d-gs-Vma"/>
                                             <constraint firstAttribute="trailing" secondItem="B9B-qD-WN0" secondAttribute="trailing" constant="16" id="kna-zo-s5S"/>
                                             <constraint firstAttribute="trailing" secondItem="hpE-bD-fmD" secondAttribute="trailing" constant="16" id="krz-Uq-qde"/>
-                                            <constraint firstItem="IcS-5S-qUa" firstAttribute="top" secondItem="FEx-jf-pvj" secondAttribute="bottom" constant="12" id="mb2-Dn-3gt"/>
                                             <constraint firstItem="sjS-XM-qsN" firstAttribute="leading" secondItem="Q9l-KZ-3xk" secondAttribute="leading" constant="12" id="nyR-BG-VET"/>
-                                            <constraint firstItem="cxL-ua-MHJ" firstAttribute="leading" secondItem="Q9l-KZ-3xk" secondAttribute="leading" constant="16" id="rpa-DH-nsY"/>
                                             <constraint firstItem="FEx-jf-pvj" firstAttribute="top" secondItem="B9B-qD-WN0" secondAttribute="bottom" constant="22" id="rtU-Pi-qPi"/>
                                             <constraint firstItem="sFo-lu-Jeu" firstAttribute="leading" secondItem="dWO-VY-e6C" secondAttribute="trailing" constant="34" id="s8b-fV-vyp"/>
                                             <constraint firstAttribute="trailing" secondItem="P6L-yU-nq6" secondAttribute="trailing" constant="16" id="uWU-mt-Ds5"/>
                                             <constraint firstAttribute="trailing" secondItem="FEx-jf-pvj" secondAttribute="trailing" constant="16" id="uqU-Ql-Vaj"/>
-                                            <constraint firstItem="cxL-ua-MHJ" firstAttribute="top" secondItem="IcS-5S-qUa" secondAttribute="bottom" constant="2" id="vDp-eq-0hT"/>
                                             <constraint firstItem="hpE-bD-fmD" firstAttribute="top" secondItem="B9B-qD-WN0" secondAttribute="bottom" constant="6" id="vb1-96-oqu"/>
                                             <constraint firstItem="bjU-ME-3h0" firstAttribute="top" secondItem="Q9l-KZ-3xk" secondAttribute="top" constant="16" id="xIO-kF-OMZ"/>
                                             <constraint firstItem="21A-vG-NzN" firstAttribute="leading" secondItem="dWO-VY-e6C" secondAttribute="leading" id="xjp-Cx-zKt"/>
@@ -1220,7 +1190,7 @@
         <image name="setting" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NZf-4B-ILp"/>
+        <segue reference="K4i-rb-VL0"/>
         <segue reference="s2M-Cb-1pR"/>
         <segue reference="wfO-hU-wDy"/>
     </inferredMetricsTieBreakers>
