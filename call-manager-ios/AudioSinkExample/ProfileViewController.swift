@@ -10,12 +10,6 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-	
-	@IBOutlet weak var nameField: UITextField!
-    @IBOutlet weak var bioField: UITextField!
-    
-    
-    @IBOutlet weak var textView: UITextView!
     
     @IBOutlet weak var photo1: UIImageView!
 	
@@ -32,24 +26,24 @@ class ProfileViewController: UIViewController {
 		sender.isHidden = true
 	}
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        nameField.delegate = self
-        bioField.delegate = self
-    }
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        nameField.delegate = self
+//        bioField.delegate = self
+//    }
     
-    @IBAction func enterTapped(_ sender: Any) {
-        textView.text = "User Name: \(nameField.text!)\nBio: \(bioField.text!)"
-    }
+//	@IBAction func enterTapped(_ sender: Any) {
+//        textView.text = "User Name: \(nameField.text!)\nBio: \(bioField.text!)"
+//    }
     
 }
 
 
-extension ProfileViewController : UITextFieldDelegate {
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-}
+//extension ProfileViewController : UITextFieldDelegate {
+//
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//        return true
+//    }
+//}
