@@ -13,7 +13,6 @@
 		830A4B9724246C620063C037 /* ContactListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830A4B9624246C620063C037 /* ContactListTableViewCell.swift */; };
 		8377B4D02425C331002B339D /* ContactProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377B4CF2425C331002B339D /* ContactProfileViewController.swift */; };
 		839CC8ED2425F2B2009422CE /* ChatRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839CC8EC2425F2B2009422CE /* ChatRoomVC.swift */; };
-		83A0EBDD243B162C008FA668 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A0EBDC243B162C008FA668 /* SocketIOManager.swift */; };
 		83A0EBDF243B28A6008FA668 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A0EBDE243B28A6008FA668 /* LoginViewController.swift */; };
 		83A4E71024299D44008F6130 /* AfterCallTranscriptVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4E70F24299D44008F6130 /* AfterCallTranscriptVC.swift */; };
 		83A4E71224299DE2008F6130 /* AfterCallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4E71124299DE2008F6130 /* AfterCallTableViewCell.swift */; };
@@ -41,7 +40,6 @@
 		830A4B9624246C620063C037 /* ContactListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListTableViewCell.swift; sourceTree = "<group>"; };
 		8377B4CF2425C331002B339D /* ContactProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactProfileViewController.swift; sourceTree = "<group>"; };
 		839CC8EC2425F2B2009422CE /* ChatRoomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomVC.swift; sourceTree = "<group>"; };
-		83A0EBDC243B162C008FA668 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		83A0EBDE243B28A6008FA668 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		83A4E70F24299D44008F6130 /* AfterCallTranscriptVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterCallTranscriptVC.swift; sourceTree = "<group>"; };
 		83A4E71124299DE2008F6130 /* AfterCallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterCallTableViewCell.swift; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 				8A6C2E4D1FAD3AD2008EB058 /* ViewController.swift */,
 				8A6C2E4F1FAD3AD2008EB058 /* Main.storyboard */,
 				83A0EBDE243B28A6008FA668 /* LoginViewController.swift */,
-				83A0EBDC243B162C008FA668 /* SocketIOManager.swift */,
 				C5B126732439C3C00012985A /* SettingPageVC.swift */,
 				AC9D654F2427FE360067121D /* ProfileViewController.swift */,
 				839CC8EC2425F2B2009422CE /* ChatRoomVC.swift */,
@@ -291,7 +288,6 @@
 				8377B4D02425C331002B339D /* ContactProfileViewController.swift in Sources */,
 				8A6C2E6A1FAD4DAF008EB058 /* SettingsTableViewController.swift in Sources */,
 				8A6C2E6B1FAD4DB3008EB058 /* Utils.swift in Sources */,
-				83A0EBDD243B162C008FA668 /* SocketIOManager.swift in Sources */,
 				8A6C2E4E1FAD3AD2008EB058 /* ViewController.swift in Sources */,
 				83A4E71224299DE2008F6130 /* AfterCallTableViewCell.swift in Sources */,
 				830A4B9724246C620063C037 /* ContactListTableViewCell.swift in Sources */,
