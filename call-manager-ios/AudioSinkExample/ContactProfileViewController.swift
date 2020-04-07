@@ -24,13 +24,19 @@ class ContactProfileViewController: UIViewController {
     
     @IBAction func callButtonAction(_ sender: Any) {
         
-//        print("socket status: ", SocketIOManager.socket.status)
-//
-//        let caller_callee = ["caller":loggedin_username, "callee":contact_profile!.name]
-//        SocketIOManager.socket.emit("call", caller_callee)
-//        print("calling: ", caller_callee)
-        // No matter the other person click yes/no, it will still go to chat room
-        performSegue(withIdentifier: "callSomeone", sender: self)
+        let caller_callee = ["caller":loggedin_username, "callee":contact_profile!.name]
+        SocketIOManager.socket.emit("call", caller_callee)
+        
+//        SocketIOManager.socket.on("call_accept") { (state, ack) -> Void in
+//            if let data = state[0] as? [String:Bool]  {
+//                let tmp = data["state"]
+//                // if tmp = true., segue
+//                print("###data: ", data)
+//                print("###State: ", tmp!)
+//                self.performSegue(withIdentifier: "callSomeone", sender: self)
+//            }
+//        }
+
     }
     
     override func viewDidLoad() {

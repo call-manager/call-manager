@@ -2,6 +2,7 @@ import UIKit
 import AVFoundation
 import TwilioVideo
 
+
 class ChatRoomVC: UIViewController {
 
     let loggedin_username: String = UserDefaults.standard.string(forKey: "username") ?? "NULL"
@@ -10,6 +11,7 @@ class ChatRoomVC: UIViewController {
     var translated_contents: [String] = [""]
     var raw_contents: [String] = [""]
     
+    var mute = false;
     let tokenUrl = ""
     let recordAudio = true
     
@@ -23,7 +25,10 @@ class ChatRoomVC: UIViewController {
     var speechRecognizer: ExampleSpeechRecognizer?
 
     // MARK:- UI Element Outlets and handles
-    @IBOutlet weak var connectButton: UIButton!
+    
+   
+    @IBOutlet weak var muteButton: UIButton!
+    
     @IBOutlet weak var disconnectButton: UIButton!
     
     @IBOutlet weak var messageLabel: UILabel!
@@ -131,43 +136,38 @@ class ChatRoomVC: UIViewController {
     }
     
     //callee username
-    var name2 = "alex16"
+    //var name2 = "alex17"
     private func showDefaultDisplay() {
-        // configure access token, if (acceetoken == ...) {}
-        // configure access token, if (acceeToken == ...) {}
         if (accessToken == "") {
             requestToken()
         }
         print("token: ", self.accessToken)
-        //tells server that you are calling other user.
-        let requestURL = "http://167.172.255.230/call/"
-        var request = URLRequest(url: URL(string: requestURL)!)
-        request.httpMethod = "POST"
-        let t = try? JSONSerialization.data(withJSONObject: ["user": name2])
-        request.httpBody = t
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let _ = data, error == nil else {
-            print("NETWORKING ERROR")
-            return
-        }
-        if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-            print("HTTP STATUS: \(httpStatus.statusCode)")
-
-            return
-        }
-        do {
-            let json = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as? [String: Any]
-            print(json as Any)
-            
-            // self.showNotification(title: "Incomming phone call", message: "")
-            
-        }
-        catch let error as NSError {
-            print(error)
-            
-            }
-        }
-        task.resume()
+//        //tells server that you are calling other user.
+//        let requestURL = "http://167.172.255.230/call/"
+//        var request = URLRequest(url: URL(string: requestURL)!)
+//        request.httpMethod = "POST"
+//        let t = try? JSONSerialization.data(withJSONObject: ["user": name2])
+//        request.httpBody = t
+//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//        let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let _ = data, error == nil else {
+//            print("NETWORKING ERROR")
+//            return
+//        }
+//        if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+//            print("HTTP STATUS: \(httpStatus.statusCode)")
+//
+//            return
+//        }
+//        do {
+//            let json = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as? [String: Any]
+//            print(json as Any)
+//        }
+//        catch let error as NSError {
+//            print(error)
+//
+//            }
+//        }
+//        task.resume()
         let connectOptions = ConnectOptions(token: accessToken) { (builder) in
            if let audioTrack = self.localAudioTrack {
                builder.audioTracks = [audioTrack]
@@ -208,6 +208,7 @@ class ChatRoomVC: UIViewController {
         
        self.dismissKeyboard() //
     }
+    
     
 
     @IBAction func connect(_ sender: Any) {
@@ -265,20 +266,19 @@ class ChatRoomVC: UIViewController {
         // performSegue(withIdentifier: "disconnectToContactProfile", sender: self)
     }
     
-//    @IBAction func disconnect(_ sender: UIButton) {
-//        if let room = self.room {
-//            logMessage(messageText: "Disconnecting from \(room.name)")
-//            room.disconnect()
-//            sender.isEnabled = false
-//        }
-//
-//        // Go back to previous contact profile
-//
-//        sleep(1)
-//        self.showNotification(title: "get transcript", message: "")
-//        //performSegue(withIdentifier: "showTranscript", sender: self)
-//        // performSegue(withIdentifier: "disconnectToContactProfile", sender: self)
-//    }
+    @IBAction func ClicktoMuteUnmute(_ sender: Any) {
+        if (!mute) {
+            // RemoteAudioTrack
+            localAudioTrack.isEnabled = false
+            mute = true
+            muteButton.setTitle("Unmute", for: .normal)
+        } else {
+            localAudioTrack.isEnabled = true
+            mute = false
+            muteButton.setTitle("Mute", for: .normal)
+        }
+    }
+    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -14,6 +14,7 @@
 		8377B4D02425C331002B339D /* ContactProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377B4CF2425C331002B339D /* ContactProfileViewController.swift */; };
 		839CC8ED2425F2B2009422CE /* ChatRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839CC8EC2425F2B2009422CE /* ChatRoomVC.swift */; };
 		83A0EBDF243B28A6008FA668 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A0EBDE243B28A6008FA668 /* LoginViewController.swift */; };
+		83A0EBE1243C5B6C008FA668 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A0EBE0243C5B6C008FA668 /* SocketIOManager.swift */; };
 		83A4E71024299D44008F6130 /* AfterCallTranscriptVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4E70F24299D44008F6130 /* AfterCallTranscriptVC.swift */; };
 		83A4E71224299DE2008F6130 /* AfterCallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4E71124299DE2008F6130 /* AfterCallTableViewCell.swift */; };
 		8A6598E51FB13ED6005A8849 /* RecordingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6598E41FB13ED6005A8849 /* RecordingsViewController.swift */; };
@@ -41,6 +42,7 @@
 		8377B4CF2425C331002B339D /* ContactProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactProfileViewController.swift; sourceTree = "<group>"; };
 		839CC8EC2425F2B2009422CE /* ChatRoomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomVC.swift; sourceTree = "<group>"; };
 		83A0EBDE243B28A6008FA668 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		83A0EBE0243C5B6C008FA668 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		83A4E70F24299D44008F6130 /* AfterCallTranscriptVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterCallTranscriptVC.swift; sourceTree = "<group>"; };
 		83A4E71124299DE2008F6130 /* AfterCallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterCallTableViewCell.swift; sourceTree = "<group>"; };
 		84C1B456BED1831FD78F0F90 /* libPods-TwilioVideo-AudioSinkExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TwilioVideo-AudioSinkExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +119,7 @@
 				6162A0EA24252FC200A98E82 /* Icon.png */,
 				83A4E70F24299D44008F6130 /* AfterCallTranscriptVC.swift */,
 				83A4E71124299DE2008F6130 /* AfterCallTableViewCell.swift */,
+				83A0EBE0243C5B6C008FA668 /* SocketIOManager.swift */,
 			);
 			path = AudioSinkExample;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				8A6598E51FB13ED6005A8849 /* RecordingsViewController.swift in Sources */,
 				839CC8ED2425F2B2009422CE /* ChatRoomVC.swift in Sources */,
 				C5B126742439C3C00012985A /* SettingPageVC.swift in Sources */,
+				83A0EBE1243C5B6C008FA668 /* SocketIOManager.swift in Sources */,
 				8A6C2E681FAD48EF008EB058 /* ExampleSpeechRecognizer.m in Sources */,
 				8A6C2E671FAD48EC008EB058 /* ExampleAudioRecorder.m in Sources */,
 				8377B4D02425C331002B339D /* ContactProfileViewController.swift in Sources */,

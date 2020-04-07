@@ -27,7 +27,7 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     var timer = Timer()
     var called = false
     //caller user_name
-    var name = "alex17"
+    var name = "alex16"
     
     
 
@@ -39,69 +39,96 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         setUpPeopleProfiles()
         setUpSearchBar()
         
-//        SocketIOManager.socket.on("receive") { (caller_callee, ack) -> Void in
-//            if let dict = caller_callee[0] as? [String: String] {
-//                let caller = dict["caller"]
-//                let callee = dict["callee"]
-//                // if callee == myself, receive the call
-//                if (callee == self.loggedin_username) {
-//                    print("Someone is calling me! CALLER: ", caller ?? "None", ", CALLEE: ", callee ?? "None")
-//                    // notification goes here
-//                    self.showCallNoti(title: "Incoming call from \(caller ?? "NULL")", message: "")
+        SocketIOManager.socket.on("receive") { (caller_callee, ack) -> Void in
+            if let dict = caller_callee[0] as? [String: String] {
+                let caller = dict["caller"]
+                let callee = dict["callee"]
+                // if callee == myself, receive the call
+                if (callee == self.loggedin_username) {
+                    print("Incoming call from \(caller ?? "NULL")")
+                    // notification goes here
+                    self.showCallNoti(title: "Incoming call from \(caller ?? "NULL")", message: "")
+                }
+            }
+        }//SocketIOManager.socket.on
+        
+        SocketIOManager.socket.on("call_accept_res") { (state_caller, ack) -> Void in
+            if let data = state_caller[0] as? [String:String]  {
+                let state: String = data["state"]!
+                if (state == "true") {
+
+                    let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                    guard let destinationVC = mainStoryboard.instantiateViewController(withIdentifier: "ChatRoomVC") as? ChatRoomVC else {
+                        print("couldnt find ChatRoomVC")
+                        return
+                    }
+                    // destinationVC.modalTransitionStyle = .partialCurl
+                    let systemSoundID: SystemSoundID = 1003
+                    AudioServicesPlaySystemSound (systemSoundID)
+                    
+                    self.present(destinationVC, animated: true, completion: nil)
+                }
+//                if (caller != self.loggedin_username) {
+//                    if (state == "true") {
+//                        self.performSegue(withIdentifier: "callSomeone", sender: self)
+//                    }
+//                }
+                
+            }
+        }
+        
+        // self.ask_server()
+    }
+
+//    func ask_server(){
+//        //checks with server every 3 s whether a incoming call is coming
+//        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.askingServer), userInfo: nil, repeats: true)
+//    }
+//    @objc func askingServer(){
+//        print("hello")
+//        if (called == false){
+//
+//            let requestURL = "http://167.172.255.230/logon/"
+//            var request = URLRequest(url: URL(string: requestURL)!)
+//            request.httpMethod = "POST"
+//            let t = try? JSONSerialization.data(withJSONObject: ["user": name])
+//            request.httpBody = t
+//            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//            let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let _ = data, error == nil else {
+//                print("NETWORKING ERROR")
+//                return
+//            }
+//            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+//                print("HTTP STATUS: \(httpStatus.statusCode)")
+//
+//                return
+//            }
+//            do {
+//                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as? [String: Any]
+//                let status = json?["status"] as? String
+//                print(status as Any)
+//                if (status == "calling"){
+//                    self.called = true
+//                    DispatchQueue.main.async{
+//                        //Add notification UI Segue here
+//                        self.showCallNoti(title:"Incoming call", message: "")
+//                        print("JSON: ", json ?? {})
+//
+//                        self.performSegue(withIdentifier: "calling", sender: self)
+//                    }
+//                }
+//                print("incoming call")            }
+//            catch let error as NSError {
+//                print(error)
+//
 //                }
 //            }
-//        }//SocketIOManager.socket.on
-        
-        self.ask_server()
-    }
-
-    func ask_server(){
-        //checks with server every 3 s whether a incoming call is coming
-        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.askingServer), userInfo: nil, repeats: true)
-    }
-    @objc func askingServer(){
-        print("hello")
-        if (called == false){
-
-            let requestURL = "http://167.172.255.230/logon/"
-            var request = URLRequest(url: URL(string: requestURL)!)
-            request.httpMethod = "POST"
-            let t = try? JSONSerialization.data(withJSONObject: ["user": name])
-            request.httpBody = t
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let _ = data, error == nil else {
-                print("NETWORKING ERROR")
-                return
-            }
-            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-                print("HTTP STATUS: \(httpStatus.statusCode)")
-
-                return
-            }
-            do {
-                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as? [String: Any]
-                let status = json?["status"] as? String
-                print(status as Any)
-                if (status == "calling"){
-                    self.called = true
-                    DispatchQueue.main.async{
-                           self.performSegue(withIdentifier: "calling", sender: self)
-                        //Add notification UI Segue here
-                        //self.showNotification(title: "in comming call", message: "hello")
-                    }
-                }
-                print("incoming call")            }
-            catch let error as NSError {
-                print(error)
-
-                }
-            }
-            task.resume()
-            sleep(1)
-        }
-
-    }
-    
+//            task.resume()
+//            sleep(1)
+//        }
+//
+//    }
+//
   
     
     private func setUpPeopleProfiles() {
@@ -206,7 +233,7 @@ class PeopleProfile {
 extension UIViewController {
     func showCallNoti(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        // if ok, redirect to chatroom
+        // if accept, redirect to chatroom
         let acceptAction = UIAlertAction(title: "Accept", style: .default) { (_) -> Void in
 
             let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -214,12 +241,17 @@ extension UIViewController {
                 print("couldnt find ChatRoomVC")
                 return
             }
+            SocketIOManager.socket.emit("call_accept", ["state":"true","caller":title.components(separatedBy: " ").last ?? "NULL"])
+            
             // destinationVC.modalTransitionStyle = .partialCurl
             self.present(destinationVC, animated: true, completion: nil)
         
         }
         alertController.addAction(acceptAction)
-        let rejectAction = UIAlertAction(title: "Reject", style: .default, handler: nil)
+        // if reject, stay on current view, send a post reques to caller
+        let rejectAction = UIAlertAction(title: "Reject", style: .default) { (_) -> Void in
+            SocketIOManager.socket.emit("call_accept", ["state":"false","caller":title.components(separatedBy: " ").last ?? "NULL"])
+        }
         alertController.addAction(rejectAction)
         present(alertController, animated: true, completion: nil)
     }
