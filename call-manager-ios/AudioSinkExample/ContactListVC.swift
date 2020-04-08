@@ -77,6 +77,7 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
             }
         }
         
+        
         // self.ask_server()
     }
 
@@ -243,7 +244,8 @@ extension UIViewController {
             }
             SocketIOManager.socket.emit("call_accept", ["state":"true","caller":title.components(separatedBy: " ").last ?? "NULL"])
             
-            // destinationVC.modalTransitionStyle = .partialCurl
+            // coverVertical, flipHorizontal, crossDissolve, partialCurl
+            destinationVC.modalTransitionStyle = .crossDissolve
             self.present(destinationVC, animated: true, completion: nil)
         
         }

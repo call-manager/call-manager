@@ -4,9 +4,10 @@ from twilio.jwt.access_token import AccessToken
 from twilio.jwt.access_token.grants import VideoGrant
 
 
-account_sid = ""
-api_key = ""
-api_secret = ""
+account_sid = "AC6f12b34f892d3f4aedecfd57476ade5d"
+api_key = "SK45447f679a086f275e8179aa3a57b3f6"
+api_secret = "l3pKhBuIFvLfeHKm7acqQN080psJFfDl"
+
 
 def create_token(identity):
     token = AccessToken(account_sid, api_key, api_secret)

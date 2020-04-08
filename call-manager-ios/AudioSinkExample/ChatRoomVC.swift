@@ -252,6 +252,9 @@ class ChatRoomVC: UIViewController {
         //self.dismissKeyboard() //
     }
     
+    struct SentenceList: Decodable {
+        let sentence: [String]
+    }
     
     @IBAction func disconnect(_ sender: UIButton) {
         
@@ -261,8 +264,41 @@ class ChatRoomVC: UIViewController {
             sender.isEnabled = false
             // (sender as AnyObject).isEnabled = false
         }
-        // Go back to previous contact profile
-        performSegue(withIdentifier: "showTranscript", sender: self)
+        // post request to split words
+        var request = URLRequest(url:
+         URL(string: "http://157.245.95.72:5000/split/\(loggedin_username)")!)
+        request.httpMethod = "POST"
+        //let raw_text = "how are you nice to meet you i have a plan today"
+        let raw_text: String = translated_contents.last!
+        let postString = "text=\(raw_text)";
+        request.httpBody = postString.data(using: String.Encoding.utf8);
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            // error handling
+            guard let _ = data, error == nil else {
+             print("NETWORKING ERROR")
+             return
+            }
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+            print("HTTP STATUS: \(httpStatus.statusCode)")
+            return
+            }
+            // parse json
+            if let data = data {
+                do {
+                    let res = try JSONDecoder().decode(SentenceList.self, from:data)
+    
+                    print("res.sentence", res.sentence)
+                    self.translated_contents = res.sentence
+                    self.performSegue(withIdentifier: "showTranscript", sender: self)
+                    
+                } catch let error {
+                    print(error)
+                }
+            }
+        }//let
+        task.resume()
+        
+//        performSegue(withIdentifier: "showTranscript", sender: self)
         // performSegue(withIdentifier: "disconnectToContactProfile", sender: self)
     }
     
@@ -486,11 +522,14 @@ class ChatRoomVC: UIViewController {
         self.speechRecognizer = ExampleSpeechRecognizer(audioTrack: audioTrack,
             identifier: identifier,
          resultHandler: { (result, error) in
+            let start_time = CFAbsoluteTimeGetCurrent()
+            
             if let validResult = result {
                 var final = ""
                 let text = validResult.bestTranscription.formattedString
                 
-                print(text)
+                let diff = CFAbsoluteTimeGetCurrent() - start_time
+                print("text: ", text, ", diff: ", diff)
                 self.raw_contents.append(text)
                 
                 let requestURL = "https://translation.googleapis.com/language/translate/v2?key=AIzaSyAw8vknKlbFIDBexnVMjyCcdDVVjfp_y9E"
@@ -501,12 +540,11 @@ class ChatRoomVC: UIViewController {
                 request.httpBody = t
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
                 let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let _ = data, error == nil else {
-                    print("NETWORKING ERROR")
-                    return
-                }
+                        print("NETWORKING ERROR")
+                        return
+                    }
                 if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
                     print("HTTP STATUS: \(httpStatus.statusCode)")
-
                     return
                 }
                 do {
@@ -521,15 +559,15 @@ class ChatRoomVC: UIViewController {
                 }
                 catch let error as NSError {
                     print(error)
-                    
                     }
                 }
                 task.resume()
                 sleep(1)
-                self.speechLabel?.text = final                                                              } else if let error = error {
+                self.speechLabel?.text = final
+            } else if let error = error {
                 self.speechLabel?.text = error.localizedDescription
                 self.stopRecognizingAudio()
-            }
+            }//err
 
             UIView.animate(withDuration: 0.1, animations: {
                 self.view.setNeedsLayout()
