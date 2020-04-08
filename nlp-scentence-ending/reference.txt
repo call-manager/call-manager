@@ -1,6 +1,9 @@
-based on grammer
-http://www.nltk.org/book_1ed/ch08.html
+Reference
 
-summarization
-https://nlpforhackers.io/textrank-text-summarization/
+Pipit.org/project/puntuator/#description
 
+Download model Demo-Europarl-EN.pcl from the above website and run in python
+
+Or Using URL
+
+Curl -d "text=hello%20world" http://bark.phon.ioc.ee/punctuator
