@@ -10,18 +10,21 @@ import UIKit
 
 class AfterCallTableViewCell: UITableViewCell {
     @IBOutlet weak var transcript_label: UILabel!
-    
     @IBOutlet weak var raw_label: UILabel!
+
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        // raw_label.isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        // raw_label.isHidden = false
     }
 
 }

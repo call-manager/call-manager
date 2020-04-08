@@ -8,7 +8,7 @@ class ChatRoomVC: UIViewController {
     let loggedin_username: String = UserDefaults.standard.string(forKey: "username") ?? "NULL"
 
     var accessToken = ""
-    var translated_contents: [String] = [""]
+    // var translated_contents: [String] = [""]
     var raw_contents: [String] = [""]
     
     var mute = false;
@@ -269,7 +269,7 @@ class ChatRoomVC: UIViewController {
          URL(string: "http://157.245.95.72:5000/split/\(loggedin_username)")!)
         request.httpMethod = "POST"
         //let raw_text = "how are you nice to meet you i have a plan today"
-        let raw_text: String = translated_contents.last!
+        let raw_text: String = raw_contents.last!
         let postString = "text=\(raw_text)";
         request.httpBody = postString.data(using: String.Encoding.utf8);
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
@@ -287,9 +287,9 @@ class ChatRoomVC: UIViewController {
                 do {
                     let res = try JSONDecoder().decode(SentenceList.self, from:data)
     
-                    print("res.sentence", res.sentence)
-                    self.translated_contents = res.sentence
-                    self.performSegue(withIdentifier: "showTranscript", sender: self)
+                    print("raw.sentence", res.sentence)
+                    self.raw_contents = res.sentence
+                    
                     
                 } catch let error {
                     print(error)
@@ -297,6 +297,8 @@ class ChatRoomVC: UIViewController {
             }
         }//let
         task.resume()
+        sleep(1)
+        self.performSegue(withIdentifier: "showTranscript", sender: self)
         
 //        performSegue(withIdentifier: "showTranscript", sender: self)
         // performSegue(withIdentifier: "disconnectToContactProfile", sender: self)
@@ -323,7 +325,7 @@ class ChatRoomVC: UIViewController {
             // destinate_vc?.contact_temp_name = contact_temp_name
             // destinate_vc.contact_profile = people_profile_lists[]
             if let destinate_vc = segue.destination as? AfterCallTranscriptVC {
-                destinate_vc.translated_contents = translated_contents
+                // destinate_vc.translated_contents = translated_contents
                 destinate_vc.raw_contents = raw_contents
                 // destinate_vc.contents = ["hello", "Nice"]
             }
@@ -536,7 +538,7 @@ class ChatRoomVC: UIViewController {
                 // let token = ""
                 var request = URLRequest(url: URL(string: requestURL)!)
                 request.httpMethod = "POST"
-                let t = try? JSONSerialization.data(withJSONObject: ["q": [text], "target": "de",])
+                let t = try? JSONSerialization.data(withJSONObject: ["q": [text], "target": "zh-CN",])
                 request.httpBody = t
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
                 let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let _ = data, error == nil else {
@@ -555,7 +557,7 @@ class ChatRoomVC: UIViewController {
                     print(k as Any) // [["translatedText": dank, "detectedSourceLanguage": en]]
                     print(final as Any) // ich dank dir
                     print("======") //
-                    self.translated_contents.append(final)
+                    //self.translated_contents.append(final)
                 }
                 catch let error as NSError {
                     print(error)

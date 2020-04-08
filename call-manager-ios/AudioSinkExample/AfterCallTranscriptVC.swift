@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class AfterCallTranscriptVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
 
@@ -20,13 +21,13 @@ class AfterCallTranscriptVC: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.AfterCallTableView.rowHeight = 44.0
+        
+        self.AfterCallTableView.rowHeight = 50.0
         // Do any additional setup after loading the view.
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return translated_contents.count
+        return raw_contents.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -34,22 +35,54 @@ class AfterCallTranscriptVC: UIViewController, UITableViewDataSource, UITableVie
             return UITableViewCell()
         }
         cell.transcript_label.lineBreakMode=NSLineBreakMode.byWordWrapping
-        cell.transcript_label.text = translated_contents[indexPath.row]  // cell.transcript_label.text
+        cell.transcript_label.text = "default translation" // translated_contents[indexPath.row]
+        // cell.transcript_label.isHidden = true
         cell.raw_label.lineBreakMode=NSLineBreakMode.byWordWrapping
         cell.raw_label.text = raw_contents[indexPath.row]
-        print("translated_content: ", translated_contents[indexPath.row])
+        //print("translated_content: ", translated_contents[indexPath.row])
+        
         return cell
     }
     
+    
 
-    /*
-    // MARK: - Navigation
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        current_index = indexPath.row
+//
+//        let requestURL = "https://translation.googleapis.com/language/translate/v2?key=AIzaSyAw8vknKlbFIDBexnVMjyCcdDVVjfp_y9E"
+//        let text = raw_contents[indexPath.row]
+//        // let token = ""
+//        var request = URLRequest(url: URL(string: requestURL)!)
+//        request.httpMethod = "POST"
+//        let t = try? JSONSerialization.data(withJSONObject: ["q": [text], "target": "zh-CN",])
+//        request.httpBody = t
+//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//        let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let _ = data, error == nil else {
+//                print("NETWORKING ERROR")
+//                return
+//            }
+//        if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+//            print("HTTP STATUS: \(httpStatus.statusCode)")
+//            return
+//        }
+//        do {
+//            let json = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as? [String: Any]
+//            let d = json!["data"] as? [String: Any]
+//            let k = d!["translations"] as? [[String: Any]]
+//            let final = (k![0]["translatedText"] as? String)!
+//            print(k as Any) // [["translatedText": dank, "detectedSourceLanguage": en]]
+//            print("Final: ",final as Any) // ich dank dir
+//            cell.transcript_label.text = final
+//        }
+//        catch let error as NSError {
+//            print(error)
+//            }
+//        }
+//        task.resume()
+//
+//    }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+
 
 }
