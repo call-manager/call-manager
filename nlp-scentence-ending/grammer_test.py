@@ -3,23 +3,9 @@
 
 # ref
 # https://www.jeddd.com/article/python-ngram-language-prediction.html
-from collections import Counter
-
-ngrams_list, prefix_list = [], []
-words = ["hello worlds", "Nice to meet", "you how"]
-n = len(words)
-for word in words:
-	sentence = ['<BOS>'] + word.split() + ['<EOS>']
-	ngrams = list(zip(*[sentence[i:] for i in range(n)]))
-	prefix = list(zip(*[sentence[i:] for i in range(n-1)]))
-	ngrams_list += ngrams
-	prefix_list += prefix
-
-ngrams_counter = Counter(ngrams_list)
-prefix_counter = Counter(prefix_list)
-
-print(ngrams_counter)
-print(prefix_counter)
+from punctuator import Punctuator
+p = Punctuator('Demo-Europarl-EN.pcl')
+print(p.punctuate('hello nice to meet you'))
 
 
 
