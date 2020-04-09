@@ -32,14 +32,13 @@ client:
 cd call-manager/call-manager-ios
 pod install
 open AudioSinkExample.xcworkspace
-In SocketIOManager.swift line18, change the url to your IP address(localhost) with port 3000, ex: http://10.XXX.XX.XXX:3000 (http://localhost:3000 doesnt work)
+
 
 Server:
-cd node_server
-vim .env(add Twilio auth info)
-npm install
-npm start
-go to localhost:3000, token exists in localhost:3000/token
+ssh root@157.245.95.72
+cd flask_server
+source env/bin/activate
+python3 app.py
 ```
 
 #### Google Translation API
@@ -47,7 +46,6 @@ go to localhost:3000, token exists in localhost:3000/token
 ```
 pip install google-cloud-translate==2.0.0
 ```
-
 
 #### Google Speech-To-Text API
 
@@ -58,8 +56,21 @@ pip install --upgrade python-speech
 #### Possible Library for Implementation
 
 ```
-pip install numpy
+twilio, re, flask, googletrans, flask_socketio, flask
 ```
+
+#### Flask Server Routes
+http://157.245.95.72:5000/
+
+```
+/token/<identity>
+twilio token for join the same chat room
+
+/split/<identity>
+detect sentence ending
+
+```
+
 #### Django Server Routes
 http://167.172.255.230
 
@@ -108,4 +119,27 @@ FrontEnd & Xcode Main Project: call-manager-ios -> AudioSinkExample
 BackEnd Server: node_server
 Backend DB: Django-backend
 ```
+
+## Skeletal Product
+Make/Receive Calls
+Notification of calls
+Accept/Decline Calls
+[files related to above features](https://github.com/call-manager/call-manager/blob/master/call-manager-ios/AudioSinkExample/ContactProfileViewController.swift), [showCallNoti()](https://github.com/call-manager/call-manager/blob/master/call-manager-ios/AudioSinkExample/ContactListVC.swift)
+Mute button
+[ClicktoMuteUnmute()](https://github.com/call-manager/call-manager/blob/master/call-manager-ios/AudioSinkExample/ChatRoomVC.swift)
+Voice to text
+Text translation
+[recognizeAudio()](https://github.com/call-manager/call-manager/blob/master/call-manager-ios/AudioSinkExample/ChatRoomVC.swift)
+Record transcript in original and target languages
+[AfterCallTranscriptVC.swift](https://github.com/call-manager/call-manager/blob/master/call-manager-ios/AudioSinkExample/AfterCallTranscriptVC.swift)
+
+## MVP
+Location Based Ringtone Control
+[ContactListVC.swift](https://github.com/call-manager/call-manager/commit/8426abf34a365e7fbad9d82e55e84b66b03efcfd)
+Display caller information(username) 
+[showCallNoti()](https://github.com/call-manager/call-manager/blob/master/call-manager-ios/AudioSinkExample/ContactListVC.swift)
+Display the caption box in target language, turn on/off by user
+Detect sentence ending
+[restore_sentence()](https://github.com/call-manager/call-manager/blob/master/backend/app.py)
+
 
