@@ -8,7 +8,7 @@ class ChatRoomVC: UIViewController {
     let loggedin_username: String = UserDefaults.standard.string(forKey: "username") ?? "NULL"
 
     var accessToken = ""
-    // var translated_contents: [String] = [""]
+    var translated_contents: [String] = [""]
     var raw_contents: [String] = [""]
     
     var mute = false;
@@ -325,7 +325,7 @@ class ChatRoomVC: UIViewController {
             // destinate_vc?.contact_temp_name = contact_temp_name
             // destinate_vc.contact_profile = people_profile_lists[]
             if let destinate_vc = segue.destination as? AfterCallTranscriptVC {
-                // destinate_vc.translated_contents = translated_contents
+                destinate_vc.translated_contents = translated_contents
                 destinate_vc.raw_contents = raw_contents
                 // destinate_vc.contents = ["hello", "Nice"]
             }
@@ -557,7 +557,7 @@ class ChatRoomVC: UIViewController {
                     print(k as Any) // [["translatedText": dank, "detectedSourceLanguage": en]]
                     print(final as Any) // ich dank dir
                     print("======") //
-                    //self.translated_contents.append(final)
+                    self.translated_contents.append(final)
                 }
                 catch let error as NSError {
                     print(error)

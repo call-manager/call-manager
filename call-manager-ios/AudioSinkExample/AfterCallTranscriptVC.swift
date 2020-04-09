@@ -35,7 +35,7 @@ class AfterCallTranscriptVC: UIViewController, UITableViewDataSource, UITableVie
             return UITableViewCell()
         }
         cell.transcript_label.lineBreakMode=NSLineBreakMode.byWordWrapping
-        cell.transcript_label.text = "default translation" // translated_contents[indexPath.row]
+        cell.transcript_label.text = translated_contents[indexPath.row] // translated_contents[indexPath.row]
         // cell.transcript_label.isHidden = true
         cell.raw_label.lineBreakMode=NSLineBreakMode.byWordWrapping
         cell.raw_label.text = raw_contents[indexPath.row]

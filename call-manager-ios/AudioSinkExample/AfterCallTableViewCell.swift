@@ -13,7 +13,6 @@ class AfterCallTableViewCell: UITableViewCell {
     @IBOutlet weak var raw_label: UILabel!
 
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
