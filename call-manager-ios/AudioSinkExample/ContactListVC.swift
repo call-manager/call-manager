@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import CoreLocation
+import AVFoundation
 
 
-class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, CLLocationManagerDelegate{
 
     let loggedin_username: String = UserDefaults.standard.string(forKey: "username") ?? "NULL"
     
@@ -28,19 +30,57 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     var called = false
     //caller user_name
     var name = "alex16"
-    
-    
+    let location = CLLocationManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loggedin_username_label.text = "log in as \(loggedin_username )"
-        
+        self.location.requestAlwaysAuthorization()
+        self.location.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled(){
+            location.delegate = self
+            location.desiredAccuracy=kCLLocationAccuracyNearestTenMeters
+            location.startUpdatingLocation()
+        }
         setUpPeopleProfiles()
         setUpSearchBar()
         
         SocketIOManager.socket.on("receive") { (caller_callee, ack) -> Void in
             if let dict = caller_callee[0] as? [String: String] {
+                let requestURL = "http://167.172.255.230/getloc/"
+                var request = URLRequest(url: URL(string: requestURL)!)
+                request.httpMethod = "POST"
+                let t = try? JSONSerialization.data(withJSONObject: ["user": self.name])
+                request.httpBody = t
+                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let _ = data, error == nil else {
+                    print("NETWORKING ERROR")
+                    return
+                }
+                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                    print("HTTP STATUS: \(httpStatus.statusCode)")
+
+                    return
+                }
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as? [String: Any]
+                    let longitude = json?["longitude"] as? Double
+                    guard let locValue: CLLocationCoordinate2D = self.location.location?.coordinate else { return }
+                    
+                    if (longitude != locValue.longitude){
+                        AudioServicesPlayAlertSound(1000)
+                        
+                    }
+                }
+                catch let error as NSError {
+                    print(error)
+                    
+                    }
+                }
+                task.resume()
+                sleep(3)
+                
                 let caller = dict["caller"]
                 let callee = dict["callee"]
                 // if callee == myself, receive the call
@@ -80,9 +120,34 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         
         // self.ask_server()
     }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+    }
+    			
+    @IBAction func AddLoc(_ sender: Any) {
+        guard let locValue: CLLocationCoordinate2D = self.location.location?.coordinate else { return }
+        let requestURL = "http://167.172.255.230/addloc/"
+        var request = URLRequest(url: URL(string: requestURL)!)
+        request.httpMethod = "POST"
+        let t = try? JSONSerialization.data(withJSONObject: ["user": name, "latitude": locValue.latitude, "longitude": locValue.longitude])
+        request.httpBody = t
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let _ = data, error == nil else {
+            print("NETWORKING ERROR")
+            return
+        }
+        if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+            print("HTTP STATUS: \(httpStatus.statusCode)")
 
-//    func ask_server(){
-//        //checks with server every 3 s whether a incoming call is coming
+            return
+        }
+        }
+        task.resume()
+        sleep(1)
+
+    }
+    //    func ask_server(){    //        //checks with server every 3 s whether a incoming call is coming
 //        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.askingServer), userInfo: nil, repeats: true)
 //    }
 //    @objc func askingServer(){
