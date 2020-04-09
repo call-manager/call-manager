@@ -242,10 +242,11 @@ extension UIViewController {
                 print("couldnt find ChatRoomVC")
                 return
             }
+            
             SocketIOManager.socket.emit("call_accept", ["state":"true","caller":title.components(separatedBy: " ").last ?? "NULL"])
             
             // coverVertical, flipHorizontal, crossDissolve, partialCurl
-            destinationVC.modalTransitionStyle = .crossDissolve
+            destinationVC.modalTransitionStyle = .coverVertical //.crossDissolve
             self.present(destinationVC, animated: true, completion: nil)
         
         }

@@ -10,6 +10,8 @@ class ChatRoomVC: UIViewController {
     var accessToken = ""
     var translated_contents: [String] = [""]
     var raw_contents: [String] = [""]
+    var current_translates: String = ""
+    var current_raw: String = ""
     
     var mute = false;
     let tokenUrl = ""
@@ -254,9 +256,12 @@ class ChatRoomVC: UIViewController {
     
     struct SentenceList: Decodable {
         let sentence: [String]
+        let translates: [String]
     }
     
     @IBAction func disconnect(_ sender: UIButton) {
+        
+        self.showSpinner(onView: self.view)
         
         if let room = self.room {
             logMessage(messageText: "Disconnecting from \(room.name)")
@@ -269,7 +274,8 @@ class ChatRoomVC: UIViewController {
          URL(string: "http://157.245.95.72:5000/split/\(loggedin_username)")!)
         request.httpMethod = "POST"
         //let raw_text = "how are you nice to meet you i have a plan today"
-        let raw_text: String = raw_contents.last!
+        let raw_text: String = current_raw //raw_contents.last!
+        
         let postString = "text=\(raw_text)";
         request.httpBody = postString.data(using: String.Encoding.utf8);
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
@@ -289,7 +295,7 @@ class ChatRoomVC: UIViewController {
     
                     print("raw.sentence", res.sentence)
                     self.raw_contents = res.sentence
-                    
+                    self.translated_contents = res.translates
                     
                 } catch let error {
                     print(error)
@@ -297,7 +303,8 @@ class ChatRoomVC: UIViewController {
             }
         }//let
         task.resume()
-        sleep(1)
+        sleep(2)
+        self.removeSpinner()
         self.performSegue(withIdentifier: "showTranscript", sender: self)
         
 //        performSegue(withIdentifier: "showTranscript", sender: self)
@@ -327,7 +334,6 @@ class ChatRoomVC: UIViewController {
             if let destinate_vc = segue.destination as? AfterCallTranscriptVC {
                 destinate_vc.translated_contents = translated_contents
                 destinate_vc.raw_contents = raw_contents
-                // destinate_vc.contents = ["hello", "Nice"]
             }
         }
     }
@@ -496,7 +502,7 @@ class ChatRoomVC: UIViewController {
         if (self.speechRecognizer != nil) {
             stopRecognizingAudio()
         } else {
-            showSpeechRecognitionUI(view: view, message: "Listening to Doggo...")
+            showSpeechRecognitionUI(view: view, message: "Listening...")
 
             recognizeAudio(audioTrack: audioTrack, identifier: sid)
         }
@@ -531,14 +537,14 @@ class ChatRoomVC: UIViewController {
                 let text = validResult.bestTranscription.formattedString
                 
                 let diff = CFAbsoluteTimeGetCurrent() - start_time
-                print("text: ", text, ", diff: ", diff)
-                self.raw_contents.append(text)
-                
+                print("raw_text: ", text, ", diff: ", diff)
+                //self.raw_contents.append(text)
+                self.current_raw = text
                 let requestURL = "https://translation.googleapis.com/language/translate/v2?key=AIzaSyAw8vknKlbFIDBexnVMjyCcdDVVjfp_y9E"
                 // let token = ""
                 var request = URLRequest(url: URL(string: requestURL)!)
                 request.httpMethod = "POST"
-                let t = try? JSONSerialization.data(withJSONObject: ["q": [text], "target": "zh-CN",])
+                let t = try? JSONSerialization.data(withJSONObject: ["q": [text], "target": "es",])
                 request.httpBody = t
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
                 let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let _ = data, error == nil else {
@@ -557,7 +563,7 @@ class ChatRoomVC: UIViewController {
                     print(k as Any) // [["translatedText": dank, "detectedSourceLanguage": en]]
                     print(final as Any) // ich dank dir
                     print("======") //
-                    self.translated_contents.append(final)
+                    self.current_translates = final
                 }
                 catch let error as NSError {
                     print(error)
@@ -902,5 +908,31 @@ extension ChatRoomVC : CameraSourceDelegate {
     func cameraSourceDidFail(source: CameraSource, error: Error) {
         logMessage(messageText: "Camera source failed with error: \(error.localizedDescription)")
         source.previewView?.removeFromSuperview()
+    }
+}
+
+
+var vSpinner: UIView?
+extension UIViewController {
+    func showSpinner(onView : UIView) {
+        let spinnerView = UIView.init(frame: onView.bounds)
+        spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        let ai = UIActivityIndicatorView.init(style: .whiteLarge)
+        ai.startAnimating()
+        ai.center = spinnerView.center
+        
+        DispatchQueue.main.async {
+            spinnerView.addSubview(ai)
+            onView.addSubview(spinnerView)
+        }
+        
+        vSpinner = spinnerView
+    }
+    
+    func removeSpinner() {
+        DispatchQueue.main.async {
+            vSpinner?.removeFromSuperview()
+            vSpinner = nil
+        }
     }
 }
