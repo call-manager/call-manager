@@ -29,7 +29,7 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     var timer = Timer()
     var called = false
     //caller user_name
-    var name = "alex16"
+    var name = "alex17"
     let location = CLLocationManager()
 
     override func viewDidLoad() {
@@ -51,7 +51,7 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
                 let requestURL = "http://167.172.255.230/getloc/"
                 var request = URLRequest(url: URL(string: requestURL)!)
                 request.httpMethod = "POST"
-                let t = try? JSONSerialization.data(withJSONObject: ["user": self.name])
+                let t = try? JSONSerialization.data(withJSONObject: ["user": "alex16"])
                 request.httpBody = t
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
                 let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let _ = data, error == nil else {
@@ -65,30 +65,33 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
                 }
                 do {
                     let json = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as? [String: Any]
-                    let longitude = json?["longitude"] as? Double
+                    let longitude = json?["longitude"] as? String
                     guard let locValue: CLLocationCoordinate2D = self.location.location?.coordinate else { return }
-                    
-                    if (longitude != locValue.longitude){
+                    print(longitude as Any)
+                    print(String(format:"%f", locValue.longitude))
+                    let loclong = String(format:"%f", locValue.longitude)
+                    if (longitude != loclong){
                         AudioServicesPlayAlertSound(1000)
-                        
                     }
-                }
+                        
+                    
+                    let caller = dict["caller"]
+                    let callee = dict["callee"]
+                    // if callee == myself, receive the call
+                    if (callee == self.loggedin_username) {
+                        print("Incoming call from \(caller ?? "NULL")")
+                        // notification goes here
+                        self.showCallNoti(title: "Incoming call from \(caller ?? "NULL")", message: "")
+                    }                }
                 catch let error as NSError {
                     print(error)
                     
                     }
                 }
                 task.resume()
-                sleep(3)
+                sleep(1)
                 
-                let caller = dict["caller"]
-                let callee = dict["callee"]
-                // if callee == myself, receive the call
-                if (callee == self.loggedin_username) {
-                    print("Incoming call from \(caller ?? "NULL")")
-                    // notification goes here
-                    self.showCallNoti(title: "Incoming call from \(caller ?? "NULL")", message: "")
-                }
+                
             }
         }//SocketIOManager.socket.on
         
