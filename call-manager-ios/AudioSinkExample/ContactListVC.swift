@@ -246,7 +246,8 @@ extension UIViewController {
             SocketIOManager.socket.emit("call_accept", ["state":"true","caller":title.components(separatedBy: " ").last ?? "NULL"])
             
             // coverVertical, flipHorizontal, crossDissolve, partialCurl
-            destinationVC.modalTransitionStyle = .coverVertical //.crossDissolve
+            //destinationVC.modalTransitionStyle = .coverVertical
+			destinationVC.modalTransitionStyle = .coverVertical
             self.present(destinationVC, animated: true, completion: nil)
         
         }
