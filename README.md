@@ -125,24 +125,36 @@ Backend DB: Django-backend
 Make/Receive Calls
 Notification of calls
 Accept/Decline Calls
+```
 [files related to above features](https://github.com/call-manager/call-manager/blob/master/call-manager-ios/AudioSinkExample/ContactProfileViewController.swift), [showCallNoti()](https://github.com/call-manager/call-manager/blob/master/call-manager-ios/AudioSinkExample/ContactListVC.swift)
+```
 Mute button
+```
 [ClicktoMuteUnmute()](https://github.com/call-manager/call-manager/blob/master/call-manager-ios/AudioSinkExample/ChatRoomVC.swift)
+```
 Voice to text
 Text translation
-[recognizeAudio()](https://github.com/call-manager/call-manager/blob/master/call-manager-ios/AudioSinkExample/ChatRoomVC.swift)
-Record transcript in original and target languages
-[AfterCallTranscriptVC.swift](https://github.com/call-manager/call-manager/blob/master/call-manager-ios/AudioSinkExample/AfterCallTranscriptVC.swift)
 ```
+[recognizeAudio()](https://github.com/call-manager/call-manager/blob/master/call-manager-ios/AudioSinkExample/ChatRoomVC.swift)
+```
+Record transcript in original and target languages
+```
+[AfterCallTranscriptVC.swift](https://github.com/call-manager/call-manager/blob/master/call-manager-ios/AudioSinkExample/AfterCallTranscriptVC.swift)
+
 
 ## MVP
 ```
 Location Based Ringtone Control
+```
 [ContactListVC.swift](https://github.com/call-manager/call-manager/commit/8426abf34a365e7fbad9d82e55e84b66b03efcfd)
+```
 Display caller information(username) 
+```
 [showCallNoti()](https://github.com/call-manager/call-manager/blob/master/call-manager-ios/AudioSinkExample/ContactListVC.swift)
+```
 Display the caption box in target language, turn on/off by user
 Detect sentence ending
-[restore_sentence()](https://github.com/call-manager/call-manager/blob/master/backend/app.py)
 ```
+[restore_sentence()](https://github.com/call-manager/call-manager/blob/master/backend/app.py)
+
 
