@@ -34,7 +34,7 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loggedin_username_label.text = "log in as \(loggedin_username )"
+        loggedin_username_label.text = "logged in as \(loggedin_username )"
         
         setUpPeopleProfiles()
         setUpSearchBar()
