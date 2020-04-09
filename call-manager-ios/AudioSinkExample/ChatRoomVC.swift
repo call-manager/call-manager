@@ -316,11 +316,13 @@ class ChatRoomVC: UIViewController {
             // RemoteAudioTrack
             localAudioTrack.isEnabled = false
             mute = true
-            muteButton.setTitle("Unmute", for: .normal)
+            //muteButton.setTitle("Unmute", for: .normal)
+			muteButton.setImage(UIImage(named: "unmute"), for: .normal)
         } else {
             localAudioTrack.isEnabled = true
             mute = false
-            muteButton.setTitle("Mute", for: .normal)
+            //muteButton.setTitle("Mute", for: .normal)
+			muteButton.setImage(UIImage(named: "mute"), for: .normal)
         }
     }
     

@@ -721,16 +721,21 @@
                                 <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfe-w4-7rs">
-                                <rect key="frame" x="26" y="531" width="45" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Mute"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfe-w4-7rs">
+                                <rect key="frame" x="9" y="481" width="107" height="105"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="107" id="Fiz-Cu-K6b"/>
+                                </constraints>
+                                <state key="normal" title="Mute" image="mute"/>
                                 <connections>
                                     <action selector="ClicktoMuteUnmute:" destination="5uJ-kG-lKv" eventType="touchUpInside" id="LSo-cT-3lf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aR9-L6-ehC">
-                                <rect key="frame" x="97" y="493" width="117" height="113"/>
+                                <rect key="frame" x="124" y="481" width="106" height="104"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="106" id="t5g-dj-SoH"/>
+                                </constraints>
                                 <state key="normal" title="Disconnect" image="hangup">
                                     <color key="titleColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -741,10 +746,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="hfe-w4-7rs" firstAttribute="leading" secondItem="UCt-E7-Y3B" secondAttribute="leadingMargin" constant="10" id="Ct4-WR-MXQ"/>
-                            <constraint firstItem="Utq-Bf-ozL" firstAttribute="top" secondItem="hfe-w4-7rs" secondAttribute="bottom" constant="100" id="c0B-dG-TYU"/>
-                            <constraint firstItem="Utq-Bf-ozL" firstAttribute="top" secondItem="aR9-L6-ehC" secondAttribute="bottom" constant="61" id="fbv-tJ-PRq"/>
-                            <constraint firstAttribute="trailing" secondItem="aR9-L6-ehC" secondAttribute="trailing" constant="161" id="vf5-J5-yvP"/>
+                            <constraint firstItem="Utq-Bf-ozL" firstAttribute="top" secondItem="hfe-w4-7rs" secondAttribute="bottom" constant="81" id="QcG-0i-3Jd"/>
+                            <constraint firstAttribute="trailing" secondItem="aR9-L6-ehC" secondAttribute="trailing" constant="145" id="YwI-kt-GkV"/>
+                            <constraint firstItem="hfe-w4-7rs" firstAttribute="centerY" secondItem="aR9-L6-ehC" secondAttribute="centerY" id="aqL-4U-wh6"/>
+                            <constraint firstItem="Utq-Bf-ozL" firstAttribute="top" secondItem="aR9-L6-ehC" secondAttribute="bottom" constant="82" id="n1f-Xv-iuV"/>
+                            <constraint firstItem="hfe-w4-7rs" firstAttribute="leading" secondItem="UCt-E7-Y3B" secondAttribute="leading" constant="9" id="ph4-1m-Ra0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="RuK-Gb-ty8"/>
@@ -1192,6 +1198,7 @@
     <resources>
         <image name="User" width="231" height="206"/>
         <image name="hangup" width="744" height="744"/>
+        <image name="mute" width="744" height="744"/>
         <image name="photo" width="64" height="46"/>
         <image name="settings" width="30" height="30"/>
     </resources>
