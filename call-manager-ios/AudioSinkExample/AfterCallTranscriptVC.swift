@@ -45,7 +45,10 @@ class AfterCallTranscriptVC: UIViewController, UITableViewDataSource, UITableVie
     }
     
     
-
+	@IBAction func backToContacts(_ sender: UIButton) {
+		performSegue(withIdentifier: "backToContacts", sender: self)
+	}
+	
     
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        current_index = indexPath.row
