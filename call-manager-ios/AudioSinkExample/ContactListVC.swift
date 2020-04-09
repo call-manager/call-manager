@@ -29,7 +29,8 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     var timer = Timer()
     var called = false
     //caller user_name
-    var name = "alex17"
+    var name = "alex20"
+    var long = "0"
     let location = CLLocationManager()
 
     override func viewDidLoad() {
@@ -48,50 +49,20 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         
         SocketIOManager.socket.on("receive") { (caller_callee, ack) -> Void in
             if let dict = caller_callee[0] as? [String: String] {
-                let requestURL = "http://167.172.255.230/getloc/"
-                var request = URLRequest(url: URL(string: requestURL)!)
-                request.httpMethod = "POST"
-                let t = try? JSONSerialization.data(withJSONObject: ["user": "alex16"])
-                request.httpBody = t
-                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let _ = data, error == nil else {
-                    print("NETWORKING ERROR")
-                    return
-                }
-                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-                    print("HTTP STATUS: \(httpStatus.statusCode)")
-
-                    return
-                }
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as? [String: Any]
-                    let longitude = json?["longitude"] as? String
-                    guard let locValue: CLLocationCoordinate2D = self.location.location?.coordinate else { return }
-                    print(longitude as Any)
-                    print(String(format:"%f", locValue.longitude))
-                    let loclong = String(format:"%f", locValue.longitude)
-                    if (longitude != loclong){
-                        AudioServicesPlayAlertSound(1000)
-                    }
-                        
-                    
-                    let caller = dict["caller"]
-                    let callee = dict["callee"]
-                    // if callee == myself, receive the call
-                    if (callee == self.loggedin_username) {
-                        print("Incoming call from \(caller ?? "NULL")")
-                        // notification goes here
-                        self.showCallNoti(title: "Incoming call from \(caller ?? "NULL")", message: "")
-                    }                }
-                catch let error as NSError {
-                    print(error)
-                    
-                    }
-                }
-                task.resume()
-                sleep(1)
                 
-                
+                guard let locValue: CLLocationCoordinate2D = self.location.location?.coordinate else { return }
+                let loclong = String(format:"%f", locValue.longitude)
+                if (self.long != loclong){
+                    AudioServicesPlayAlertSound(1000)
+                }
+                let caller = dict["caller"]
+                let callee = dict["callee"]
+                // if callee == myself, receive the call
+                if (callee == self.loggedin_username) {
+                    print("Incoming call from \(caller ?? "NULL")")
+                    // notification goes here
+                    self.showCallNoti(title: "Incoming call from \(caller ?? "NULL")", message: "")
+                }
             }
         }//SocketIOManager.socket.on
         
@@ -121,7 +92,7 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         }
         
         
-        // self.ask_server()
+        self.ask_server()
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
@@ -133,7 +104,7 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         let requestURL = "http://167.172.255.230/addloc/"
         var request = URLRequest(url: URL(string: requestURL)!)
         request.httpMethod = "POST"
-        let t = try? JSONSerialization.data(withJSONObject: ["user": name, "latitude": locValue.latitude, "longitude": locValue.longitude])
+        let t = try? JSONSerialization.data(withJSONObject: ["user": self.loggedin_username, "latitude": locValue.latitude, "longitude": locValue.longitude])
         request.httpBody = t
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let _ = data, error == nil else {
@@ -150,54 +121,45 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         sleep(1)
 
     }
-    //    func ask_server(){    //        //checks with server every 3 s whether a incoming call is coming
-//        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.askingServer), userInfo: nil, repeats: true)
-//    }
-//    @objc func askingServer(){
-//        print("hello")
-//        if (called == false){
-//
-//            let requestURL = "http://167.172.255.230/logon/"
-//            var request = URLRequest(url: URL(string: requestURL)!)
-//            request.httpMethod = "POST"
-//            let t = try? JSONSerialization.data(withJSONObject: ["user": name])
-//            request.httpBody = t
-//            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-//            let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let _ = data, error == nil else {
-//                print("NETWORKING ERROR")
-//                return
-//            }
-//            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-//                print("HTTP STATUS: \(httpStatus.statusCode)")
-//
-//                return
-//            }
-//            do {
-//                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as? [String: Any]
-//                let status = json?["status"] as? String
-//                print(status as Any)
-//                if (status == "calling"){
-//                    self.called = true
-//                    DispatchQueue.main.async{
-//                        //Add notification UI Segue here
-//                        self.showCallNoti(title:"Incoming call", message: "")
-//                        print("JSON: ", json ?? {})
-//
-//                        self.performSegue(withIdentifier: "calling", sender: self)
-//                    }
-//                }
-//                print("incoming call")            }
-//            catch let error as NSError {
-//                print(error)
-//
-//                }
-//            }
-//            task.resume()
-//            sleep(1)
-//        }
-//
-//    }
-//
+        func ask_server(){    //        //checks with server every 3 s whether a incoming call is coming
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.askingServer), userInfo: nil, repeats: true)
+    }
+    @objc func askingServer(){
+        print("hello")
+        if (called == false){
+            let requestURL = "http://167.172.255.230/getloc/"
+            var request = URLRequest(url: URL(string: requestURL)!)
+            request.httpMethod = "POST"
+            let t = try? JSONSerialization.data(withJSONObject: ["user": self.loggedin_username])
+            request.httpBody = t
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in guard let _ = data, error == nil else {
+                print("NETWORKING ERROR")
+                return
+            }
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                print("HTTP STATUS: \(httpStatus.statusCode)")
+
+                return
+            }
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as? [String: Any]
+                let longitude = json?["longitude"] as? String
+                self.long = longitude!
+                                
+        
+            }
+            catch let error as NSError {
+                print(error)
+                
+                }
+            }
+            task.resume()
+            sleep(1)
+        }
+
+    }
+
   
     
     private func setUpPeopleProfiles() {
