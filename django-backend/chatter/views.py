@@ -31,6 +31,17 @@ def addchatt(request):
         '(%s, %s);', (username, message))
     return JsonResponse({})
 
+@csrf_exempt
+def addloc(request):
+    json_data = json.loads(request.body)
+    username = json_data["user"]
+    latitude = json_data["latitude"]
+    longitude = json_data["longitude"]
+    cursor = connection.cursor()
+    cursor.execute("delete From location where username = '" + username + "'")
+    cursor.execute('INSERT INTO location (username, longitude, latitude) VALUES'
+        '(%s, %s, %s);', (username, longitude, latitude))
+    return JsonResponse({})
 
 @csrf_exempt
 def logon(request):
@@ -49,6 +60,18 @@ def logon(request):
         cursor.execute('INSERT INTO USERS (username, name, email) VALUES (%s, %s, %s)', (user_name, "false", "email"))
     return JsonResponse({"status": "No call"})
 
+
+@csrf_exempt
+def getloc(request):
+    json_data = json.loads(request.body)
+    user_name = json_data["user"]
+    cursor = connection.cursor()
+    cursor.execute("SELECT longitude, latitude from location where username = '" + user_name + "'")
+    rows = cursor.fetchall()
+    if len(rows) == 0:
+        return JsonResponse({"longitude": "0", "latitude": "0"})
+    return JsonResponse({"longitude": rows[0][0], "latitude": rows[0][1]})
+    
 
 @csrf_exempt
 def call(request):
