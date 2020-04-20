@@ -50,15 +50,19 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         SocketIOManager.socket.on("receive") { (caller_callee, ack) -> Void in
             if let dict = caller_callee[0] as? [String: String] {
                 
-                guard let locValue: CLLocationCoordinate2D = self.location.location?.coordinate else { return }
-                let loclong = String(format:"%f", locValue.longitude)
-                if (self.long != loclong){
-                    AudioServicesPlayAlertSound(1000)
-                }
+                
                 let caller = dict["caller"]
                 let callee = dict["callee"]
                 // if callee == myself, receive the call
                 if (callee == self.loggedin_username) {
+                    guard let locValue: CLLocationCoordinate2D = self.location.location?.coordinate else { return }
+                    let loclong = String(format:"%f", locValue.longitude)
+                    let diff = Double(self.long)
+                    let diff1 = Double(loclong)
+                    let result: Double = diff! - diff1!
+                    if (result < 0.001 && result > -0.001){
+                        AudioServicesPlayAlertSound(1000)
+                    }
                     print("Incoming call from \(caller ?? "NULL")")
                     // notification goes here
                     self.showCallNoti(title: "Incoming call from \(caller ?? "NULL")", message: "")
@@ -146,8 +150,7 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
                 let json = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as? [String: Any]
                 let longitude = json?["longitude"] as? String
                 self.long = longitude!
-                                
-        
+                
             }
             catch let error as NSError {
                 print(error)
