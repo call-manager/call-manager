@@ -75,22 +75,16 @@ detect sentence ending
 http://167.172.255.230
 
 ```
-/logon POST
+/getloc POST
 
 json body {user: }
-returns no call if no current calls
-or calling if there are incoming calls
+gets muted location coordinates, if none, returns 0 0.
 
-/call
 
-json body {user: } POST
-Changes status of the user in json body such that next logon
-will return calling for that user
-returns nothing
+/addloc
 
-/getchatts GET
-
-resets user status to no call
+json body {user: latitude: longitude} POST
+adds latitude longitude to location for given user.
 
 Server Setup
 
