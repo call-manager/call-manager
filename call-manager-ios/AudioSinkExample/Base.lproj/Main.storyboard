@@ -648,7 +648,7 @@
                         <viewControllerLayoutGuide type="bottom" id="PKj-Oy-Pg2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5vK-at-Wh4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c6L-sf-rci">

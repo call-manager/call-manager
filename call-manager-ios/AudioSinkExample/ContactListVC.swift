@@ -30,7 +30,7 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     var called = false
     //caller user_name
     var name = "alex20"
-    var long = "0"
+    var long = "-10000"
     let location = CLLocationManager()
 
     override func viewDidLoad() {
@@ -60,7 +60,7 @@ class ContactListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
                     let diff = Double(self.long)
                     let diff1 = Double(loclong)
                     let result: Double = diff! - diff1!
-                    if (result < 0.001 && result > -0.001){
+                    if (result > 0.00005 || result < -0.00005){
                         AudioServicesPlayAlertSound(1000)
                     }
                     print("Incoming call from \(caller ?? "NULL")")
