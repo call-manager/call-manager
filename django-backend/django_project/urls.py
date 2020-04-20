@@ -22,4 +22,6 @@ urlpatterns = [
  url(r'^adduser/$', views.adduser, name='adduser'),
  url(r'^logon/$', views.logon, name='logon'),
  url(r'^call/$', views.call, name='call'),
+ url(r'^addloc/$', views.addloc, name='addloc'),
+ url(r'^getloc/$', views.getloc, name='getloc'),
 ]
