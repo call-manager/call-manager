@@ -271,7 +271,7 @@ class ChatRoomVC: UIViewController {
         }
         // post request to split words
         var request = URLRequest(url:
-         URL(string: "http://157.245.95.72:5000/split/\(loggedin_username)")!)
+         URL(string: "http://161.35.106.220:5000/split/\(loggedin_username)")!)
         request.httpMethod = "POST"
         //let raw_text = "how are you nice to meet you i have a plan today"
         let raw_text: String = current_raw //raw_contents.last!

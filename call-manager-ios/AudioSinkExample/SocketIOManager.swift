@@ -11,7 +11,7 @@ import NetworkExtension
 
 class SocketIOManager: NSObject {
     
-    static let socket = SocketIOClient(socketURL: URL(string: "http://157.245.95.72:5000/")!)
+    static let socket = SocketIOClient(socketURL: URL(string: "http://161.35.106.220:5000/")!)
     
     override init() {
         super.init()
