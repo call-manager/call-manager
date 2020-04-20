@@ -60,7 +60,7 @@ twilio, re, flask, googletrans, flask_socketio, flask
 ```
 
 #### Flask Server Routes
-http://157.245.95.72:5000/
+http://161.35.106.220:5000/
 
 ```
 /token/<identity>
